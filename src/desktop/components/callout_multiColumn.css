@@ -23,14 +23,23 @@ div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout
   width: unset;
 }
 
-:is(.markdown-source-view, .markdown-reading-view > .markdown-preview-view, 
-.print > .markdown-preview-view) div[data-callout-metadata*="multi-column"].callout>.callout-content {
+:is(
+  .markdown-source-view, 
+  .markdown-reading-view > .markdown-preview-view, 
+  .print > .markdown-preview-view
+) div[data-callout-metadata*="multi-column"].callout>.callout-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
   gap: var(--multi-column-gap);
   overflow: visible;
+}
+/* 这个奇怪的写法是为了和 app.css 一致, 无奈为之 */
+@media print {
+  .print .markdown-preview-view div[data-callout-metadata*="multi-column"].callout > .callout-content {
+    display: flex !important;
+  }
 }
 
 div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-"] {flex-grow: 0; flex-shrink: 0; width: unset;}
