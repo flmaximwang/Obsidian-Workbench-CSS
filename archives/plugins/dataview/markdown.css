@@ -1,0 +1,23 @@
+/* SECTION: Dataview */
+
+.dataview.inline-field-key {
+  padding-left: 0px;
+  padding-right: 0px;
+  font-family: var(--font-monospace);
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: unset;
+}
+
+.dataview.inline-field-value {
+  padding-left: 8px;
+  padding-right: 0px;
+  font-family: inherit;
+  background-color: unset;
+  /* text-decoration: underline red; */
+}
+
+.is-live-preview .block-language-dataviewjs>p,
+.is-live-preview .block-language-dataviewjs>span {
+  line-height: unset;
+}

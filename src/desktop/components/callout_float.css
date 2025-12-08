@@ -1,0 +1,93 @@
+/* NOTE: Float Callouts */
+/* float uses callout-metadata to control the layout. can apply to any callout */
+.cm-callout:has(> [data-callout-metadata*="float"]) {
+  --float-left-callout-margin: 0 15px 0 0;
+  --float-right-callout-margin: 0 0 0 15px;
+  --float-callout-top-margin: 1em * var(--line-height-normal);
+  --float-callout-bottom-margin: 0em;
+}
+
+.cm-callout:has(> [data-callout="blank-container"]) {
+  --float-callout-top-margin: 0px;
+}
+
+.markdown-reading-view .markdown-preview-view .el-div:has(.callout[data-callout-metadata*="float"]),
+.print .markdown-preview-view .callout[data-callout-metadata*="float"] {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.markdown-source-view .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="float"]) {
+  position: relative;
+  display: inline;
+  /* This is necessart if you want callouts to float in source view */
+  z-index: 1;
+}
+
+.markdown-source-view .cm-embed-block.cm-callout>div>.callout[data-callout-metadata*="float"] {
+  background-color: var(--background-primary);
+}
+
+.markdown-source-view.mod-cm6 .callout:is(div[data-callout-metadata*="float"]) {
+  margin-top: var(--float-callout-top-margin);
+}
+
+.markdown-preview-view .el-div[data-callout-metadata*="float"] {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.markdown-preview-view .callout[data-callout-metadata*="float"] {
+  background-color: var(--background-primary);
+  margin-top: 0px;
+}
+
+.print .markdown-preview-view .callout[data-callout-metadata*="float"] {
+  position: relative;
+  z-index: 1;
+  background-color: var(--background-primary);
+  mix-blend-mode: normal;
+}
+
+.markdown-source-view .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="float"])>.edit-block-button {
+  display: none;
+}
+
+.markdown-source-view .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="float-left"])>div>.callout,
+.markdown-preview-view .callout[data-callout-metadata*="left"] {
+  float: left;
+  margin-right: 10px;
+}
+
+.markdown-source-view .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="float-right"])>div>.callout,
+.markdown-preview-view .callout[data-callout-metadata*="right"] {
+  float: right;
+  margin-left: 10px
+}
+
+/* .markdown-source-view.mod-cm6 .cm-embed-block.cm-callout :is(.callout[data-callout-metadata*="left"], .callout[data-callout-metadata*="right"]) .callout-content > p:last-of-type {
+margin-bottom: auto;
+  } */
+:is(.markdown-preview-view) .markdown-preview-view div[data-callout-metadata*="float"]>.callout-content>p:last-of-type {
+  margin-bottom: auto;
+}
+
+[data-callout-metadata*="float-right"].cm-embed-block.cm-callout {
+  width: auto !important;
+}
+
+/* remove margin from first para in the float callout */
+.callout:is(div[data-callout-metadata*="left"], div[data-callout-metadata*="right"]) .callout-content> :is(p:first-child, ul:first-child, ol:first-child) {
+  margin-top: 0;
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-reading-view) .callout:is(div[data-callout-metadata*="float"])>.callout-content *:first-child {
+  margin-top: 0px;
+}
+
+.markdown-source-view .cm-callout:has(> [data-callout-metadata*="float"])+.cm-line:has(> br) {
+  height: 0px;
+}

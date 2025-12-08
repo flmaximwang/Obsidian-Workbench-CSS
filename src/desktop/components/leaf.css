@@ -1,0 +1,92 @@
+.is-hidden-frameless:not(.is-fullscreen) .mod-left-split .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+  padding-left: var(--frame-left-space);
+}
+
+.is-hidden-frameless:not(.is-fullscreen) .mod-left-split .workspace-tabs.mod-top-left-space .workspace-tab-header-container:before {
+  -webkit-app-region: no-drag;
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: var(--frame-left-space);
+}
+
+body {
+  --floating-left-box-shadow: var(--toolbox-shadow);
+  --floating-left-background: var(--background-color-1);
+  --floating-leaf-radius: 10px;
+}
+
+.theme-light {
+  --floating-leaf-background-color: #ffffffaa;
+}
+
+.theme-dark {
+  --floating-leaf-background-color: #000000bb;
+}
+
+body .workspace>.workspace-split.mod-left-split body .workspace>.workspace-split.mod-right-split {
+  background-color: var(--floating-left-background) !important;
+  box-shadow: var(--floating-left-box-shadow);
+}
+
+body .workspace>.workspace-split.mod-left-split.is-sidedock-collapsed,
+body .workspace>.workspace-split.mod-right-split.is-sidedock-collapsed {
+  display: none !important;
+}
+
+body .workspace>.workspace-split.mod-left-split .workspace-tabs,
+body .workspace>.workspace-split.mod-right-split .workspace-tabs {
+  background-color: transparent !important;
+}
+
+body .workspace>.workspace-split.mod-left-split .workspace-leaf-resize-handle,
+body .workspace>.workspace-split.mod-right-split .workspace-leaf-resize-handle {
+  background-color: transparent !important;
+  border: none;
+}
+
+.workspace-split.mod-left-split .workspace-tabs .workspace-leaf,
+.workspace-split.mod-right-split .workspace-tabs .workspace-leaf {
+  background-color: var(--floating-leaf-background-color) !important;
+}
+
+/* ---------------------- */
+.theme-light {
+  --assistance-panel-box-shadow:
+    0 0 0px 0.5px var(--color-base-40),
+    0 0 5px 0px rgba(140, 140, 140, 0.5),
+    0 0 10px 0px rgba(140, 140, 140, 0.2);
+}
+
+.theme-dark {
+  --assistance-panel-box-shadow:
+    0 0 0px 0.5px var(--color-base-40),
+    0 0 5px 0px rgba(140, 140, 140, 0.5),
+    0 0 10px 0px rgba(140, 140, 140, 0.2);
+}
+
+
+.workspace-split.mod-left-split {
+  left: 4em;
+}
+
+.workspace-split.mod-right-split {
+  right: 1em;
+}
+
+.workspace-split.mod-left-split.is-sidedock-collapsed,
+.workspace-split.mod-right-split.is-sidedock-collapsed {
+  opacity: 0;
+}
+
+.is-hidden-frameless:not(.is-fullscreen) .workspace-split.mod-left-split .workspace-tabs.mod-top-left-space .workspace-tab-header-container:before {
+  display: none;
+}
+
+.is-hidden-frameless:not(.is-fullscreen) .workspace-split.mod-left-split .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+  padding-left: 0;
+}
+
+/* !SECTION */

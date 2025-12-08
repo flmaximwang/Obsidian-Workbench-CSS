@@ -1,0 +1,82 @@
+/* SECTION: List */
+body {
+    --list-spacing: 0px;
+    --indentation-guide-editing-indent-source-view: 3px;
+    --indentation-guide-editing-indent-preview-view: -0.75em;
+    --list-bullet-transform-preview-view: translate(5px, 0px);
+    --list-bullet-transform-source-view: none;
+    --list-marker-align: left; /* 仅仅对 markdown-source-view 有效 */
+    --list-marker-color: var(--text-faint);
+    --list-marker-color-hover: var(--text-muted);
+    --list-marker-color-collapsed: var(--text-accent);
+    --list-indent: 15px;
+    --list-marker-min-width: var(--list-indent);
+  }
+
+  /* NOTE: Spacings */
+  :is(.markdown-preview-view, .markdown-source-view .markdown-rendered) :is(ul, ol) li :is(.el-p, p):has(+ :not(.el-p, p)) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .markdown-rendered ul:first-child, .markdown-rendered ol:first-child {
+    margin-block-start: 0;
+    margin-top: 0;
+  }
+  .markdown-rendered ul:last-child, .markdown-rendered ol:last-child {
+    margin-block-end: 0;
+    margin-bottom: 0;
+  }
+  .markdown-reading-view .markdown-preview-view.markdown-rendered * + :is(.el-ul, .el-ol),
+  .print .markdown-preview-view.markdown-rendered * + :is(ul, ol)
+  .callout * + :is(ul, ol) {
+    margin-block-start: var(--small-spacing);
+  }
+  .markdown-reading-view .markdown-preview-view.markdown-rendered :is(.el-ul, .el-ol):has(+ *),
+  .print .markdown-preview-view.markdown-rendered :is(ul, ol):has(+ *)
+  .callout * + :is(ul, ol) {
+    margin-block-end: var(--small-spacing);
+  }
+  .markdown-source-view.mod-cm6 .cm-line:has(> br):has(+ .HyperMD-list-line),
+  .markdown-source-view.mod-cm6 .HyperMD-list-line + .cm-line:has(> br) {
+    height: var(--small-spacing);
+    line-height: var(--small-spacing);
+  }
+  .markdown-rendered ul ul,
+  .markdown-rendered ol ul,
+  .markdown-rendered ul ol,
+  .markdown-rendered ol ol {
+    margin-block-start: 0;
+    margin-block-end: 0;  }
+  .markdown-rendered :is(ul, ol) li p:first-of-type,
+  .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line:first-of-type {
+    margin-block-start: 0;  }
+  .markdown-rendered :is(ul, ol) li p:last-of-type,
+  .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line:last-of-type {
+    margin-block-end: 0;  }
+  .markdown-rendered :is(ul, ol) > li,
+  .markdown-source-view.mod-cm6 .cm-line.HyperMD-list-line {
+    padding-top: var(--list-spacing);
+    padding-bottom: var(--list-spacing);
+  } 
+
+  /* NOTE: Indentation */
+
+  /* NOTE: List Bullet */
+  .markdown-source-view .list-bullet::after {
+    transform: var(--list-bullet-transform-source-view);
+  }
+  .markdown-preview-view .list-bullet::after {
+    transform: var(--list-bullet-transform-preview-view);
+  }
+  
+  /* NOTE: Indentation-guide */
+  .markdown-source-view.mod-cm6 .cm-indent::before {
+    transform: translateX(var(--indentation-guide-editing-indent-source-view));
+  }
+
+  .markdown-preview-view.markdown-rendered.show-indentation-guide li > ul::before,
+  .markdown-preview-view.markdown-rendered.show-indentation-guide li > ol::before {
+    left: var(--indentation-guide-editing-indent-preview-view);
+  }
+  /* !SECTION */

@@ -1,0 +1,34 @@
+body {
+    --a4-content-width: 51rem;
+    --a4-page-width: calc(var(--a4-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+}
+
+/* NOTE: A4 */
+/* 添加 cssclasses: a4-page 可以得到排版适合于 a4 打印纸的结果 */
+
+.markdown-source-view.a4-page:is(*, .is-readable-line-width) .cm-sizer,
+.markdown-reading-view > .markdown-preview-view.a4-page:is(*, .is-readable-line-width) .markdown-preview-sizer {
+    /* Strict width control with width, max-width, min-width all set to var(--a4-page-width) */
+    width: var(--a4-page-width);
+    max-width: var(--a4-page-width);
+    min-width: var(--a4-page-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.markdown-source-view.mod-cm6.a4-page:is(*, .is-readable-line-width) .cm-sizer .cm-content {
+    /* max-width: var(--a4-page-width); */
+}
+
+.markdown-source-view.mod-cm6.a4-page:is(*, .is-readable-line-width) .cm-sizer .cm-content .cm-line {
+    /* max-width: var(--a4-page-width); */
+}
+
+.markdown-source-view.mod-cm6.a4-page:is(*, .is-readable-line-width) .cm-sizer .cm-content .cm-line.HyperMD-table-row {
+    /* max-width: var(--a4-page-width); */
+}
+
+.markdown-source-view.mod-cm6.a4-page:is(*, .is-readable-line-width) .markdown-embed .markdown-preview-sizer {
+    padding: 0;
+    width: var(--a4-page-width);
+}

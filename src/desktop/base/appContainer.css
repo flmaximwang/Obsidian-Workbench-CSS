@@ -1,0 +1,12 @@
+
+.app-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+}
+
+.app-container.no-transition * {
+  transition: none !important;
+}

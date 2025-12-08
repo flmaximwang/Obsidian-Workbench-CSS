@@ -1,0 +1,6 @@
+@import "app.css";
+@import-glob "global/*.css";
+@import-glob "global/classes/**/*.css";
+@import-glob "desktop/**/*.css";
+@import-glob "desktop/plugins/**/*.css";
+@import-glob "mobile/**/*.css";

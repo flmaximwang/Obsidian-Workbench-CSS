@@ -1,0 +1,107 @@
+/* SECTION: Canvas */
+body.theme-light {
+  /* --canvas-color: 140, 140, 140; */
+}
+
+.canvas-node-container h1 {
+  font-size: var(--h1-size);
+  text-align: left
+}
+
+.workspace-leaf-content[data-type="canvas"] .view-header::before,
+.canvas-wrapper::before {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--custom-canvas-bg, var(--canvas-background-color));
+  background-image: var(--canvas-background);
+}
+
+.canvas-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  --resizer-size: 20px;
+  --shadow-stationary: 0px 0.5px 1px 0.5px rgba(0, 0, 0, 0.1);
+  --shadow-drag: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-border-accent: 0 0 0 2px var(--color-accent);
+  --zoom-multiplier: 1;
+  background-color: var(--canvas-background);
+  overflow: hidden;
+  contain: strict;
+  touch-action: none;
+  user-select: none;
+  background-color: transparent;
+}
+
+.canvas-wrapper .canvas-node>.canvas-node-container {
+  padding: 0;
+}
+
+.canvas-wrapper .markdown-preview-view::before,
+.canvas-wrapper .markdown-preview-view::after {
+  content: " ";
+  display: none;
+  min-height: min(calc(var(--canvas-node-height) * 0.1 - 3px), var(--size-4-6));
+  max-height: var(--size-4-4);
+  flex: 1 1 0;
+}
+
+.markdown-source-view.mod-inside-iframe>.cm-editor>.cm-scroller {
+  flex-direction: column;
+  padding: 0rem;
+}
+
+.markdown-source-view.mod-inside-iframe>.cm-editor>.cm-scroller::before,
+.markdown-source-view.mod-inside-iframe>.cm-editor>.cm-scroller::after {
+  content: " ";
+  display: none;
+  min-height: min(calc(10vh - 3px), var(--size-4-4));
+  max-height: var(--size-4-4);
+  flex: 1 1 0;
+}
+
+.markdown-source-view.mod-inside-iframe .cm-gutters {
+  display: none;
+}
+
+.markdown-source-view.mod-inside-iframe .cm-sizer {
+  padding: 1rem;
+  width: 100%;
+}
+
+.markdown-source-view.mod-inside-iframe .inline-title {
+  padding-inline-start: 0;
+}
+
+.workspace-tabs.mod-stacked .canvas-wrapper {
+  background-color: var(--background-primary);
+}
+
+.canvas-group-label {
+  overflow: auto;
+  white-space: normal;
+}
+
+.canvas-wrapper .canvas-node .markdown-preview-sizer {
+  min-height: unset !important;
+}
+
+.canvas-node-content.markdown-embed>.markdown-embed-content>.markdown-preview-view::before,
+.canvas-node-content.markdown-embed>.markdown-embed-content>.markdown-preview-view::after {
+  content: " ";
+  display: none;
+  min-height: min(calc(var(--canvas-node-height) * 0.1 - 3px), var(--size-4-6));
+  max-height: var(--size-4-4);
+  flex: 1 1 0;
+}
+
+.canvas-node-content.markdown-embed>.markdown-embed-content>.markdown-preview-view {
+  padding: 1rem;
+}

@@ -1,0 +1,80 @@
+
+/* .multi-select-container {
+  display: inline-flex;
+  vertical-align: top;
+  flex-wrap: wrap;
+  min-height: var(--input-height);
+  width: 100%;
+  background: var(--background-modifier-form-field);
+  border: var(--input-border-width) solid var(--background-modifier-border);
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  border-radius: var(--input-radius);
+  outline: none;
+  padding: var(--size-4-1);
+  gap: var(--size-4-1);
+} */
+
+.multi-select-pill {
+  --icon-size: var(--icon-xs);
+  --icon-stroke: var(--icon-xs-stroke-width);
+  /* display: flex; */
+  /* align-items: center; */
+  /* color: var(--tag-color); */
+  /* background-color: var(--tag-background); */
+  /* border: var(--tag-border-width) solid var(--tag-border-color); */
+  /* border-radius: var(--tag-radius); */
+  /* cursor: var(--cursor); */
+  /* padding: var(--tag-padding-y) 0; */
+  /* line-height: 1; */
+  /* gap: var(--size-4-1); */
+}
+
+/* .multi-select-pill-content {
+  margin-inline-start: var(--tag-padding-x);
+} */
+
+/* .multi-select-pill-remove-button {
+  cursor: var(--cursor);
+  color: var(--text-accent);
+  border-radius: var(--radius-s);
+  display: flex;
+  align-items: center;
+  margin-inline-end: var(--size-4-1);
+  --icon-size: var(--icon-xs);
+  --icon-stroke: var(--icon-xs-stroke-width);
+} */
+
+/* .multi-select-pill-remove-button:hover {
+  color: var(--text-accent-hover);
+} */
+
+/* .multi-select-input {
+  width: 3ch;
+  min-width: 3ch;
+  flex-grow: 1;
+  background-color: inherit;
+  border: none;
+} */
+
+/* @keyframes multi-select-highlight {
+  from {
+    background-color: var(--background-modifier-error);
+  }
+} */
+
+/* .multi-select-duplicate {
+  animation: multi-select-highlight 2000ms ease-in;
+} */
+
+.metadata-property:not([data-property-key="tags"]) .multi-select-pill:focus:after {
+  /* content: ''; */
+  /* display: block; */
+  /* position: absolute; */
+  /* pointer-events: none; */
+  border-radius: 2px;
+  /* inset-inline-end: var(--pill-focus-left-adjust); */
+  /* width: var(--pill-focus-width); */
+  /* height: 100%; */
+  /* box-shadow: 0 0 0 1px var(--background-modifier-border-focus), inset 0 0 0 1px var(--background-modifier-border-focus); */
+}

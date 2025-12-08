@@ -1,0 +1,31 @@
+/* NOTE: Dataview Table */
+.block-language-datacorejsx {
+
+}
+
+.block-language-datacorejsx .datacore-table {
+  width: fit-content;
+  margin-bottom: 0px;
+}
+
+table.table-view-table + .dataview-error-box {
+  display: none;
+}
+
+.block-language-datacorejsx .datacore-table :is(td, th) {
+  /* padding: var(--size-2-2) var(--size-4-2); */
+  border: var(--table-border-width) solid var(--table-border-color);
+}
+
+.block-language-datacorejsx .datacore-table td {
+  font-size: var(--table-text-size);
+}
+
+.block-language-datacorejsx .datacore-table th {
+  font-size: var(--table-header-size);
+}
+
+.block-language-datacorejsx .datacore-table tr:first-child th:not(:last-child) {
+  border-top: var(--table-border-width) solid var(--table-border-color);
+  border-right: var(--table-first-row-vertical-border);
+}

@@ -1,0 +1,12 @@
+/* SECTION: Dataview in Canvas */
+.canvas-wrapper .canvas-node .markdown-rendered div[data-block-language*="dataview"] {
+  margin-bottom: 0px;
+}
+
+.canvas-wrapper .canvas-node :is(.block-language-dataview, .block-language-dataviewjs) .table-view-table {
+  max-height: var(--table-max-height);
+}
+
+body>.mod-inside-iframe :is(.block-language-dataview, .block-language-dataviewjs) .table-view-table {
+  max-height: var(--table-max-height);
+}

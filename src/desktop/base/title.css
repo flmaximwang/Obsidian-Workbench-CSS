@@ -1,0 +1,28 @@
+.inline-title {
+    --padding-bottom: 5px;
+    --border-width: 2px;
+}
+
+.markdown-source-view .inline-title {
+    padding-bottom: var(--padding-bottom);
+    background: linear-gradient(to right,
+            transparent 0px,
+            transparent calc(var(--gutter-width) + var(--gutter-offset)),
+            #000 calc(var(--gutter-width) + var(--gutter-offset)),       
+            transparent 100%,       
+            transparent 100%
+    ) 
+    bottom / 100% var(--border-width) 
+    no-repeat
+}
+
+.markdown-preview-view .inline-title {
+    padding-bottom: var(--padding-bottom);
+    background: linear-gradient(to right,
+            #000 0%,       
+            transparent 100%,       
+            transparent 100%
+    ) 
+    bottom / 100% var(--border-width) 
+    no-repeat
+}

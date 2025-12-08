@@ -1,0 +1,251 @@
+/* SECTION: List */
+body {
+    --list-indent: 1rem;
+    --list-spacing: 0px;    --list-marker-color: var(--text-faint);
+    --list-marker-color-hover: var(--text-muted);
+    --list-ul-marker-color: var(--list-marker-color);
+    --list-marker-color-collapsed: var(--text-accent);
+    --list-bullet-border: none;
+    --list-bullet-radius: 50%;
+    --list-bullet-size: 0.3em;    --list-bullet-transform: none;
+    --list-numbered-style: decimal;
+    --indentation-guide-width: 1px;
+    --indentation-guide-color: rgba(var(--mono-rgb-100), 0.12);
+    --indentation-guide-color-active: rgba(var(--mono-rgb-100), 0.3);  }
+  
+  /* Default markers */
+  ul ul,
+  ol ul,
+  ol ol ul,
+  ol ul ul,
+  ul ol ul,
+  ul ul ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: var(--list-numbered-style);
+  }
+  ol > li::marker,
+  ul > li::marker {
+    color: var(--list-marker-color);
+  }
+  ol > li.is-collapsed::marker,
+  ul > li.is-collapsed::marker {
+    color: var(--list-marker-color-collapsed);
+  }
+  .markdown-reading-view .markdown-rendered :is(ul, ol) {
+    padding-inline-start: var(--list-indent);
+  }
+  
+  .cm-formatting-list-ol {
+    font-variant-numeric: tabular-nums;
+  }
+  .cm-s-obsidian .cm-formatting-list {
+    color: var(--list-marker-color);
+  }
+  .cm-s-obsidian .is-collapsed ~ .cm-formatting-list {
+    color: var(--list-marker-color-collapsed);
+  }
+  /* NOTE: Markers */
+  .markdown-source-view.mod-cm6 .cm-formatting-list-ul,
+  .markdown-source-view.mod-cm6 .cm-formatting-list-ol {
+    display: inline-block;
+    white-space: pre;
+    margin-left: -4px;
+    margin-right: 0px; /* 对齐 source view 的列表左端 */    width: calc(var(--list-indent));
+  }
+  .markdown-source-view .list-bullet {
+    width: calc(var(--list-indent) - 2px);  }
+  .markdown-rendered .list-bullet {
+    margin-inline-start: calc(0px - var(--list-indent)); /* 对齐 preview view 的列表左端*/  }
+  .list-bullet:after {
+    width: 0px;    position: absolute;
+    left: calc(var(--list-indent) / 2 - var(--list-bullet-size) / 2);
+    top: calc(0.5em * var(--line-height-normal) - var(--list-bullet-size) / 2);    color: var(--list-marker-color);
+    border-radius: var(--list-bullet-radius);
+    width: var(--list-bullet-size);
+    height: var(--list-bullet-size);
+    border: var(--list-bullet-border);
+    transform: var(--list-bullet-transform);
+    background-color: var(--list-marker-color);
+    transition: transform 0.15s, box-shadow 0.15s;
+    line-height: 0.55;  }
+  .list-bullet::selection {
+    background-color: transparent !important;
+  }
+  @media (hover: hover) {
+    .list-collapse-indicator:hover ~ .list-bullet:after,
+    .cm-fold-indicator:hover ~ .list-bullet:after,
+    .list-collapse-indicator:hover ~ .cm-formatting-list .list-bullet:after,
+    .cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet:after {
+      background-color: var(--list-marker-color-hover);
+      box-shadow: 0 0 0 4px var(--background-modifier-hover)
+}
+    li.is-collapsed .list-collapse-indicator:hover ~ .list-bullet:after,
+    li.is-collapsed .cm-fold-indicator:hover ~ .list-bullet:after,
+    .list-collapse-indicator:hover.is-collapsed ~ .list-bullet:after,
+    .cm-fold-indicator:hover.is-collapsed ~ .list-bullet:after,
+    li.is-collapsed .list-collapse-indicator:hover ~ .cm-formatting-list .list-bullet:after,
+    li.is-collapsed .cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet:after,
+    .list-collapse-indicator:hover.is-collapsed ~ .cm-formatting-list .list-bullet:after,
+    .cm-fold-indicator:hover.is-collapsed ~ .cm-formatting-list .list-bullet:after {
+      background-color: var(--list-marker-color-collapsed);
+      box-shadow: 0 0 0 4px var(--background-modifier-active-hover)
+}
+  }
+  li.is-collapsed .list-bullet:after,
+  .is-collapsed ~ .cm-formatting-list .list-bullet:after {
+    background-color: var(--list-marker-color-collapsed);
+    box-shadow: 0 0 0 4px var(--background-modifier-active-hover);  }
+  .markdown-rendered ul.has-list-bullet {
+    list-style-type: '\200B'; /* Remove default bullets so we can replace them */  }
+  .markdown-rendered.show-indentation-guide li > ul,
+  .markdown-rendered.show-indentation-guide li > ol {
+    position: relative;
+  }
+  .markdown-rendered.show-indentation-guide li > ul::before,
+  .markdown-rendered.show-indentation-guide li > ol::before {
+      content: "\200B";      position: absolute;
+      display: block;
+      transform: translateX(calc(var(--list-indent) / 2 - var(--indentation-guide-width) / 2));
+      top: 0;
+      bottom: 0;
+      left: calc(0px - var(--list-indent)); /* 对齐 preview view 的指示线左侧 */      border-right: var(--indentation-guide-width) solid var(--indentation-guide-color);
+  }
+  .markdown-source-view.mod-cm6 .cm-indent {
+    display: inline-block;
+  }
+  .markdown-source-view.mod-cm6 .cm-indent::before {
+    content: "\200B";    display: block;
+    width: 0px;    border-right: var(--indentation-guide-width) solid var(--indentation-guide-color);
+    color: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: translateX(calc(-4px + var(--list-indent) / 2 - var(--indentation-guide-width) / 2));  }
+  .markdown-source-view.mod-cm6 .cm-active-indent::before {
+    border-color: var(--indentation-guide-color-active);
+  }
+  /* Indent depth
+     Consistency in horizontal positioning of lists
+  */
+  .cm-line.HyperMD-list-line {
+    tab-size: var(--list-indent);
+  }
+  .markdown-source-view.mod-cm6 .cm-content > .cm-line.HyperMD-list-line {
+    margin-left: 0.5em;  }
+  /* Space between list items */
+  .markdown-source-view.mod-cm6 .HyperMD-list-line,  .markdown-preview-view ol > li,
+  .markdown-preview-view ul > li,
+  .mod-cm6 .HyperMD-list-line.cm-line {
+padding-top: var(--list-spacing);
+    padding-bottom: var(--list-spacing);
+  }
+  /* Allow clicking on the bullet to collapse */
+  /* #todo move this into folding.less */
+  /* NOTE: Collapse indcator */
+  .markdown-rendered .list-collapse-indicator {
+    margin-left: -3em;
+    padding-right: 2em;  }
+  .markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator {
+    padding-right: 0.5rem;  }
+  .markdown-source-view.mod-cm6 .cm-line:not(.cm-active):not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+    padding-right: 1rem;
+    right: -0.5rem;  }
+  .markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator {
+position: absolute;
+    top: 0;
+    right: -0.5rem;
+    height: 100%;    cursor: var(--cursor);
+    padding-right: 1rem;
+    opacity: 0;  }
+  
+  
+  @media (hover: hover) {
+    .list-collapse-indicator:hover ~ .list-bullet:after,
+    .cm-fold-indicator:hover ~ .list-bullet:after,
+    .list-collapse-indicator:hover ~ .cm-formatting-list .list-bullet:after,
+    .cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet:after {
+      background-color: var(--list-marker-color-hover);
+      box-shadow: 0 0 0 4px var(--background-modifier-hover)
+}
+    li.is-collapsed .list-collapse-indicator:hover ~ .list-bullet:after,
+    li.is-collapsed .cm-fold-indicator:hover ~ .list-bullet:after,
+    .list-collapse-indicator:hover.is-collapsed ~ .list-bullet:after,
+    .cm-fold-indicator:hover.is-collapsed ~ .list-bullet:after,
+    li.is-collapsed .list-collapse-indicator:hover ~ .cm-formatting-list .list-bullet:after,
+    li.is-collapsed .cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet:after,
+    .list-collapse-indicator:hover.is-collapsed ~ .cm-formatting-list .list-bullet:after,
+    .cm-fold-indicator:hover.is-collapsed ~ .cm-formatting-list .list-bullet:after {
+      background-color: var(--list-marker-color-collapsed);
+      box-shadow: 0 0 0 4px var(--background-modifier-active-hover)
+}
+  }
+  .cm-s-obsidian .HyperMD-list-line.HyperMD-list-line-nobullet {
+    padding-top: initial;
+  }
+  .markdown-source-view.mod-cm6 .cm-hmd-list-indent {
+display: inline-block;
+  }
+  :is(.markdown-source-view.mod-cm6, .markdown-preview-view) .markdown-rendered :is(ul, ol) {
+  padding-inline-start: var(--list-indent) !important;
+  }
+  :is(.markdown-preview-view, .markdown-rendered) ul > li.task-list-item {
+      list-style: disc;
+  }
+  .markdown-rendered .list-collapse-indicator {
+      margin-left: -2em;
+      padding-right: 1em;  }
+  /* NOTE: Task Lists */
+  .markdown-rendered .task-list-item > .list-bullet {
+    display: none;
+  }
+  .markdown-rendered .task-list-item > .list-bullet {
+    display: flex;
+  }
+  :is(.markdown-rendered,.markdown-reading-view) .task-list-item-checkbox {
+      margin-left: 3px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-right: 0.3rem;      vertical-align: middle;
+      top: 0px;
+  /*    border-radius: 10px;*/  }
+  .markdown-preview-view .task-list-item-checkbox {
+      margin-bottom: 3px;  }
+  :is(.markdown-preview-view, .markdown-rendered) ul > li.task-list-item .task-list-item-checkbox {
+      margin-inline-start: 0;  }
+  .markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-task-line .task-list-label {
+      margin-left: 0;  }
+  .markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-task-line .task-list-label .task-list-item-checkbox {  }
+  .markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-task-line {  /*    list-style: disc outside;*/
+      padding-left: 50px;
+  /*    padding-inline-start: 0 !important;*/
+  /*    text-indent: 0 !important;*/  }
+  .markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-task-line label.task-list-label::before {
+content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+    margin-bottom: 2.2px;    background-color: var(--list-marker-color);
+    border-radius: 50%;  }
+  .is-flashing input[type=checkbox]:checked, input[type=checkbox]:checked {
+  /*    border-radius: 10px;*/      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 120%;  }
+  /* NOTE: Custom task statuses */
+  input[type='checkbox'][data-task='/']:checked,
+  li[data-task='/'] > input:checked {
+      background-color: unset;
+  }
+  input[data-task='/']:checked:after, li[data-task='/'] > input:checked:after, li[data-task='/'] > p > input:checked:after {
+      top: 0;
+      left: 0;      content: ' ';
+      display: block;
+      position: absolute;
+      background-color: var(--color-accent);
+      width: calc(50% - 0.5px);
+      height: 100%;
+      -webkit-mask-image: none;
+  }
+  /* !SECTION */

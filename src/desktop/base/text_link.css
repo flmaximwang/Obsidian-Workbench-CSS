@@ -1,0 +1,189 @@
+
+a {
+  color: var(--link-color);
+  outline: none;
+  text-decoration-line: var(--link-decoration);
+  text-decoration-thickness: var(--link-decoration-thickness);
+  cursor: var(--cursor-link);
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--link-color-hover);
+    text-decoration-line: var(--link-decoration-hover);
+  }
+}
+
+.external-link {
+  color: var(--link-external-color);
+  text-decoration-line: var(--link-external-decoration);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 13px;
+  padding-right: 16px;
+  background-position-y: 4px;
+  cursor: var(--cursor-link);
+  filter: var(--link-external-filter);
+}
+
+@media (hover: hover) {
+  .external-link:hover {
+    color: var(--link-external-color-hover);
+    text-decoration-line: var(--link-external-decoration-hover);
+  }
+}
+
+.markdown-rendered .internal-link {
+  cursor: var(--cursor-link);
+  text-decoration-line: var(--link-decoration);
+}
+
+@media (hover: hover) {
+  .markdown-rendered .internal-link:hover {
+    text-decoration-line: var(--link-decoration-hover);
+  }
+}
+
+.markdown-rendered .internal-link.is-unresolved {
+  color: var(--link-unresolved-color);
+  opacity: var(--link-unresolved-opacity);
+  filter: var(--link-unresolved-filter);
+  text-decoration-style: var(--link-unresolved-decoration-style);
+  text-decoration-color: var(--link-unresolved-decoration-color);
+}
+
+@media (hover: hover) {
+  .markdown-rendered .internal-link.is-unresolved:hover {
+    opacity: 1;
+    color: var(--link-color-hover);
+    text-decoration-color: var(--link-color-hover);
+    text-decoration-line: var(--link-decoration-hover);
+  }
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link {
+  color: var(--link-color);
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link:hover {
+  text-decoration-line: var(--link-decoration-hover);
+  color: var(--link-color-hover);
+}
+
+.cm-s-obsidian span.cm-link {
+  color: var(--link-external-color);
+  word-break: break-word;
+}
+
+@media (hover: hover) {
+  .cm-s-obsidian span.cm-link:hover {
+    color: var(--link-external-color-hover);
+    text-decoration-line: var(--link-external-decoration-hover);
+  }
+}
+
+.cm-s-obsidian span.cm-formatting-link.cm-url,
+.cm-s-obsidian span.cm-url {
+  color: var(--link-external-color);
+  text-decoration-line: var(--link-external-decoration);
+  filter: var(--link-external-filter);
+  word-break: break-all;
+}
+
+@media (hover: hover) {
+
+  .cm-s-obsidian span.cm-formatting-link.cm-url:hover,
+  .cm-s-obsidian span.cm-url:hover {
+    color: var(--link-external-color-hover);
+    text-decoration-line: var(--link-external-decoration-hover);
+  }
+}
+
+.cm-s-obsidian span.cm-formatting-link {
+  color: var(--text-faint);
+}
+
+.cm-s-obsidian span.hmd-link-icon {
+  width: 20px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.4;
+}
+
+@media (hover: hover) {
+  .cm-s-obsidian span.hmd-link-icon:hover {
+    opacity: 1
+  }
+}
+
+.cm-s-obsidian span.hmd-link-icon:after {
+  content: "";
+}
+
+.markdown-source-view.mod-cm6 .is-unresolved {
+  color: var(--link-unresolved-color);
+  opacity: var(--link-unresolved-opacity);
+  filter: var(--link-unresolved-filter);
+}
+
+@media (hover: hover) {
+  .markdown-source-view.mod-cm6 .is-unresolved:hover {
+    opacity: 1;
+    color: var(--link-color-hover);
+    text-decoration-color: var(--link-color-hover);
+  }
+}
+
+.markdown-source-view.mod-cm6 .is-unresolved .cm-underline {
+  text-decoration-line: var(--link-decoration);
+  text-decoration-style: var(--link-unresolved-decoration-style);
+  text-decoration-color: var(--link-unresolved-decoration-color);
+}
+
+.markdown-source-view.mod-cm6 .cm-underline {
+  text-decoration-line: var(--link-decoration);
+  text-decoration-thickness: var(--link-decoration-thickness);
+}
+
+body.is-mobile .markdown-source-view.mod-cm6 .cm-underline {
+  -webkit-user-select: text;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-hashtag.cm-meta,
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  cursor: var(--cursor-link);
+}
+
+@media (hover: hover) {
+  .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline:hover {
+    text-decoration-line: var(--link-decoration-hover);
+  }
+}
+
+.markdown-source-view.mod-cm6 .cm-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  text-decoration-line: var(--link-external-decoration);
+}
+
+@media (hover: hover) {
+
+  .markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
+  .markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
+    color: var(--link-external-color-hover);
+    text-decoration-line: var(--link-external-decoration-hover);
+  }
+}
+
+.cm-s-obsidian.HyperMD-with-alt span.cm-url,
+.cm-s-obsidian.HyperMD-with-alt span.cm-link,
+.cm-s-obsidian.HyperMD-with-alt .cm-link+.CodeMirror-widget,
+.cm-s-obsidian.HyperMD-with-alt span.cm-hashtag,
+.cm-s-obsidian.HyperMD-with-ctrl span.cm-url,
+.cm-s-obsidian.HyperMD-with-ctrl span.cm-link,
+.cm-s-obsidian.HyperMD-with-ctrl .cm-link+.CodeMirror-widget,
+.cm-s-obsidian.HyperMD-with-ctrl span.cm-hashtag {
+  cursor: var(--cursor-link);
+}

@@ -1,0 +1,28 @@
+/* SECTION: Excalidraw */
+.excalidraw button {
+  box-shadow: none;
+}
+
+.excalidraw .App-menu button {
+  box-shadow: none;
+}
+
+.excalidraw .dropdown-menu button {
+  box-shadow: none !important;
+}
+
+.excalidraw .popover .context-menu button {
+  box-shadow: none;
+}
+
+.excalidraw .layer-ui__wrapper__footer-left button {
+  box-shadow: none;
+}
+
+.excalidraw .Island .scrollbar button {
+  box-shadow: none;
+}
+
+.excalidraw .panelColumn button {
+  box-shadow: none;
+}
