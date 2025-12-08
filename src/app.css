@@ -1094,11 +1094,7 @@ div.CodeMirror-dragcursors {
 /* OUTLINE: START OF CUSTOM DEFINED STYLES FOR OBSIDIAN */
 /* SECTION: Print Settings */
 /* Hide this class in print */
-@media print {
-  .print .hide-in-print {
-    visibility: hidden;
-  }
-}
+
 
 /* !SECTION */
 /* SECTION: mod-root */
