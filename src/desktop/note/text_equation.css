@@ -1,0 +1,58 @@
+/* NOTE: Equations */
+mjx-container {
+  outline: none;
+}
+
+.markdown-rendered .math-block>mjx-container[jax="CHTML"][display="true"] {
+  margin: var(--small-spacing) 0;
+}
+
+.markdown-source-view.mod-cm6 .math-block>mjx-container {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.cm-s-obsidian {
+  /* addon/fold-math */
+}
+
+.cm-s-obsidian .hmd-fold-math {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cm-s-obsidian .hmd-fold-math.hmd-fold-math.math-2 {
+  width: 100%;
+}
+
+.cm-s-obsidian span.cm-math,
+.cm-s-obsidian span.hmd-fold-math-placeholder {
+  font-size: var(--code-size);
+  font-style: italic;
+}
+
+.cm-s-obsidian span.cm-formatting-math {
+  color: var(--text-accent);
+  font-weight: inherit;
+}
+
+.cm-s-obsidian span.cm-math-2 {
+  font-size: 13.2pt;
+}
+
+@media (hover: hover) {
+  .markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):hover {
+    box-shadow: none;
+    border: none;
+    overflow: visible;
+    cursor: text;
+  }
+}
+
+.markdown-reading-view .markdown-preview-view .el-div:has(.callout),
+.print .markdown-preview-view .callout,
+.markdown-source-view .callout .callout {
+  margin-top: var(--small-spacing);
+  margin-bottom: var(--small-spacing);
+}

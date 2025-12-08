@@ -241,3 +241,26 @@ body:not(.default-icons).is-tablet .nav-folder.is-collapsed .nav-folder-collapse
   margin-left: calc(-1 * var(--size-4-4));
 }
 
+
+/* SECTION: mod-root */
+/* mod-root is a workspace-split */
+/* a highest workspace-split can be further splitted to other workspace-splits, including mod-horizontal or mod-vertical */
+/* a workspace-split contains only one workspace-tabs */
+/* Such a workspace-tabs contains a workspace-tab-header, and a workspace-tab-container */
+/* Inside workspace-tab-containers are many workspace-leaf, not workspace-tab. According to their activation, their display is set to none or not */
+/* SECTION: workspace-tab-header */
+.is-hidden-frameless:not(.is-fullscreen) .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+  padding-left: var(--frame-left-space);
+}
+
+.is-hidden-frameless:not(.is-fullscreen) .mod-root .workspace-tabs.mod-top .workspace-tab-header-container:before {
+  -webkit-app-region: no-drag;
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: var(--frame-left-space);
+}
+
+/* !SECTION */

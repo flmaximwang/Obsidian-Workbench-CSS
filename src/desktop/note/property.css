@@ -1,3 +1,8 @@
+body {
+  --frontmatter-font-size: 0.7rem;
+  --frontmatter-line-height: calc(var(--code-size) + 0.1rem);
+}
+
 
 /* .multi-select-container {
   display: inline-flex;

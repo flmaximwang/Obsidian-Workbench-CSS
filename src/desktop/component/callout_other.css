@@ -1,0 +1,1253 @@
+
+/* NOTE: Callouts for floating cite */
+
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6) .callout[data-callout-metadata*="float-content"] > .callout-content {
+  position: absolute;
+  width: max-content;
+  background-color: var(--background-primary);
+  border: solid var(--callout-border-color) 1px;
+}
+
+/* NOTE: Callouts without header and shadow */
+:is(.markdown-preview-view, .markdown-source-view.mod-cm6) .callout[data-callout-metadata*="plain"] {
+  background-color: transparent;
+  box-shadow: none;
+  border: solid 1px var(--color-base-40);
+}
+
+
+
+
+
+body {
+  --callout-min-width: 200px;
+  --callout-margin: 5px;
+  --list-min-width: 200px;
+  --col-rule-color: #b3b3b3;
+  --col-rule-width: 1px;
+  --float-small-width: 300px;
+  --float-medium-width: 400px;
+  --float-large-width: 600px;
+}
+
+
+
+/* === Multi Column Flex "DIV"'s Using Callout === */
+/* - Still EXPERIMENTAL, different theme approach border and background differently, but 0.16.x seems to align most */
+/* adjusted for Obsidian 0.16.x */
+div[data-callout-metadata="multi-column-flex-height"].callout>.callout-title {
+  display: none;
+}
+
+div[data-callout-metadata="multi-column-flex-height"].callout>.callout-content {
+  display: contents;
+}
+
+div[data-callout-metadata="multi-column-flex-height"].callout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--multi-column-gap);
+  background: unset;
+  border: unset;
+  margin: unset;
+  padding: unset;
+  clear: both;
+}
+
+div[data-callout-metadata="multi-column-flex-height"].callout>.callout-content>*:is(div, ul) {
+  flex: 1 1 var(--callout-min-width);
+  margin: 0;
+}
+
+div[data-callout-metadata="multi-column-flex-height"].callout .callout {
+  border: unset;
+  box-shadow: unset;
+}
+
+/* need to reintroduce border-left as original callout put border on the parent callout */
+div[data-callout-metadata="multi-column-flex-height"].callout>.callout-content .callout .callout-title {
+  border-top-left-radius: 3px;
+}
+
+div[data-callout-metadata="multi-column-flex-height"].callout>.callout-content .callout .callout-content {
+  margin: 0;
+  border-bottom-left-radius: 3px;
+  height: min-height;
+}
+
+/* "fix" for theme with negative margin & box shadow. Applicable for Prism theme */
+div[data-callout-metadata="multi-column-flex-height"].callout>.callout-content {
+  margin-top: unset;
+}
+
+div[data-callout-metadata="multi-column-flex-height"].callout:not(.is-collapsed) {
+  box-shadow: unset;
+}
+
+/* === Multi Column Flex "DIV"'s Using Callout === */
+/* - Still EXPERIMENTAL, different theme approach border and background differently, but 0.16.x seems to align most */
+/* adjusted for Obsidian 0.16.x */
+div[data-callout="multi-column-flex-height"].callout>.callout-title {
+  display: none;
+}
+
+div[data-callout="multi-column-flex-height"].callout>.callout-content {
+  display: contents;
+}
+
+div[data-callout="multi-column-flex-height"].callout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--multi-column-gap);
+  background: unset;
+  border: unset;
+  margin: unset;
+  padding: unset;
+  clear: both;
+}
+
+div[data-callout="multi-column-flex-height"].callout>.callout-content>*:is(div, ul) {
+  flex: 1 1 var(--callout-min-width);
+  margin: 0;
+}
+
+div[data-callout="multi-column-flex-height"].callout .callout {
+  border: unset;
+  box-shadow: unset;
+}
+
+/* need to reintroduce border-left as original callout put border on the parent callout */
+div[data-callout="multi-column-flex-height"].callout>.callout-content .callout .callout-title {
+  border-top-left-radius: 3px;
+}
+
+div[data-callout="multi-column-flex-height"].callout>.callout-content .callout .callout-content {
+  margin: 0;
+  border-bottom-left-radius: 3px;
+  height: min-height;
+}
+
+/* "fix" for theme with negative margin & box shadow. Applicable for Prism theme */
+div[data-callout="multi-column-flex-height"].callout>.callout-content {
+  margin-top: unset;
+}
+
+div[data-callout="multi-column-flex-height"].callout:not(.is-collapsed) {
+  box-shadow: unset;
+}
+
+/* NOTE: Unknown */
+.is-live-preview .admonition-content>* br {
+  display: unset;
+}
+
+.admonition-title .admonition-title-icon {
+  color: rgb(var(--callout-color));
+}
+
+.callout .callout-title-inner>img:not([class*="emoji"]) {
+  border-radius: 0.2em !important;
+  margin: auto;
+  display: block;
+}
+
+.callout-title-inner.admonition-title-content svg {
+  height: 1em;
+  align-self: center;
+  width: 1em;
+}
+
+.callout-icon svg {
+  height: 1em;
+}
+
+.markdown-source-view.is-live-preview .admonition-content .callout-content :is(h1, h2, h3, h4, h5, h6, p) {
+  margin: 0;
+}
+
+.callout .callout-content p img {
+  display: block;
+}
+
+.callout img[alt*=circle] {
+  border-radius: 35px;
+  width: 70px;
+  height: 70px;
+}
+
+/* ============================ Callouts inside callouts ======================== */
+/* ===段落自动缩进============ */
+/*支持两种写法
+    > [!note|indent]
+    > [!note indent]
+   */
+.callout.callout:is([data-callout-metadata*="indent"],
+  [data-callout*=indent]) .callout-content p br {
+  content: '';
+  white-space: pre;
+  line-height: calc((var(--paragraph-spacing) + 0.3)*1em);
+  display: unset;
+}
+
+.callout.callout:is([data-callout-metadata*="indent"],
+  [data-callout*=indent]) .callout-content>p {
+  text-indent: 2em;
+}
+
+.callout.callout:is([data-callout-metadata*="indent"],
+  [data-callout*=indent]) .callout-content blockquote>p {
+  text-indent: 2em;
+}
+
+.callout.callout:is([data-callout-metadata*="indent"],
+  [data-callout*=indent]) .callout-content p br::after {
+  content: '\A\9\9';
+}
+
+/* ===段落两端对齐============ */
+/*支持两种写法
+    > [!note|justify]
+    > [!note justify]
+   */
+.callout.callout:is([data-callout-metadata*="justify"],
+  [data-callout*=justify]) .callout-content>p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ===隐藏图标============ */
+.callout.callout:is([data-callout-metadata^="noicon"],
+  [data-callout*=noicon]) .callout-icon {
+  display: none;
+}
+
+/* ===隐藏边框============ */
+.callout.callout:is([data-callout-metadata*="noborder"],
+  [data-callout*=noborder]) {
+  border-left: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.callout.callout:is([data-callout-metadata*="noborder"],
+  [data-callout*=noborder]) .callout-content {
+  border-left: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* ===banner============ */
+.is-live-preview .admonition-flex .callout.callout[data-callout-metadata*="banner"]:nth-child(2) {
+  margin-top: -1.5em;
+}
+
+.callout.callout[data-callout-metadata*="banner"] {
+  border-left: 0;
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+.callout.callout[data-callout-metadata*="banner"] .callout-content {
+  overflow: visible;
+}
+
+.callout.callout[data-callout-metadata*="banner"] .callout-title {
+  background-color: transparent;
+  display: inline;
+}
+
+/* nested callout note for culumns | image used as tittle + centered */
+.callout.callout[data-callout-metadata*="banner"] .callout-title img {
+  border-radius: 1em;
+  margin: auto;
+  display: block;
+}
+
+.callout.callout[data-callout-metadata*="banner"] .callout-fold {
+  display: none;
+}
+
+.callout.callout[data-callout-metadata*="banner"] .callout-icon {
+  display: none;
+}
+
+.callout.callout[data-callout-metadata*="banner"] .callout-title h3 {
+  text-align: center;
+  line-height: 2;
+}
+
+.callout.callout[data-callout-metadata*="banner"] .callout-title h3::before {
+  display: none;
+}
+
+/* ===隐藏标题============ */
+.callout.callout:is([data-callout-metadata*="notitle"],
+  [data-callout*=notitle]) .callout-title {
+  display: none;
+}
+
+/* ===支持 right left  center 语法============ */
+/*支持两种写法
+    > [!note|right]
+    > [!note right]
+   */
+.callout.callout:is([data-callout-metadata*="left"],
+  [data-callout*=left]) {
+  float: left !important;
+  margin: unset;
+}
+
+.callout.callout:is([data-callout-metadata*="center"],
+  [data-callout*=center]) {
+  display: block;
+  float: unset;
+  text-align: center;
+}
+
+/* ===块内元素不换行============ */
+.callout.callout:is([data-callout-metadata*='nowrap'],
+  [data-callout*='nowrap']) {
+  max-width: unset !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.callout.callout:is([data-callout-metadata*='nowrap'],
+  [data-callout*='nowrap']) thead>tr>th,
+.callout.callout:is([data-callout-metadata*='nowrap'],
+  [data-callout*='nowrap']) tbody>tr>td {
+  white-space: nowrap;
+}
+
+.callout.callout:is([data-callout-metadata*='nowrap'],
+  [data-callout*='nowrap']) .callout-content {
+  overflow-x: auto !important;
+}
+
+.callout.callout:is([data-callout-metadata*='nowrap'],
+  [data-callout*='nowrap']) .callout-content p {
+  display: flex;
+  align-items: center;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.callout.callout:is([data-callout-metadata*='nowrap'],
+  [data-callout*='nowrap']) .callout-content img {
+  max-width: unset !important;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 1px;
+  max-height: 30vh;
+}
+
+/* ===块内元素网格布局============ */
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) {
+  max-width: unset !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) .callout-content {
+  overflow-x: auto !important;
+}
+
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) .callout-content p {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, auto));
+  grid-gap: 2px;
+}
+
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) .callout-content ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, auto));
+  grid-gap: 0 10px;
+}
+
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) .callout-content ul li {
+  WHITE-SPACE: normal;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) .callout-content ul li::before {
+  content: ' ' !important;
+}
+
+.callout.callout:is([data-callout-metadata*='grid'],
+  [data-callout*='grid']) .callout-content img {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  object-fit: cover;
+  margin: unset !important;
+}
+
+/* ===百分比宽度============ */
+/*支持两种写法
+  > [!note|30%]
+  > [!note 30%]*/
+.callout.callout:is([data-callout-metadata*='100%'],
+  [data-callout*='100%']) {
+  width: 100%;
+}
+
+.callout.callout:is([data-callout-metadata*='95%'],
+  [data-callout*='95%']) {
+  width: 95%;
+}
+
+.callout.callout:is([data-callout-metadata*='90%'],
+  [data-callout*='90%']) {
+  width: 90%;
+}
+
+.callout.callout:is([data-callout-metadata*='85%'],
+  [data-callout*='85%']) {
+  width: 85%;
+}
+
+.callout.callout:is([data-callout-metadata*='80%'],
+  [data-callout*='80%']) {
+  width: 80%;
+}
+
+.callout.callout:is([data-callout-metadata*='75%'],
+  [data-callout*='75%']) {
+  width: 75%;
+}
+
+.callout.callout:is([data-callout-metadata*='70%'],
+  [data-callout*='70%']) {
+  width: 70%;
+}
+
+.callout.callout:is([data-callout-metadata*='65%'],
+  [data-callout*='65%']) {
+  width: 65%;
+}
+
+.callout.callout:is([data-callout-metadata*='60%'],
+  [data-callout*='60%']) {
+  width: 60%;
+}
+
+.callout.callout:is([data-callout-metadata*='55%'],
+  [data-callout*='55%']) {
+  width: 55%;
+}
+
+.callout.callout:is([data-callout-metadata*='50%'],
+  [data-callout*='50%']) {
+  width: 50%;
+}
+
+.callout.callout:is([data-callout-metadata*='45%'],
+  [data-callout*='45%']) {
+  width: 45%;
+}
+
+.callout.callout:is([data-callout-metadata*='40%'],
+  [data-callout*='40%']) {
+  width: 40%;
+}
+
+.callout.callout:is([data-callout-metadata*='35%'],
+  [data-callout*='35%']) {
+  width: 35%;
+}
+
+.callout.callout:is([data-callout-metadata*='30%'],
+  [data-callout*='30%']) {
+  width: 30%;
+}
+
+.callout.callout:is([data-callout-metadata*='25%'],
+  [data-callout*='25%']) {
+  width: 25%;
+}
+
+.callout.callout:is([data-callout-metadata*='20%'],
+  [data-callout*='20%']) {
+  width: 20%;
+}
+
+.callout.callout:is([data-callout-metadata*='15%'],
+  [data-callout*='15%']) {
+  width: 15%;
+}
+
+.callout.callout:is([data-callout-metadata*='10%'],
+  [data-callout*='10%']) {
+  width: 10%;
+}
+
+/* callout模糊文字效果*/
+.callout.callout[data-callout=cloze] {
+  border-left-width: 0;
+  filter: blur(4px);
+}
+
+.callout.callout[data-callout=cloze]:hover {
+  filter: none;
+}
+
+.callout.callout[data-callout=cloze] .callout-title {
+  display: none;
+}
+
+/* NOTE: Pseudo Kanban*/
+.callout.callout[data-callout*="kanban"] ul {
+  display: flex;
+  flex-direction: row;
+  border: 0px solid var(--p-kanban-border-color);
+  padding: 0;
+  border-radius: var(--radius-m);
+  flex-wrap: wrap;
+}
+
+.callout.callout[data-callout*="kanban"] li .list-bullet {
+  display: none;
+}
+
+.callout.callout[data-callout*="kanban"] ul>li {
+  flex: 1 1 20%;
+  padding: 0.1em 1em 0.1em 0.8em;
+  margin: 0 0.3em 0.3em 0 !important;
+  list-style: none;
+  border: 1px solid var(--p-kanban-border-color);
+  border-left: 1px solid var(--p-kanban-border-color) !important;
+  border-radius: var(--radius-s);
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.callout.callout[data-callout*="kanban"] ul li.task-list-item .task-list-item-checkbox {
+  margin-left: auto;
+}
+
+.callout.callout[data-callout*="kanban"] ul .list-collapse-indicator.collapse-indicator.collapse-icon::before {
+  color: var(--text-accent);
+  transition: transform 10ms linear 0s;
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+1) {
+  background-color: var(--p-kanban-color-1);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+2) {
+  background-color: var(--p-kanban-color-2);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+3) {
+  background-color: var(--p-kanban-color-3);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+4) {
+  background-color: var(--p-kanban-color-4);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+5) {
+  background-color: var(--p-kanban-color-5);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+6) {
+  background-color: var(--p-kanban-color-6);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+7) {
+  background-color: var(--p-kanban-color-7);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n) {
+  background-color: var(--p-kanban-color-8);
+}
+
+.callout.callout[data-callout*="kanban"] ul>li:nth-of-type(n) {
+  background-color: var(--p-kanban-color-simple);
+  padding-left: 1em;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+1) {
+  border-top: 6px solid var(--p-kanban-color-1) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+2) {
+  border-top: 6px solid var(--p-kanban-color-2) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+3) {
+  border-top: 6px solid var(--p-kanban-color-3) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+4) {
+  border-top: 6px solid var(--p-kanban-color-4) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+5) {
+  border-top: 6px solid var(--p-kanban-color-5) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+6) {
+  border-top: 6px solid var(--p-kanban-color-6) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+7) {
+  border-top: 6px solid var(--p-kanban-color-7) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n) {
+  border-top: 6px solid var(--p-kanban-color-8) !important;
+}
+
+body.simple-p-kanban .callout.callout[data-callout*="kanban"] ul:first-child>li:nth-of-type(n) {
+  border-top: none !important;
+}
+
+body:not(.remove-shadow-p-kanban) .callout.callout[data-callout*="kanban"] ul>li:hover {
+  transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1);
+  box-shadow: 0 3px 5px 0 var(--p-kanban-color-shadow), 0 3px 1px -3px var(--p-kanban-color-shadow), 2px 3px 3px 0 var(--p-kanban-color-shadow);
+}
+
+.callout.callout[data-callout*="kanban"] ul ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0rem;
+  margin-top: 0.5rem;
+  border-radius: 0;
+  border: 0;
+  background: none;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li:not(.task-list-item) {
+  width: 100%;
+  display: block;
+  background-color: var(--p-kanban-card-color-1) !important;
+}
+
+body.remove-shadow-p-kanban .callout.callout[data-callout*="kanban"] ul ul li:hover {
+  background: var(--p-kanban-card-color-2) !important;
+  border-color: var(--p-kanban-border-color) !important;
+  border-left: 1px solid var(--p-kanban-border-color) !important;
+}
+
+body.remove-shadow-p-kanban.theme-dark .callout.callout[data-callout*="kanban"] ul ul li:hover {
+  border-color: #696969e1 !important;
+  border-left: 1px solid #696969e1 !important;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li .task-list-item-checkbox {
+  margin-left: 1.5rem !important;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul ul {
+  margin-right: 0;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul::before {
+  border-left: 0;
+  border: 0;
+}
+
+:is(.markdown-preview-view, .markdown-rendered).is-readable-line-width.callout.callout[data-callout*="kanban"] .markdown-preview-sizer>div>ul {
+  max-width: 100%;
+}
+
+.callout.callout[data-callout*="kanban"] :is(ol, ul).contains-task-list :is(ol, ul) {
+  position: initial;
+}
+
+.callout.callout[data-callout*="kanban"] :is(ol, ul).contains-task-list :is(ol, ul)::before {
+  all: initial;
+}
+
+.callout.callout[data-callout*="kanban"] ul>li.task-list-item {
+  flex: 1 1 20%;
+  padding: 0.1em 1em;
+  list-style: none;
+  border: 1px solid var(--p-kanban-border-color);
+  border-left: 1px solid var(--p-kanban-border-color) !important;
+  border-radius: var(--radius-s);
+  word-wrap: break-word;
+  word-break: break-word;
+  text-indent: 0.01em;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li.task-list-item {
+  width: 100%;
+  display: block;
+  padding-left: 2em;
+  text-indent: -3em;
+  background-color: var(--p-kanban-card-color-1) !important;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li.task-list-item .list-collapse-indicator.collapse-indicator.collapse-icon {
+  text-indent: -1em;
+}
+
+body:not(.default-icons) .callout.callout[data-callout*="kanban"] li.task-list-item .list-collapse-indicator.collapse-indicator.collapse-icon::before {
+  margin-left: -0.2em;
+}
+
+body:not(.default-icons) .callout.callout[data-callout*="kanban"] li.task-list-item .task-list-item.is-collapsed .list-collapse-indicator.collapse-indicator.collapse-icon::before {
+  transform: translateX(-0.9em) translateY(-1em) rotate(-90deg);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-checkbox {
+  border-color: var(--text-normal) !important;
+}
+
+/* NOTE: Hibox */
+.callout.callout[data-callout*="hibox"] {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content *,
+.callout.callout[data-callout*="hibox"] .callout-content *::before,
+.callout.callout[data-callout*="hibox"] .callout-content *::marker {
+  visibility: hidden;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  background: radial-gradient(circle at 0px 0px, var(--background-modifier-box-shadow), 0, var(--background-modifier-box-shadow), var(--hibox), transparent var(--hibox), transparent 0);
+  transition: --hibox 0.6s linear;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content:hover {
+  --hibox: 1500px;
+  box-shadow: 0 0.2rem 0.5rem var(--background-modifier-box-shadow) !important;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content:hover *,
+.callout.callout[data-callout*="hibox"] .callout-content:hover *::marker,
+.callout.callout[data-callout*="hibox"] .callout-content:hover *::before {
+  border-color: inherit;
+  visibility: visible;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content:hover ol:not(.contains-task-list)>li:not(.task-list-item) {
+  border-color: var(--list-ol-block-color) !important;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content:hover ul>li:not(.task-list-item) {
+  border-color: var(--list-ul-block-color) !important;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content:hover blockquote {
+  border-color: var(--theme-color) !important;
+  background-color: var(--background-blockquote) !important;
+}
+
+.callout.callout[data-callout*="hibox"] .callout-content:hover {
+  border-color: var(--text-normal) !important;
+}
+
+/* NOTE: Infobox */
+/*Infobox from https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/S%20-%20Callouts.css*/
+:is(.is-mobile, .is-live-preview) .callout[data-callout*=infobox] {
+  float: unset !important;
+  max-width: 100%;
+  margin: 0 !important;
+}
+
+.callout.callout[data-callout*=infobox] {
+  --callout-color: var(--interactive-accent-rgb);
+  background: transparent;
+  border: 0;
+  box-shadow: none !important;
+  margin: 0;
+  margin-left: 8px;
+  align-self: center;
+  float: right;
+}
+
+.callout.callout[data-callout*=infobox] .callout-title {
+  background-color: transparent;
+  padding: 0;
+  justify-content: center;
+}
+
+.callout.callout[data-callout*=infobox].is-collapsed .callout-fold {
+  padding: 3px 10px;
+}
+
+.callout.callout[data-callout*=infobox]:not(:hover):not(.is-collapsible) .callout-title,
+.callout.callout[data-callout*=infobox]:not(.is-collapsible) .callout-title :is(.callout-icon, .callout-fold, .callout-title-inner) {
+  display: none;
+}
+
+.callout.callout[data-callout*=infobox] .callout-content {
+  padding: 1px;
+  margin: 0;
+  border-radius: var(--radius, var(--co-radius));
+}
+
+.callout.callout[data-callout*=infobox] table {
+  width: 100%;
+}
+
+.callout.callout[data-callout*=infobox] :is(p, table) {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+}
+
+.callout.callout[data-callout*=infobox] :is(h1, h2, h3, h4, h5, h6) {
+  text-align: center;
+  margin: 0;
+  padding: 2px;
+  color: var(--text-normal);
+}
+
+.callout.callout[data-callout*=infobox] p,
+.callout.callout[data-callout*=infobox] .internal-embed,
+.callout.callout[data-callout*=infobox] img {
+  margin: auto;
+  padding: auto;
+  text-align: center;
+}
+
+/* NOTE: Icon */
+.show-inline-title .callout.callout:is([data-callout-metadata^='icon'],
+  .show-inline-title [data-callout='icon']) {
+  margin-top: -7em;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) {
+  flex: none !important;
+  border-left: 0;
+  background-color: transparent;
+  box-shadow: none;
+  float: left;
+  margin-top: -4em;
+  margin-bottom: 0;
+}
+
+.is-live-preview .callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) {
+  margin-top: -1.6em;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) .callout-title {
+  display: none;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) .callout {
+  overflow: visible;
+  margin: 0;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon'])>.callout-content {
+  padding: 0;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon'])>.callout-content>svg {
+  height: calc(1em + 12px);
+  padding: 6px;
+  border-radius: 4px;
+  pointer-events: initial;
+  transition: ease .2s background;
+  font-size: 4em;
+  margin-bottom: 0px;
+}
+
+/* NOTE: Stickies */
+.callout[data-callout="stickies"] {
+  box-shadow: none;
+  border-left: 0px;
+  overflow: unset;
+}
+
+.callout[data-callout="stickies"][data-callout-metadata*="left"] {
+  width: max(180px, 30%);
+}
+
+.callout[data-callout="stickies"][data-callout-metadata*="left"]>.callout-content {
+  max-width: 100%;
+}
+
+.callout[data-callout="stickies"]>.callout-title {
+  display: none;
+}
+
+.callout[data-callout="stickies"]>.callout-content {
+  overflow: visible;
+  text-align: center;
+  transition: width 2s;
+  padding: 5px;
+  margin: 18px;
+  position: relative;
+  float: right;
+  right: -10px;
+  width: max(180px, 30%);
+  max-width: 50%;
+  background-color: var(--stickies-color-1);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(2deg);
+  transition: all 2s ease;
+  z-index: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0px;
+  color: black;
+}
+
+.callout[data-callout="stickies"]>.callout-content::after {
+  content: "";
+  left: -5%;
+  top: -10px;
+  height: 40px;
+  width: 15px;
+  border-radius: var(--radius-l);
+  border: 3px solid #979797;
+  display: inline-block;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(-11deg);
+  z-index: 11;
+}
+
+.callout[data-callout="stickies"]>.callout-content::before {
+  width: 11px;
+  height: 20px;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: -3.5%;
+  top: -2px;
+  border-radius: var(--radius-l);
+  border: 3px solid #979797;
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  z-index: 10;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(-11deg);
+}
+
+.callout[data-callout="stickies2"] {
+  box-shadow: none;
+  border-left: none;
+}
+
+.callout[data-callout="stickies2"]>.callout-title {
+  display: none;
+}
+
+.callout[data-callout="stickies2"]>.callout-content {
+  overflow: visible;
+  position: relative;
+  float: left;
+  box-shadow: 0 10px 10px 2px #9191912d;
+  width: max(180px, 30%);
+  max-width: 50%;
+  background-color: var(--stickies-color-2);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(-2deg);
+  transition: all 2s ease;
+  z-index: 1;
+  padding: 20px;
+  margin: 10px;
+  color: black;
+}
+
+.callout[data-callout="stickies2"]>.callout-content::after {
+  content: "";
+  display: block;
+  height: 32px;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  z-index: 1;
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 1px;
+  box-shadow: inset -10px -10px 10px #f0b7a4, inset 3px 3px 5px;
+}
+
+.callout[data-callout="stickies2"][data-callout-metadata*="right"] {
+  width: max(180px, 30%);
+}
+
+.callout[data-callout="stickies2"][data-callout-metadata*="right"]>.callout-content {
+  float: right;
+  max-width: 100%;
+}
+
+.callout[data-callout="stickies3"] {
+  background-color: transparent;
+  box-shadow: none;
+  border-left: 0px;
+  margin: 20px auto 0 auto !important;
+}
+
+.callout[data-callout="stickies3"]>.callout-title {
+  display: none;
+}
+
+.callout[data-callout="stickies3"]>.callout-content {
+  overflow: visible;
+  width: max(180px, 30%);
+  max-width: 235px;
+  min-height: 235px;
+  padding-top: 2.5em;
+  font-family: Arial;
+  margin-top: 20px;
+  margin-right: 25px;
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  background: #F7E999;
+  text-align: center;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-family: var(--font-family-vault);
+}
+
+div.is-live-preview .callout[data-callout="stickies3"]>.callout-content {
+  padding: 20px 15px 10px 15px;
+}
+
+.markdown-preview-view .callout[data-callout="stickies3"]>.callout-content p {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+div.callout[data-callout="stickies3"]>.callout-content ul {
+  text-align: left;
+  margin-left: auto;
+}
+
+.callout[data-callout="stickies3"]>.callout-content::before {
+  display: block;
+  content: "";
+  background: rgba(227, 200, 114, 0.4);
+  width: 56%;
+  height: 28px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 6px/18px 0;
+  position: absolute;
+  top: -13px;
+  left: 20%;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+
+.callout[data-callout="stickies3"]>.callout-content a {
+  color: #6b824f;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.callout[data-callout="stickies3"]>.callout-content a:hover {
+  color: #D83A25;
+  background: transparent;
+}
+
+.callout[data-callout="stickies3"]>.callout-content a::before {
+  content: "";
+}
+
+.markdown-preview-view .callout[data-callout="stickies3"]>.callout-content span {
+  font-size: smaller;
+}
+
+.markdown-preview-view .callout[data-callout="stickies3"]>.callout-content img {
+  max-height: 205px;
+  margin-top: -2.5em;
+}
+
+.markdown-preview-view .callout[data-callout="stickies3"]>.callout-content {
+  font-size: smaller;
+}
+
+.theme-dark .markdown-preview-view .callout[data-callout="stickies3"]>.callout-content blockquote {
+  color: var(--interactive-normal);
+}
+
+.theme-dark .markdown-preview-view .callout[data-callout="stickies3"]>.callout-content em {
+  color: var(--interactive-accent);
+  -webkit-text-fill-color: unset;
+}
+
+.theme-dark .markdown-preview-view .callout[data-callout="stickies3"]>.callout-content strong {
+  color: var(--interactive-accent) !important;
+}
+
+.markdown-preview-view .callout[data-callout="stickies3"]>.callout-content .block-language-dataviewjs p {
+  max-height: 195px;
+}
+
+.callout:is([data-callout-metadata*='yellow']) .callout-content {
+  background: #F7E999;
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+
+.callout:is([data-callout-metadata*='blue']) .callout-content {
+  background: #b9dcf4;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+
+.callout:is([data-callout-metadata*='pink']) .callout-content {
+  background: #FFBDA3;
+  -webkit-transform: rotate(1deg);
+  -moz-transform: rotate(1deg);
+  -o-transform: rotate(1deg);
+  -ms-transform: rotate(1deg);
+  transform: rotate(1deg);
+}
+
+.callout:is([data-callout-metadata*='green']) .callout-content {
+  background: #CAF4B9;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+}
+
+.callout[data-callout-metadata*="no-padding"]>.callout-content {
+  padding: 1px !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-callout {
+  box-shadow: none;
+}
+
+.is-phone .markdown-source-view.mod-cm6 .cm-embed-block.cm-callout {
+  padding: 0;
+}
+
+.markdown-rendered div.callout[data-callout-metadata*="no-shadow"] {
+  box-shadow: none;
+}
+
+.markdown-rendered div.callout[data-callout-metadata*="no-shadow"].is-collapsible:not(.is-collapsed) {
+  box-shadow: 0 0 0 1.5px var(--background-modifier-box-shadow);
+}
+
+/* ================================== Custom Callouts ============================= */
+/* NOTE: Callouts without icons */
+.callout[data-callout*="no-icon"] .callout-icon {
+  display: none
+}
+
+.callout[data-callout="no-icon"] {
+  --callout-color: transparent
+}
+
+.callout[data-callout="no-icon"].is-collapsible:not(.is-collapsed)>.callout-title,
+.callout[data-callout="no-icon"]:not(.is-collapsible)>.callout-title {
+  border-bottom: solid 1px var(--color-base-30);
+}
+
+[data-callout*="button"] {
+  background-color: transparent;
+}
+
+[data-callout*="button"]>.callout-title {
+  display: none
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout*="button"]>.callout-content {
+  padding: 0;
+  background-color: transparent;
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout="blank-container"] {
+  --callout-color: transparent;
+  margin-bottom: 0px;
+}
+
+
+
+
+
+/* Special Adjustment for Shimmering Focus. Differing font size in callout */
+/*	div[data-callout*="blank-container"] .callout-content :is(p,ul,li) { font-size: unset; line-height: inherit; }*/
+/*	div[data-callout*="blank-container"] .callout-content :is(li) { margin: unset; }*/
+/* === Text Justify === */
+.text-justify :is(.markdown-preview-view p, .markdown-source-view .cm-line) {
+  text-align: justify;
+}
+
+/* === Floating Callout === */
+@media (min-width: 500px) {
+  .markdown-reading-view div[data-callout-metadata|="left"].callout {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  .markdown-reading-view div[data-callout-metadata|="right"].callout {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  div[data-callout^="blank-container"].callout:is(div[data-callout-metadata|="left"], div[data-callout-metadata|="right"]) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  div[data-callout-metadata*="-small"].callout {
+    width: var(--float-small-width);
+  }
+
+  div[data-callout-metadata*="-medium"].callout {
+    width: var(--float-medium-width);
+  }
+}
+
+@media (min-width: 750px) {
+  div[data-callout-metadata$="large"].callout {
+    width: var(--float-large-width);
+  }
+}

@@ -1,5 +1,3 @@
-@import "app.css";
-
 @import-glob "global/*.css";
 @import-glob "global/classes/**/*.css";
 @import-glob "global/design/**/*.css";

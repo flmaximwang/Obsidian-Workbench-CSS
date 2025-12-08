@@ -1,0 +1,30 @@
+/* NOTE: Images */
+/* 图片居中 */
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) img,
+.markdown-source-view.mod-cm6 .cm-content>img {
+  display: block;
+  max-width: 100%;
+  /* This important is used to overwrite the default app.css */
+  margin-right: auto !important;
+  margin-left: auto !important;
+  border-radius: 0px;
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) img:not([width]):not([style*="width"]) {
+  max-height: 300px;
+}
+
+/* NOTE: Video */
+:is(.markdown-preview-view,
+  .markdown-source-view.mod-cm6 > .cm-scroller,
+  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) {
+  display: block;
+}
+
+:is(.markdown-preview-view,
+  .markdown-source-view.mod-cm6 > .cm-scroller,
+  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) img {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

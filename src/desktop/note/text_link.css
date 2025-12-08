@@ -187,3 +187,98 @@ body.is-mobile .markdown-source-view.mod-cm6 .cm-underline {
 .cm-s-obsidian.HyperMD-with-ctrl span.cm-hashtag {
   cursor: var(--cursor-link);
 }
+
+/* NOTE: Links */
+:is(.markdown-rendered, .markdown-preview-view) .internal-link,
+.markdown-source-view .cm-hmd-internal-link>.cm-underline {
+  text-decoration-line: none;
+}
+
+
+/* NOTE: Text Embeds */
+.markdown-source-view.mod-cm6 .cm-content>[contenteditable=false] {
+  /*  contain: paint !important;*/
+  contain: layout !important;
+  /* 用于显示 .edit-block-button */
+  overflow: visible;
+}
+
+.markdown-source-view.mod-cm6 .cm-embed-block {
+  border: none;
+}
+
+@media (hover: hover) {
+  .markdown-source-view.mod-cm6 .cm-embed-block:hover {
+    box-shadow: none;
+    transition: none;
+    border: none;
+    cursor: var(--cursor);
+  }
+}
+
+.markdown-rendered *+ :is(.el-table, table) {
+  margin-top: calc(var(--small-spacing));
+}
+
+.markdown-rendered :is(.el-table, table, ):has(+ *) {
+  margin-bottom: calc(var(--small-spacing));
+}
+
+.markdown-source-view.mod-cm6 .edit-block-button {
+  position: absolute;
+  top: -1.5rem;
+  right: 0rem;
+  padding: var(--size-2-2) var(--size-2-3);
+  display: flex;
+  opacity: 1;
+  border-radius: var(--radius-s);
+  cursor: var(--cursor);
+  border-radius: var(--radius-s);
+}
+
+@media (hover: hover) {
+  .markdown-source-view.mod-cm6 .cm-embed-block:hover .edit-block-button {
+    opacity: 1
+  }
+
+  .markdown-source-view.mod-cm6 .cm-embed-block:hover .edit-block-button:hover {
+    background-color: var(--background-modifier-hover);
+  }
+}
+
+.markdown-source-view.mod-cm6 .edit-block-button::before {
+  width: 25px;
+  font-size: 11px;
+  text-align: center;
+  content: '</>';
+  margin-left: 1em;
+  margin: 0;
+  padding: 0.2em 1em;
+}
+
+.markdown-source-view.mod-cm6 .edit-block-button>svg {
+  display: none;
+}
+
+/* NOTE: data-block-language */
+.markdown-preview-view *+[data-block-language] {
+  margin-top: calc(var(--small-spacing));
+}
+
+.markdown-preview-view [data-block-language]:has(+ *) {
+  margin-bottom: calc(var(--small-spacing));
+}
+
+/* NOTE: HTML Embeds */
+.markdown-reading-view .markdown-preview-view *+.el-div:has(> div) {
+  margin-top: calc(var(--small-spacing));
+}
+
+.markdown-reading-view .markdown-preview-view .el-div:has(>div):has(+ *) {
+  margin-bottom: calc(var(--small-spacing));
+}
+
+
+
+
+
