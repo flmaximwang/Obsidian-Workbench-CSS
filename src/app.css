@@ -2241,57 +2241,6 @@ mjx-container {
   font-size: 13.2pt;
 }
 
-/* SECTION: Callouts */
-
-/* NOTE: Basics */
-body {
-  --callout-border-width: 1px;
-  --callout-border-color: var(--color-base-30);
-  --callout-border-opacity: 0.25;
-  --callout-padding: var(--size-4-3) var(--size-4-3) var(--size-4-3) var(--size-4-6);
-  --callout-radius: var(--radius-s);
-  --callout-blend-mode: var(--highlight-mix-blend-mode);
-  --callout-title-color: inherit;
-  --callout-title-padding: 6px 0 6px 10px;
-  --callout-title-size: inherit;
-  --callout-content-padding: 1rem 1rem;
-  --callout-content-background: transparent;
-  --callout-default: var(--background-primary);
-  --callout-bug: var(--color-red-rgb);
-  --callout-error: var(--color-red-rgb);
-  --callout-example: var(--color-purple-rgb);
-  --callout-fail: var(--color-red-rgb);
-  --callout-important: var(--color-cyan-rgb);
-  --callout-info: var(--color-blue-rgb);
-  --callout-question: var(--color-yellow-rgb);
-  --callout-success: var(--color-green-rgb);
-  --callout-summary: var(--color-cyan-rgb);
-  --callout-tip: var(--color-cyan-rgb);
-  --callout-todo: var(--color-blue-rgb);
-  --callout-warning: var(--color-orange-rgb);
-  --callout-quote: 158, 158, 158;
-}
-
-:is(.markdown-preview-view, .markdown-source-view.mod-cm6) .callout {
-  width: 99%;
-  max-width: 100%;
-  border-left: none;
-  padding: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  overflow: visible;
-  border-style: solid;
-  border-color: var(--callout-border-color);
-  border-width: var(--callout-border-width);
-  border-radius: var(--callout-radius);
-  mix-blend-mode: var(--callout-blend-mode);
-  background-color: var(--background-primary);
-  /*  box-shadow: 0 3px 5px 0 rgba(var(--mono-rgb-100), .10);*/
-  /* box-shadow: var(--box-shadow-1); */
-}
-
 @media (hover: hover) {
   .markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):hover {
     box-shadow: none;
@@ -2337,44 +2286,12 @@ body {
   background-color: var(--callout-content-background);
 }
 
-.print .markdown-preview-view .callout-content {
-  display: block !important;
-  /* display: flex !important; */
-}
-
 .callout.is-collapsible .callout-title {
   cursor: var(--cursor);
 }
 
 /* NOTE: Settings */
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-100px"] { width: 100px; flex-basis: 100px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-150px"] { width: 150px; flex-basis: 150px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-200px"] { width: 200px; flex-basis: 200px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-250px"] { width: 250px; flex-basis: 250px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-300px"] { width: 300px; flex-basis: 300px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-350px"] { width: 350px; flex-basis: 350px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-400px"] { width: 400px; flex-basis: 400px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-450px"] { width: 450px; flex-basis: 450px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-500px"] { width: 500px; flex-basis: 500px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-550px"] { width: 550px; flex-basis: 550px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-600px"] { width: 600px; flex-basis: 600px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-650px"] { width: 650px; flex-basis: 650px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-700px"] { width: 700px; flex-basis: 700px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-750px"] { width: 750px; flex-basis: 750px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-800px"] { width: 800px; flex-basis: 800px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-850px"] { width: 850px; flex-basis: 850px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-900px"] { width: 900px; flex-basis: 900px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1000px"] { width: 1000px; flex-basis: 1000px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1100px"] { width: 1100px; flex-basis: 1100px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1200px"] { width: 1200px; flex-basis: 1200px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1300px"] { width: 1300px; flex-basis: 1300px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1400px"] { width: 1400px; flex-basis: 1400px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1500px"] { width: 1500px; flex-basis: 1500px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1600px"] { width: 1600px; flex-basis: 1600px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1700px"] { width: 1700px; flex-basis: 1700px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1800px"] { width: 1800px; flex-basis: 1800px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-1900px"] { width: 1900px; flex-basis: 1900px }
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-2000px"] { width: 2000px; flex-basis: 2000px }
+
 
 :is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout-metadata*="width-10%"] {
   width: 10%;
@@ -2592,7 +2509,6 @@ div[data-callout-metadata*="no-margin"]:is(.cm-callout, .callout.callout, .callo
   */
 body {
   --callout-min-width: 200px;
-  --multi-column-gap: 1rem;
   --callout-margin: 5px;
   --list-min-width: 200px;
   --col-rule-color: #b3b3b3;

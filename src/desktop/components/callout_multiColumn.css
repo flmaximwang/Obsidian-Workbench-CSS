@@ -1,184 +1,63 @@
 /* -- Main multi-column snippet using Callout */
 /* remove callout-title and make callout-content as part of main callout for box formatting */
 
+.callout {
+  --multi-column-gap: 1rem;
+  --multi-column-min-width: 200px;
+}
 
-div[data-callout-metadata*="multi-column"].callout>.callout-content {
+div[data-callout-metadata*="multi-column"].callout {
+  clear: both;
+}
+
+div[data-callout-metadata*="multi-column"].callout > .callout-content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: left;
+  align-items: stretch;
   gap: var(--multi-column-gap);
 }
 
-/* make the main callout a flex and remove box formatting */
-/* --columns: unset to undo Sanctum's mod */
-div[data-callout-metadata*="multi-column"].callout {
-  background: unset;
-  border: unset;
-  margin: unset;
-  padding: 5px 0px 5px 0px;
-  clear: both;
-  --columns: unset;
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout {
+  flex: 1 0 var(--multi-column-min-width);
+  width: unset;
 }
-
-/* make the subcallout in flex column to allow growing vertically */
-:is(.markdown-preview-view, .markdown-source-view.mod-cm6) div[data-callout-metadata*="multi-column"].callout .callout {
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-div[data-callout-metadata*="multi-column"].callout:not(.is-collapsed) .callout {
-  margin: 0 var(--callout-margin) var(--callout-margin);
-}
-
-/* to allow spacing for box shadow */
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout {
-  flex-grow: 1
-}
-
-div[data-callout-metadata*="multi-column"].callout>.callout-content>*:is(div, ul) {
-  flex: 1 1 var(--callout-min-width);
-  margin: 0;
-}
-
-/* metadata "wide-x" to control subcallout flexible max width. only discrete 2,4,8,16 */
-:not(.is-mobile) div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="D-wide-2"] {
-  flex-grow: 2;
-}
-
-:not(.is-mobile) div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="D-wide-3"] {
-  flex-grow: 3;
-}
-
-:not(.is-mobile) div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="D-wide-4"] {
-  flex-grow: 4;
-}
-
-:not(.is-mobile) div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="D-wide-5"] {
-  flex-grow: 5;
-}
-
-.is-phone div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="P-wide-2"] {
-  flex-grow: 2;
-}
-
-.is-phone div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="P-wide-3"] {
-  flex-grow: 3;
-}
-
-.is-phone div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="P-wide-4"] {
-  flex-grow: 4;
-}
-
-.is-phone div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="P-wide-5"] {
-  flex-grow: 5;
-}
-
-@media (min-width: 500px) {
-
-  /* .is-collapsed is used to draw the border-left only when it's collapsed */
-  /* adjusted for Obsidian 0.16.x, removed a number of previous adjustment as no longer required */
-  div[data-callout-metadata*="multi-column"].callout>div.callout-content .callout.is-collapsed {
-    box-shadow: unset;
-    height: min-content;
-  }
-}
-
-/* Special Adjustment -- for theme with negative margin & box shadow. (e.g. Prism) */
-div[data-callout-metadata*="multi-column"].callout>.callout-content {
-  margin-top: unset;
-}
-
-div[data-callout-metadata*="multi-column"].callout:not(.is-collapsed) {
-  box-shadow: unset;
-}
-
-/* Special Adjustment -- for Sanctum because it has "column" callout, Obsidian v0.16.x. Not required for multi-flex as it Sanctum expects the name ends with *=column */
-.callout[data-callout*=column]>.callout-title {
-  display: flex;
-}
-
-.callout[data-callout*=column]>.callout-content {
-  display: unset;
-}
-
-/* Special Adjustment -- for minimal left margin */
-/*
-	.markdown-source-view.mod-cm6.is-readable-line-width .cm-embed-block.cm-callout > div[data-callout-metadata*="multi-column"].callout
-		{ width: 100%; max-width: 100%; margin-inline: 0 !important; }
-	/* Special Adjustment -- for Minimal .dataview.list-view-ul width - Minimal set the width with --line-width-adaptive (40rem by default) */
-body:not(.table-100):not(.table-max):not(.table-wide) .markdown-preview-view.is-readable-line-width:not(.table-100):not(.table-max):not(.table-wide) div[data-callout-metadata*="multi-column"].callout .dataview.list-view-ul {
-  width: auto;
-}
-
-/* remove callout-title and make callout-content as part of main callout for box formatting */
-div[data-callout-metadata*="multi-column"].callout {}
 
 :is(.markdown-source-view, .markdown-reading-view > .markdown-preview-view, 
 .print > .markdown-preview-view) div[data-callout-metadata*="multi-column"].callout>.callout-content {
   display: flex;
-  align-items: stretch;
-  justify-content: left;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   gap: var(--multi-column-gap);
   overflow: visible;
 }
 
-/*	div.callout > .callout-content > :not(.callout) { width: 96% !important; margin-left: auto; margin-right: auto  }*/
-/* make the subcallout in flex column to allow growing vertically */
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-div[data-callout-metadata*="multi-column"].callout>.callout-content>*:is(div, ul, ol) {
-  flex: 1 0 var(--callout-min-width);
-}
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-100px"] { flex: 0 0 100px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-150px"] { flex: 0 0 150px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-200px"] { flex: 0 0 200px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-250px"] { flex: 0 0 250px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-300px"] { flex: 0 0 300px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-350px"] { flex: 0 0 350px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-400px"] { flex: 0 0 400px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-450px"] { flex: 0 0 450px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-500px"] { flex: 0 0 500px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-550px"] { flex: 0 0 550px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-600px"] { flex: 0 0 600px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-650px"] { flex: 0 0 650px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-700px"] { flex: 0 0 700px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-750px"] { flex: 0 0 750px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>.callout[data-callout-metadata*="width-800px"] { flex: 0 0 800px; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-2"] { flex-grow: 2; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-3"] { flex-grow: 3; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-4"] { flex-grow: 4; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-5"] { flex-grow: 5; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-6"] { flex-grow: 6; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-7"] { flex-grow: 7; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-8"] { flex-grow: 8; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-9"] { flex-grow: 9; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-10"] { flex-grow: 10; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-11"] { flex-grow: 11; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-12"] { flex-grow: 12; }
-div[data-callout-metadata*="multi-column"].callout>.callout-content>div[data-callout-metadata*="wide-13"] { flex-grow: 13; }
-
-@media (min-width: 500px) {
-
-  /* .is-collapsed is used to draw the border-left only when it's collapsed */
-  /* adjusted for Obsidian 0.16.x, removed a number of previous adjustment as no longer required */
-  div[data-callout-metadata*="multi-column"].callout>div.callout-content .callout.is-collapsed {
-    box-shadow: unset;
-    height: min-content;
-  }
-}
-
-/* Special Adjustment -- for theme with negative margin & box shadow. (e.g. Prism) */
-div[data-callout-metadata*="multi-column"].callout>.callout-content {
-  margin-top: unset;
-}
-
-div[data-callout-metadata*="multi-column"].callout:not(.is-collapsed) {
-  box-shadow: unset;
-}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-"] {flex-grow: 0; flex-shrink: 0; width: unset;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-100px"] { flex-basis: 100px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-150px"] { flex-basis: 150px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-200px"] { flex-basis: 200px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-250px"] { flex-basis: 250px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-300px"] { flex-basis: 300px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-350px"] { flex-basis: 350px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-400px"] { flex-basis: 400px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-450px"] { flex-basis: 450px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-500px"] { flex-basis: 500px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-550px"] { flex-basis: 550px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-600px"] { flex-basis: 600px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-650px"] { flex-basis: 650px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-700px"] { flex-basis: 700px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-750px"] { flex-basis: 750px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout[data-callout-metadata*="width-800px"] { flex-basis: 800px;}
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-2"] { flex-grow: 2; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-3"] { flex-grow: 3; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-4"] { flex-grow: 4; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-5"] { flex-grow: 5; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-6"] { flex-grow: 6; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-7"] { flex-grow: 7; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-8"] { flex-grow: 8; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-9"] { flex-grow: 9; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-10"] { flex-grow: 10; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-11"] { flex-grow: 11; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-12"] { flex-grow: 12; }
+div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-13"] { flex-grow: 13; }

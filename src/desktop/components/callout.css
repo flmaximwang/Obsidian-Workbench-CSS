@@ -1,0 +1,79 @@
+/* SECTION: Callouts */
+
+/* NOTE: Basics */
+body {
+    --callout-border-width: 1px;
+    --callout-border-color: var(--color-base-30);
+    --callout-border-opacity: 0.25;
+    --callout-padding: var(--size-4-3) var(--size-4-3) var(--size-4-3) var(--size-4-6);
+    --callout-radius: var(--radius-s);
+    --callout-blend-mode: var(--highlight-mix-blend-mode);
+    --callout-title-color: inherit;
+    --callout-title-padding: 6px 0 6px 10px;
+    --callout-title-size: inherit;
+    --callout-content-padding: 1rem 1rem;
+    --callout-content-background: transparent;
+    --callout-default: var(--background-primary);
+    --callout-bug: var(--color-red-rgb);
+    --callout-error: var(--color-red-rgb);
+    --callout-example: var(--color-purple-rgb);
+    --callout-fail: var(--color-red-rgb);
+    --callout-important: var(--color-cyan-rgb);
+    --callout-info: var(--color-blue-rgb);
+    --callout-question: var(--color-yellow-rgb);
+    --callout-success: var(--color-green-rgb);
+    --callout-summary: var(--color-cyan-rgb);
+    --callout-tip: var(--color-cyan-rgb);
+    --callout-todo: var(--color-blue-rgb);
+    --callout-warning: var(--color-orange-rgb);
+    --callout-quote: 158, 158, 158;
+}
+
+div.callout {
+    width: 99%;
+    max-width: 100%;
+    border-left: none;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    overflow: visible;
+    border-style: solid;
+    border-color: var(--callout-border-color);
+    border-width: var(--callout-border-width);
+    border-radius: var(--callout-radius);
+    mix-blend-mode: var(--callout-blend-mode);
+    background-color: var(--background-primary);
+    /* box-shadow: 0 3px 5px 0 rgba(var(--mono-rgb-100), .10); */
+    /* box-shadow: var(--box-shadow-1); */
+}
+
+div[data-callout-metadata*="width-100px"].callout { width: 100px}
+div[data-callout-metadata*="width-150px"].callout { width: 150px}
+div[data-callout-metadata*="width-200px"].callout { width: 200px}
+div[data-callout-metadata*="width-250px"].callout { width: 250px}
+div[data-callout-metadata*="width-300px"].callout { width: 300px}
+div[data-callout-metadata*="width-350px"].callout { width: 350px}
+div[data-callout-metadata*="width-400px"].callout { width: 400px}
+div[data-callout-metadata*="width-450px"].callout { width: 450px}
+div[data-callout-metadata*="width-500px"].callout { width: 500px}
+div[data-callout-metadata*="width-550px"].callout { width: 550px}
+div[data-callout-metadata*="width-600px"].callout { width: 600px}
+div[data-callout-metadata*="width-650px"].callout { width: 650px}
+div[data-callout-metadata*="width-700px"].callout { width: 700px}
+div[data-callout-metadata*="width-750px"].callout { width: 750px}
+div[data-callout-metadata*="width-800px"].callout { width: 800px}
+div[data-callout-metadata*="width-850px"].callout { width: 850px}
+div[data-callout-metadata*="width-900px"].callout { width: 900px}
+div[data-callout-metadata*="width-1000px"].callout { width: 1000px}
+div[data-callout-metadata*="width-1100px"].callout { width: 1100px}
+div[data-callout-metadata*="width-1200px"].callout { width: 1200px}
+div[data-callout-metadata*="width-1300px"].callout { width: 1300px}
+div[data-callout-metadata*="width-1400px"].callout { width: 1400px}
+div[data-callout-metadata*="width-1500px"].callout { width: 1500px}
+div[data-callout-metadata*="width-1600px"].callout { width: 1600px}
+div[data-callout-metadata*="width-1700px"].callout { width: 1700px}
+div[data-callout-metadata*="width-1800px"].callout { width: 1800px}
+div[data-callout-metadata*="width-1900px"].callout { width: 1900px}
+div[data-callout-metadata*="width-2000px"].callout { width: 2000px}

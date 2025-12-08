@@ -1,13 +1,14 @@
+/* 添加 cssclasses: a4-page 可以得到排版适合于 a4 打印纸的结果 */
+
 body {
     --a4-content-width: 51rem;
     --a4-page-width: calc(var(--a4-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
 }
 
-/* NOTE: A4 */
-/* 添加 cssclasses: a4-page 可以得到排版适合于 a4 打印纸的结果 */
 
-.markdown-source-view.a4-page:is(*, .is-readable-line-width) .cm-sizer,
-.markdown-reading-view > .markdown-preview-view.a4-page:is(*, .is-readable-line-width) .markdown-preview-sizer {
+/* 编辑模式 */ .markdown-source-view.a4-page:is(*, .is-readable-line-width) .cm-sizer ,
+/* 预览模式 */ .markdown-reading-view > .markdown-preview-view.a4-page:is(*, .is-readable-line-width) .markdown-preview-sizer,
+/* 打印模式 */ .print > .markdown-preview-view.a4-page {
     /* Strict width control with width, max-width, min-width all set to var(--a4-page-width) */
     width: var(--a4-page-width);
     max-width: var(--a4-page-width);
