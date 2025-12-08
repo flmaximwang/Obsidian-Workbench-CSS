@@ -1,0 +1,109 @@
+
+/* NOTE: Multi-Column Callouts */
+/* === README ===
+    Snippet: MCL Multi Column / Author: Faiz Khuzaimah / twitter: @faizkhuzaimah / github: https://github.com/efemkay
+    Version 0.6.2 (updated 2022-10-22)
+    - rollover main branch to support Obsidian 1.0.0
+    Version 0.6.1 (updated 2022-10-02). Version number follow overall MCL    - fix for footnote with -column-list-block created a <br> tag
+    What is this snippet for?
+    - to allow Obsidian users to change the layout with preset css by just specifying
+      the cssClass in the frontmatter (YAML) or naming the Callout block
+    - available cssClass
+      - cssClass: two-column-list
+      - cssClass: {.two-column-list-block}
+      - cssClass: three-column-list
+      - cssClass: {.three-column-list-block}
+      - cssClass: multi-column-list
+    - available Callout format
+      - [!multi-column]
+      - [!blank-container]
+    Compatibility
+    - tested to work fine with the following Community Theme
+      - Default Theme
+      - Big Sur / Blue Topaz / California Cost / Notation / Pisum / Prism / Things / Typewriter (with minor issue on title color)
+    - known to be not working
+      - Primary (due to the theme heaving theming, box-shadow and so on)
+    Credits
+    - Kevin Powell Youtube channel
+    - https://css-tricks.com/
+    - discord OMG members @Cáo thoát tục (Cáo thoát tục#6993), @mulfok (mulfok#6931) and @Rainbell (Rainbell#3617)    - kepano for accomodating my snippets adjustment
+  */
+/* @settings
+  name: Modular CSS Layout - Multi Column
+  id: modular-css-layout-mc
+  settings:
+      -
+          id: multi-column-title
+          title: Callout Column Settings
+          type: heading
+          level: 2      collapsed: true
+      -
+          id: callout-min-width
+          title: Minimum Sub-Callout Width
+          description: for sub-callout in [!multi-column]. in px units
+          type: variable-number-slider
+          default: 200
+          min: 100
+          max: 500
+          step: 50      format: px
+      -
+          id: callout-gap
+          title: Sub-Callout Gap (any unit)
+          description: NO spacing between figure and unit
+          type: variable-text
+          default: 0.5rem    -
+      id: callout-margin
+      title: Sub-Callout Margin (any unit)
+      description: to allow some spacing for box-shadow
+      type: variable-text
+      default: 5px      -
+          id: float-small-width
+          title: Floating Callout Width - Small (in px)
+          type: variable-number-slider
+          default: 300
+          min: 200
+          max: 450
+          step: 50      format: px
+      -
+          id: float-medium-width
+          title: Floating Callout Width - Medium (in px)
+          type: variable-number-slider
+          default: 400
+          min: 300
+          max: 550
+          step: 50      format: px
+      -
+          id: float-large-width
+          title: Floating Callout Width - Large (in px)
+          type: variable-number-slider
+          default: 600
+          min: 500
+          max: 750
+          step: 50      format: px
+      -
+          id: mc-list-title
+          title: List Column Settings
+          type: heading
+          level: 2      collapsed: true
+      -
+          id: list-min-width
+          title: Minimum Column Width (in px)
+          type: variable-number-slider
+          default: 200
+          min: 100
+          max: 500
+          step: 50      format: px
+      -
+          id: col-rule-color
+          title: Column Ruler Color
+          type: variable-color
+          format: hsl-split
+          default: '#b3b3b3'      -
+          id: col-rule-width
+          title: Column Ruler Width (in px)
+          type: variable-number-slider
+          default: 1
+          min: 0
+          max: 4
+          step: 1      format: px
+  */

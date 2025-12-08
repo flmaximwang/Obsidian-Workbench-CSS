@@ -1,0 +1,22 @@
+/* SECTION: Tasks */
+.markdown-source-view .markdown-rendered ul.plugin-tasks-query-result {
+  padding-inline-start: 5px
+}
+
+.tasks-count {
+  text-align: right;
+}
+
+.tasks-count::before {
+  content: "📊 ";
+}
+
+/* !SECTION */
+
+/* SECTION: Commander */
+.status-bar-item:not(:last-child),
+.titlebar-button:not(:last-child) {
+  margin-right: calc(var(--cmdr-spacing));
+}
+
+/* !SECTION */

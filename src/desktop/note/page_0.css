@@ -1,0 +1,223 @@
+/* NOTE: Gutters */
+body {
+  --gutter-width: 28px;
+  --gutter-offset: var(--file-folding-offset);
+}
+
+.markdown-source-view.mod-cm6 .cm-gutters {
+  flex: 0 0 auto;
+  background-color: transparent;
+  color: var(--text-faint) !important;
+  border-right: none !important;
+  font-size: var(--font-ui-smaller);
+  z-index: 1;
+  font-variant: tabular-nums;
+}
+
+.markdown-source-view.mod-cm6 .cm-gutters .cm-gutter {
+  width: var(--gutter-width);
+}
+
+.markdown-source-view.mod-cm6 .cm-gutters .cm-gutter .cm-gutterElement.cm-active {
+  color: var(--text-normal) !important;
+}
+
+/* NOTE: cm-editor */
+.markdown-source-view.mod-cm6 .cm-editor {
+  width: 100%
+}
+
+/* PLUGIN: Self-hosted LiveSync */
+.table-cell-wrapper .cm-s-obsidian>.cm-editor::before {
+  content: '';
+}
+
+.markdown-reading-view {
+  width: 100%
+}
+
+/* SECTION: View */
+/* NOTE: cm-scroller */
+.view-content>.markdown-source-view.mod-cm6>.cm-editor>.cm-scroller {
+  font-family: var(--font-text);
+  line-height: var(--line-height-normal);
+  scroll-padding-block-end: var(--status-bar-scroll-padding);
+  padding: var(--scroller-paddings);
+  margin: var(--scroller-margins);
+  width: 100%;
+  background: transparent;
+}
+
+/* NOTE: markdown-preview-view */
+.markdown-preview-view {
+  font-size: var(--font-text-size);
+  font-family: var(--font-text);
+  line-height: var(--line-height-normal);
+  width: 100%;
+  height: 100%;
+  padding: var(--scroller-paddings);
+  position: relative;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  color: var(--text-normal);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.workspace-leaf-content.is-read-mode .markdown-preview-view {
+  width: 100%;
+  left: 0;
+  background-color: var(--background-primary);
+}
+
+/* !SECTION */
+/* SECTION: Sizer */
+body {
+  --a3-content-width: 72.8rem;
+  --sizer-padding-left: 10px;
+  --sizer-padding-right: 20px;
+  --sizer-padding-top: 32px;
+  --sizer-padding-bottom: 32px;
+  --sizer-paddings: var(--sizer-padding-top) var(--sizer-padding-right) var(--sizer-padding-bottom) var(--sizer-padding-left);
+  --sizer-margins: 0px
+}
+
+/* NOTE: Default */
+/* 没有开启缩减栏宽的状态 */
+.markdown-source-view.mod-cm6 .cm-sizer {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 100%;
+  padding: var(--sizer-paddings);
+  margin: var(--sizer-margins);
+  background: var(--document-background);
+}
+
+.markdown-preview-view>.markdown-preview-sizer {
+  margin: var(--sizer-margins);
+  max-width: unset;
+  padding: var(--sizer-padding-top) var(--sizer-padding-right) var(--sizer-padding-bottom) calc(var(--sizer-padding-left) + var(--gutter-width) + var(--gutter-offset));
+  margin: var(--sizer-margins);
+  background: var(--document-background);
+}
+
+.internal-embed .markdown-preview-view>.markdown-preview-sizer {
+  padding: 0px;
+}
+
+.canvas-node .markdown-preview-view .markdown-preview-sizer {
+  padding: 0;
+}
+
+/* NOTE: Readable */
+/* 开启缩减栏宽后会给 .markdown-source-view 与 .markdown-reading-view > .markdown-preview-view 添加 .is-readable-line-width 类 */
+/* 默认使用符合 a4 打印纸的结果进行缩减栏宽, 但是不限制最小宽度 */
+body {
+  --width-is-readable-line-width: var(--a4-content-width);
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer {
+  width: 100%;
+  max-width: calc(var(--width-is-readable-line-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  margin-left: auto;
+  margin-right: auto;
+  /* border: solid 1px black; */
+}
+
+.markdown-reading-view>.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+  width: 100%;
+  max-width: calc(var(--width-is-readable-line-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  margin-left: auto;
+  margin-right: auto;
+  /* border: solid 1px black; */
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-content {
+  max-width: var(--width-is-readable-line-width);
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line {
+  max-width: var(--width-is-readable-line-width);
+}
+
+.markdown-source-view.mod-cm6.is-readable-line-width .cm-line.HyperMD-table-row {
+  max-width: 100%;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-embed .markdown-preview-sizer {
+  padding: 0;
+  width: 100%;
+  max-width: calc(var(--width-is-readable-line-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+}
+
+/* NOTE: Wide */
+/* 添加 cssclasses: wide 可得到宽笔记 */
+.markdown-source-view.mod-cm6.wide:is(*, is-readable-line-width) .cm-sizer {
+  width: 100%;
+  max-width: 100%;
+  margin: var(--sizer-margins);
+}
+
+.markdown-reading-view>.markdown-preview-view.wide:is(*, .is-readable-line-width) .markdown-preview-sizer {
+  width: 100%;
+  max-width: 100%;
+  margin: var(--sizer-margins);
+}
+
+.markdown-source-view.mod-cm6.wide:is(*, is-readable-line-width) .cm-content {
+  max-width: 100%;
+}
+
+.markdown-source-view.mod-cm6.wide:is(*, is-readable-line-width) .cm-line {
+  max-width: 100%;
+}
+
+.markdown-source-view.mod-cm6.wide:is(*, is-readable-line-width) .cm-line.HyperMD-table-row {
+  max-width: 100%;
+}
+
+.markdown-source-view.mod-cm6.wide:is(*, is-readable-line-width) .markdown-embed .markdown-preview-sizer {
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* NOTE: A3 */
+/* 添加 cssclasses: a3-page 可以得到排版适合于 a4 打印纸的结果 */
+.markdown-source-view.mod-cm6.a3-page:is(*, is-readable-line-width) .cm-sizer,
+.markdown-preview-view.a3-page:is(*, .is-readable-line-width) .markdown-preview-sizer {
+  width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  max-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  min-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* For Plugin Print Preview */
+.print-preview .markdown-preview-view.a3-page:is(*, is-readable-line-width) {
+  width: var(--a3-content-width);
+}
+
+.markdown-source-view.mod-cm6.a3-page:is(*, is-readable-line-width) .cm-content {
+  max-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+}
+
+.markdown-source-view.mod-cm6.a3-page:is(*, is-readable-line-width) .cm-line {
+  max-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+}
+
+.markdown-source-view.mod-cm6.a3-page:is(*, is-readable-line-width) .cm-line.HyperMD-table-row {
+  max-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset + var(--sizer-padding-left) + var(--sizer-padding-right)));
+}
+
+.markdown-source-view.mod-cm6.a3-page:is(*, is-readable-line-width) .markdown-embed .markdown-preview-sizer {
+  padding: 0;
+  width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  max-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+  min-width: calc(var(--a3-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
+}
+
+/* !SECTION */

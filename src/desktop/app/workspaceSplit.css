@@ -149,3 +149,95 @@
   height: 100%;
   overflow: auto;
 }
+
+/* SECTION: mod-right & mod-left */
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
+  background-color: var(--tab-container-background);
+  position: relative;
+  top: 0;
+  right: 0;
+  padding-right: 0;
+  z-index: var(--layer-popover);
+}
+
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  padding-right: var(--size-4-2);
+}
+
+/* SECTION: File explorer */
+.nav-files-container {
+  padding: 10px;
+}
+
+body.theme-light.background-settings-workplace-background-image .nav-folder.mod-root>.nav-folder-title,
+body.theme-dark.background-settings-workplace-background-image .nav-folder.mod-root>.nav-folder-title {
+  background-color: transparent;
+}
+
+.nav-folder-title,
+.nav-file-title {
+  padding: var(--nav-item-parent-padding);
+}
+
+.nav-files-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 0 var(--size-4-3) var(--size-4-6) var(--size-4-3);
+  scroll-padding-block: var(--size-4-2);
+}
+
+/* ======================================= Collapse Indicator ================================= */
+body:not(.default-icons) .nav-folder-collapse-indicator {
+  position: static;
+  /*    left: 6.5px;*/
+  /*    top: 3px;*/
+  transition: transform 20ms linear 0s;
+}
+
+body:not(.default-icons):not(.remove-arrow) .nav-folder-collapse-indicator::after {
+  position: static;
+  /*    content: "↓";*/
+  /*    top: 1px;*/
+  font-size: 0.9em;
+  font-family: 'Inter';
+  font-weight: bold;
+  color: var(--text-accent);
+  transition: transform 10ms linear 0s;
+}
+
+body:not(.default-icons).is-mobile .nav-folder-collapse-indicator::after {
+  margin-left: 0em;
+}
+
+body:not(.default-icons).is-phone .nav-folder.is-collapsed .nav-folder-collapse-indicator::after {
+  transform: rotate(-90deg);
+  opacity: 0.55;
+}
+
+body:not(.default-icons).is-tablet .nav-folder.is-collapsed .nav-folder-collapse-indicator::after {
+  transform: rotate(-90deg) translateY(2px);
+  opacity: 0.55;
+}
+
+/* ====================================== Infinite space ====================================== */
+.nav-folder {
+  width: min-content;
+}
+
+.nav-file {
+  width: min-content;
+}
+
+.nav-file-title-content,
+.nav-folder-title-content {
+  width: max-content;
+  overflow: visible;
+  white-space: var(--nav-item-white-space);
+  text-overflow: unset;
+}
+
+.tree-item-self .tree-item-icon {
+  margin-left: calc(-1 * var(--size-4-4));
+}
+

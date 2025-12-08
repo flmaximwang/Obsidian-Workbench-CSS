@@ -1,0 +1,79 @@
+/* SECTION: List */
+body {
+  --list-line-spacing: 0px;
+  --list-bullet-box-width: 0.75em;
+  /* 不可更改, 对于 source-view 中的编辑很重要, 太远了感觉很奇怪 */
+  --list-bullet-box-width-correction: 0.25em;
+  /* 用于修正 list-bullet 中奇怪的额外空间 */
+  --list-bullet-size: 0.3em;
+  --list-bullet-text-spacing: calc(var(--list-bullet-box-width) - var(--list-bullet-size) / 2);
+  --indentation-guide-editing-indent-source-view: ;
+  --list-indentation-guide-text-spacing: var(--list-bullet-text-spacing);
+  --list-bullet-transform-preview-view: none;
+  --list-bullet-transform-source-view: none;
+  --list-marker-align: left;
+  /* 仅仅对 markdown-source-view 有效 */
+  --list-marker-color: var(--text-faint);
+  --list-marker-color-hover: var(--text-muted);
+  --list-marker-color-collapsed: var(--text-accent);
+  --list-indent: 1em;
+  --list-marker-min-width: var(--list-indent);
+}
+
+/* NOTE: Indentation */
+/* .markdown-rendered ul,
+.markdown-rendered ol {
+  padding-inline-start: var(--list-indent);
+}
+
+.markdown-rendered :not(li)>ul,
+.markdown-rendered :not(li)>ol {
+  padding-inline-start: calc(var(--list-indent) + var(--list-bullet-box-width) + var(--list-bullet-box-width-correction));
+}
+
+.markdown-source-view .cm-formatting-list-ul,
+.markdown-source-view .cm-formatting-list-ol {
+  padding-inline-start: var(--list-indent);
+  /* 不能修改, 它决定了 js 选用的宽度, 会被设置为元素的内联样式 */
+  /* width: var(--list-indent);
+} */
+
+/* NOTE: List Bullet */
+
+/* .markdown-rendered .list-bullet {
+  margin-inline-start: calc(0em - var(--list-bullet-box-width) - var(--list-bullet-box-width-correction));
+}
+
+.markdown-rendered .list-bullet::after {
+  transform: var(--list-bullet-transform-preview-view);
+}
+
+.markdown-source-view .list-bullet {
+  /* text-indent: calc(0em - var(--list-bullet-text-spacing)); */
+  /* margin-inline-start: calc(0em - var(--list-bullet-text-spacing)); */
+  /* justify-content: start;
+} */
+
+.markdown-source-view .list-bullet::after {
+  transform: var(--list-bullet-transform-source-view);
+}
+
+/* NOTE: Indentation-guide */
+/* .markdown-source-view.mod-cm6 .cm-indent {
+  width: var(--list-indent);
+  min-width: var(--list-indent);
+}
+
+.markdown-source-view.mod-cm6 .cm-indent::before {
+  transform: translateX(var(--list-indent));
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-quote .cm-indent {
+  max-height: 1em;
+  overflow: hidden;
+}
+
+.markdown-preview-view.markdown-rendered.show-indentation-guide li>ul::before,
+.markdown-preview-view.markdown-rendered.show-indentation-guide li>ol::before {
+  left: calc(0em - var(--list-indentation-guide-text-spacing) - var(--list-bullet-box-width-correction));
+} */

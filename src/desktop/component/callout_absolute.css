@@ -1,0 +1,26 @@
+/* SECTION: Absolute-Callout */
+/* Still developing */
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="absolute"]) {
+  display: inline;
+  z-index: 30;
+  position: absolute;
+  width: 100px;
+  left: 1em;
+  top: 0dvh;
+  background-color: var(--floating-leaf-background-color);
+  backdrop-filter: blur(10px);
+  transition-duration: var(--anim-duration-moderate);
+  overflow: hidden;
+}
+
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="absolute"])>div>* {}
+
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="absolute"])>.edit-block-button {
+  display: none;
+}
+
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-callout:hover:has(> div.markdown-rendered > [data-callout-metadata*="absolute"]) {
+  width: 300px;
+}
+
+/* !SECTION */

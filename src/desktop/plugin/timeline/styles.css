@@ -1,0 +1,17 @@
+/* SECTION: Timeline */
+.timeline .time>*,
+.timeline .title>* {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.timeline.body-3 .description {
+  padding: 0.5rem 1rem
+}
+
+.timeline .description {
+  position: relative;
+  margin-bottom: 1rem
+}
+
+/* !SECTION */

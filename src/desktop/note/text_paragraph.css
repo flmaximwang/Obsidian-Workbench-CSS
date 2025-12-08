@@ -1,0 +1,29 @@
+/* NOTE: Paragraphs */
+body .markdown-source-view.mod-cm6,
+body .markdown-preview-view {
+  --p-spacing-empty: 0rem;
+  --big-spacing: 1.2rem;
+  --small-spacing: 0.8rem;
+  --p-spacing: var(--small-spacing);
+}
+
+.markdown-rendered :not(.el-p)>p:first-child {
+  margin-top: 0px;
+}
+
+.markdown-rendered :not(.el-p)>p:last-child {
+  margin-bottom: 0px;
+}
+
+:is(.markdown-preview-view, .markdown-source-view .markdown-rendered) :not(.el-p, p)+ :is(.el-p, p) {
+  margin-top: calc(var(--small-spacing));
+}
+
+:is(.markdown-preview-view, .markdown-source-view .markdown-rendered) :is(.el-p, p):has(+ :not(.el-p, p)) {
+  margin-bottom: calc(var(--small-spacing));
+}
+
+.cm-line:has(> br) {
+  height: var(--small-spacing);
+  line-height: var(--small-spacing);
+}

@@ -1,3 +1,9 @@
+.canvas-node-container
+:is(.markdown-preview-view,.markdown-source-view .markdown-rendered) 
+:not(.el-p,p)+:is(.el-p,p) {
+    margin-top: 0;
+}
+
 /* SECTION: Canvas */
 body.theme-light {
   /* --canvas-color: 140, 140, 140; */
@@ -104,4 +110,11 @@ body.theme-light {
 
 .canvas-node-content.markdown-embed>.markdown-embed-content>.markdown-preview-view {
   padding: 1rem;
+}
+
+.markdown-embed:not(.canvas-node-content),
+.popover.hover-popover .markdown-embed .markdown-embed {
+  padding: 0;
+  border: none;
+  margin: 0;
 }

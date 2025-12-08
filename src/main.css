@@ -1,6 +1,16 @@
 @import "app.css";
+
 @import-glob "global/*.css";
 @import-glob "global/classes/**/*.css";
-@import-glob "desktop/**/*.css";
-@import-glob "desktop/plugins/**/*.css";
+@import-glob "global/design/**/*.css";
+@import-glob "global/design/*.css";
+
+@import-glob "desktop/app/**/*.css";
+@import-glob "desktop/app/*.css";
+@import-glob "desktop/note/**/*.css";
+@import-glob "desktop/note/*.css";
+@import-glob "desktop/component/**/*.css";
+@import-glob "desktop/component/*.css";
+@import-glob "desktop/plugin/**/*.css";
+
 @import-glob "mobile/**/*.css";

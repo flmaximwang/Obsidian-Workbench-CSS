@@ -1,0 +1,221 @@
+/* SECTION: Table */
+body {
+  --table-background: transparent;
+  --table-border-width: 1px;
+  --table-border-color: var(--background-modifier-border);
+  --table-white-space: normal;
+  --table-header-background: var(--table-background);
+  --table-header-background-hover: inherit;
+  --table-header-border-width: var(--table-border-width);
+  --table-header-border-color: var(--table-border-color);
+  --table-header-font: inherit;
+  --table-header-size: var(--font-text-size);
+  --table-header-weight: var(--bold-weight);
+  --table-header-color: var(--text-normal);
+  --table-text-size: calc(var(--font-text-size) - 3px);
+  --table-text-color: inherit;
+  --table-column-max-width: none;
+  --table-column-alt-background: var(--table-background);
+  --table-column-first-border-width: var(--table-border-width);
+  --table-column-last-border-width: var(--table-border-width);
+  --table-row-background-hover: var(--table-background);
+  --table-row-alt-background: var(--table-background);
+  --table-row-last-border-width: var(--table-border-width);
+}
+
+.theme-light {
+  --table-background: var(--background-primary);
+  --table-first-column-color: #dcdcdc;
+  --first-column-horizontal-border: #eeeeee;
+  --first-row-color: #bec0bf;
+  --first-row-shadow: 0 2px 2px 0 #d8d8d8;
+  --table-first-row-vertical-border: 0.5px #a4a4a4 solid;
+  --first-row-horizontal-border: 0.5px #404040 solid;
+  --first-column-shadow: 2px 0 2px 0 #d0d0d0;
+  --first-column-vertical-border: 0.5px #404040 solid;
+  --cell-border: solid 0.5px #222222;
+
+}
+
+.theme-dark {
+  --table-background: var(--background-primary);
+  --table-first-column-color: #545454;
+  --first-column-horizontal-border: #282828;
+  --first-row-color: #514f50;
+  --first-row-shadow: 0 2px 2px 0 #282828;
+  --table-first-row-vertical-border: 0.5px #6c6c6c solid;
+  --first-row-horizontal-border: 0.5px #a0a0a0 solid;
+  --first-column-shadow: 2px 0 2px 0 #6c6c6c;
+  --first-column-vertical-border: 0.5px #a0a0a0 solid;
+  --cell-border: 0.5px #a0a0a0 solid;
+}
+
+
+/* ============================= Appearance ============================= */
+/* --------------------------------- 标题行 ------------------------------- */
+.markdown-rendered table>thead {
+  border-top: solid 1px var(--color-base-30);
+}
+
+.markdown-rendered table>thead>tr> :is(th, th:nth-child(2n+2)) {
+  background-color: var(--first-row-color);
+  border-bottom: solid 1px var(--first-row-horizontal-border);
+}
+
+.markdown-rendered table>thead tr>th:not(:last-child, :first-child) {
+  border-right: var(--table-first-row-vertical-border);
+}
+
+/* --------------------------------- 首列 ------------------------------ */
+.markdown-rendered table>tbody>tr>td:first-child {
+  border-right: var(--first-column-vertical-border);
+  box-shadow: var(--first-column-shadow);
+  background-color: var(--table-first-column-color);
+}
+
+.markdown-rendered table>tbody>tr:not(:last-child)>td:first-child {
+  border-bottom: solid 1px var(--first-column-horizontal-border);
+}
+
+.markdown-rendered table>thead>tr>th:first-child {
+  border-right: var(--first-column-vertical-border);
+  box-shadow: var(--first-column-shadow);
+}
+
+/* ------------------------------- 普通单元格颜色 -------------------------- */
+.markdown-rendered table tr> :is(td, th):not(:last-child) {
+  border-right: var(--cell-border);
+}
+
+.markdown-rendered table tr:not(:last-child)> :is(td, th) {
+  border-bottom: var(--cell-border);
+}
+
+/* !SECTION */
+
+/* SECTION: Media */
+.markdown-source-view.mod-cm6 *+.media-embed,
+.markdown-reading-view .markdown-preview-view *+[class*="el-embed"],
+.print .markdown-preview-view *+p:has(> .media-embed),
+.callout *+p:has(> .media-embed) {
+  margin-top: var(--small-spacing);
+}
+
+.markdown-source-view.mod-cm6 .media-embed:has(+ *),
+.markdown-reading-view .markdown-preview-view [class*="el-embed"]:has(+ *),
+.print .markdown-preview-view p:has(> .media-embed):has(+ *),
+.callout p:has(> .media-embed):has(+ *) {
+  margin-bottom: var(--small-spacing);
+}
+
+/* 实时表格编辑相关 */
+.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper {
+}
+
+.table-wrapper > table.table-editor {
+}
+
+.el-table > table {
+}
+
+/* .table-cell-wrapper .cm-line:has(> br) {
+  height: unset;
+  line-height: unset;
+} */
+
+.markdown-rendered table {
+  margin-bottom: 0em;
+  margin-block-start: 0;
+  margin-block-end: var(--p-spacing);
+  border-collapse: collapse;
+}
+
+.markdown-rendered td,
+.markdown-rendered th {
+  padding: var(--size-2-2) var(--size-4-2);
+  border: var(--table-border-width) solid var(--table-border-color);
+}
+
+.markdown-rendered td {
+  font-size: var(--table-text-size);
+  color: var(--table-text-color);
+}
+
+.markdown-rendered th {
+  font-size: var(--table-header-size);
+  font-weight: var(--table-header-weight);
+  color: var(--table-header-color);
+  font-family: var(--table-header-font);
+  line-height: var(--line-height-tight);
+}
+
+.markdown-rendered tbody tr {
+  background-color: var(--table-background);
+}
+
+@media (hover: hover) {
+  .markdown-rendered tbody tr:hover {
+    background-color: var(--table-row-background-hover);
+  }
+}
+
+.markdown-rendered tbody tr:nth-child(odd) {
+  background-color: var(--table-row-alt-background);
+}
+
+@media (hover: hover) {
+  .markdown-rendered tbody tr:nth-child(odd):hover {
+    background-color: var(--table-row-background-hover);
+  }
+}
+
+.markdown-rendered tbody tr>td:nth-child(2n+2) {
+  background-color: var(--table-column-alt-background);
+}
+
+.markdown-rendered tbody tr:last-child>td {
+  border-bottom-width: var(--table-row-last-border-width);
+}
+
+.markdown-rendered tbody tr>td:first-child {
+  border-left-width: var(--table-column-first-border-width);
+}
+
+.markdown-rendered tbody tr>td:last-child {
+  border-right-width: var(--table-column-last-border-width);
+}
+
+.markdown-rendered thead tr {
+  background-color: var(--table-header-background);
+}
+
+@media (hover: hover) {
+  .markdown-rendered thead tr:hover {
+    background-color: var(--table-header-background-hover);
+  }
+}
+
+.markdown-rendered thead tr>th {
+  border-top-width: var(--table-header-border-width);
+  border-color: var(--table-header-border-color);
+}
+
+.markdown-rendered thead tr>th:nth-child(2n+2) {
+  background-color: var(--table-column-alt-background);
+}
+
+.markdown-rendered thead tr>th:first-child {
+  border-left-width: var(--table-column-first-border-width);
+}
+
+.markdown-rendered thead tr>th:last-child {
+  border-right-width: var(--table-column-last-border-width);
+}
+
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-table-row {
+  min-width: max-content;
+}
+
+.markdown-source-view.mod-cm6 .cm-table-widget table {
+  margin-bottom: 0;
+}

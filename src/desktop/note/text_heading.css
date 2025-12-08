@@ -1,0 +1,340 @@
+/* SECTION: Headings */
+body {
+  --heading-formatting: var(--text-faint);
+  --h1-color: inherit;
+  --h2-color: inherit;
+  --h3-color: inherit;
+  --h4-color: inherit;
+  --h5-color: inherit;
+  --h6-color: inherit;
+  --h1-font: inherit;
+  --h2-font: inherit;
+  --h3-font: inherit;
+  --h4-font: inherit;
+  --h5-font: inherit;
+  --h6-font: inherit;
+  --h1-line-height: 1.2;
+  --h2-line-height: 1.2;
+  --h3-line-height: 1.3;
+  --h4-line-height: 1.4;
+  --h5-line-height: var(--line-height-normal);
+  --h6-line-height: var(--line-height-normal);
+  --h1-size: 1.8rem;
+  --h2-size: 1.6rem;
+  --h3-size: 1.4rem;
+  --h4-size: 1.3rem;
+  --h5-size: 1.2rem;
+  --h6-size: 1.1rem;
+  --h1-style: normal;
+  --h2-style: normal;
+  --h3-style: normal;
+  --h4-style: normal;
+  --h5-style: normal;
+  --h6-style: normal;
+  --h1-variant: normal;
+  --h2-variant: normal;
+  --h3-variant: normal;
+  --h4-variant: normal;
+  --h5-variant: normal;
+  --h6-variant: normal;
+  --h1-weight: 700;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 600;
+  --h5-weight: 600;
+  --h6-weight: 600;
+}
+
+.markdown-rendered div:has(> :is(p, pre, table, ul, ol))+div> :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.markdown-rendered div:has(+ div > *):has(> :is(h1, h2, h3, h4, h5, h6)),
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6):has(+ *) {
+  margin-block-end: var(--small-spacing);
+}
+
+.markdown-rendered div:has(> *)+div:has(> :is(h1, h2, h3, h4, h5, h6)),
+.markdown-rendered *+ :is(h1, h2, h3, h4, h5, h6) {
+  margin-block-start: var(--big-spacing);
+}
+
+.markdown-source-view .cm-line.HyperMD-header+ :is(.cm-line, .cm-embed-block):has(> br),
+.cm-s-obsidian .cm-line.HyperMD-header+ :is(.cm-line, .cm-embed-block):not(.HyperMD-header):not(:has(>br:only-child)):has(> br) {
+  height: var(--small-spacing);
+  line-height: var(--small-spacing);
+}
+
+.markdown-source-view.mod-cm6 .cm-line:has(>br):has(+ .cm-line.HyperMD-header) {
+  height: var(--big-spacing);
+  line-height: var(--big-spacing);
+}
+
+.markdown-rendered h1 {
+  font-variant: var(--h1-variant);
+  letter-spacing: -0.015em;
+  line-height: var(--h1-line-height);
+  font-size: var(--h1-size);
+  color: var(--h1-color);
+  font-weight: var(--h1-weight);
+  font-style: var(--h1-style);
+  font-family: var(--h1-font);
+  border-bottom: solid 2px;
+  border-image: linear-gradient(90deg, var(--color-base-70), var(--background-primary)) 10;
+}
+.markdown-rendered h1:has(.is-collapsed) {
+  border-bottom: none;
+}
+
+h1 a,
+.markdown-rendered h1 a {
+  font-weight: inherit;
+}
+
+.HyperMD-header-1,
+.inline-title[data-level='1'],
+.HyperMD-list-line .cm-header-1 {
+  font-variant: var(--h1-variant);
+  letter-spacing: -0.015em;
+  line-height: var(--h1-line-height);
+  font-size: var(--h1-size);
+  color: var(--h1-color);
+  font-weight: var(--h1-weight);
+  font-style: var(--h1-style);
+  font-family: var(--h1-font);
+  margin-bottom: var(--p-spacing) !important;
+  margin-top: var(--p-spacing) !important;
+  border-bottom: solid 2px;
+  border-image: linear-gradient(90deg, var(--color-base-70), var(--background-primary)) 10;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1:has(> [title*="unfold"]) {
+  border-bottom: none;
+  padding-bottom: var(--big-spacing);
+}
+
+.HyperMD-header-1 a,
+.inline-title[data-level='1'] a,
+.HyperMD-list-line .cm-header-1 a {
+  font-weight: inherit;
+}
+
+.markdown-rendered h2 {
+  font-variant: var(--h2-variant);
+  letter-spacing: -0.015em;
+  line-height: var(--h2-line-height);
+  font-size: var(--h2-size);
+  color: var(--h2-color);
+  font-weight: var(--h2-weight);
+  font-style: var(--h2-style);
+  font-family: var(--h2-font);
+  border-bottom: solid 1px;
+  border-image: linear-gradient(90deg, var(--color-base-70), var(--background-primary)) 10;
+}
+.markdown-rendered h2:has(.is-collapsed) {
+  border-bottom: none;
+}
+
+h2 a,
+.markdown-rendered h2 a {
+  font-weight: inherit;
+}
+
+.HyperMD-header-2,
+.inline-title[data-level='2'],
+.HyperMD-list-line .cm-header-2 {
+  font-variant: var(--h2-variant);
+  letter-spacing: -0.015em;
+  line-height: var(--h2-line-height);
+  font-size: var(--h2-size);
+  color: var(--h2-color);
+  font-weight: var(--h2-weight);
+  font-style: var(--h2-style);
+  font-family: var(--h2-font);
+  margin-block-start: var(--p-spacing);
+  margin-block-end: var(--p-spacing);
+  border-bottom: solid 1px;
+  border-image: linear-gradient(90deg, var(--color-base-70), var(--background-primary)) 10;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2:has(> [title*="unfold"]) {
+  display: inline-block;
+  border-bottom: none;
+  padding-bottom: var(--big-spacing);
+}
+
+.HyperMD-header-2 a,
+.inline-title[data-level='2'] a,
+.HyperMD-list-line .cm-header-2 a {
+  font-weight: inherit;
+}
+
+h3,
+.markdown-rendered h3 {
+  font-variant: var(--h3-variant);
+  letter-spacing: -0.015em;
+  line-height: var(--h3-line-height);
+  font-size: var(--h3-size);
+  color: var(--h3-color);
+  font-weight: var(--h3-weight);
+  font-style: var(--h3-style);
+  font-family: var(--h3-font);
+}
+
+h3 a,
+.markdown-rendered h3 a {
+  font-weight: inherit;
+}
+
+h4,
+.markdown-rendered h4 {
+  font-variant: var(--h4-variant);
+  letter-spacing: 0.015em;
+  line-height: var(--h4-line-height);
+  font-size: var(--h4-size);
+  color: var(--h4-color);
+  font-weight: var(--h4-weight);
+  font-style: var(--h4-style);
+  font-family: var(--h4-font);
+}
+
+h4 a,
+.markdown-rendered h4 a {
+  font-weight: inherit;
+}
+
+h5,
+.markdown-rendered h5 {
+  font-variant: var(--h5-variant);
+  letter-spacing: 0.015em;
+  font-size: var(--h5-size);
+  line-height: var(--h5-line-height);
+  color: var(--h5-color);
+  font-weight: var(--h5-weight);
+  font-style: var(--h5-style);
+  font-family: var(--h5-font);
+}
+
+h5 a,
+.markdown-rendered h5 a {
+  font-weight: inherit;
+}
+
+h6,
+.markdown-rendered h6 {
+  font-variant: var(--h6-variant);
+  letter-spacing: 0.015em;
+  font-size: var(--h6-size);
+  line-height: var(--h6-line-height);
+  color: var(--h6-color);
+  font-weight: var(--h6-weight);
+  font-style: var(--h6-style);
+  font-family: var(--h6-font);
+}
+
+h6 a,
+.markdown-rendered h6 a {
+  font-weight: inherit;
+}
+
+.cm-formatting-header {
+  color: var(--text-faint);
+}
+
+.cm-s-obsidian .cm-line.HyperMD-header+.cm-line:not(.HyperMD-header):has(>br:only-child)+.cm-line.HyperMD-header {
+  padding-top: 0;
+}
+
+.HyperMD-header-3,
+.inline-title[data-level='3'],
+.HyperMD-list-line .cm-header-3 {
+  font-variant: var(--h3-variant);
+  letter-spacing: -0.015em;
+  line-height: var(--h3-line-height);
+  font-size: var(--h3-size);
+  color: var(--h3-color);
+  font-weight: var(--h3-weight);
+  font-style: var(--h3-style);
+  font-family: var(--h3-font);
+  margin-block-start: var(--p-spacing);
+  margin-block-end: var(--p-spacing);
+}
+
+.HyperMD-header-3 a,
+.inline-title[data-level='3'] a,
+.HyperMD-list-line .cm-header-3 a {
+  font-weight: inherit;
+}
+
+.HyperMD-header-4,
+.inline-title[data-level='4'],
+.HyperMD-list-line .cm-header-4 {
+  font-variant: var(--h4-variant);
+  letter-spacing: 0.015em;
+  line-height: var(--h4-line-height);
+  font-size: var(--h4-size);
+  color: var(--h4-color);
+  font-weight: var(--h4-weight);
+  font-style: var(--h4-style);
+  font-family: var(--h4-font);
+  margin-block-start: var(--p-spacing);
+  margin-block-end: var(--p-spacing);
+}
+
+.HyperMD-header-4 a,
+.inline-title[data-level='4'] a,
+.HyperMD-list-line .cm-header-4 a {
+  font-weight: inherit;
+}
+
+.HyperMD-header-5,
+.inline-title[data-level='5'],
+.HyperMD-list-line .cm-header-5 {
+  font-variant: var(--h5-variant);
+  letter-spacing: 0.015em;
+  font-size: var(--h5-size);
+  line-height: var(--h5-line-height);
+  color: var(--h5-color);
+  font-weight: var(--h5-weight);
+  font-style: var(--h5-style);
+  font-family: var(--h5-font);
+  margin-block-start: var(--p-spacing);
+  margin-block-end: var(--p-spacing);
+}
+
+.HyperMD-header-5 a,
+.inline-title[data-level='5'] a,
+.HyperMD-list-line .cm-header-5 a {
+  font-weight: inherit;
+}
+
+.HyperMD-header-6,
+.inline-title[data-level='6'],
+.HyperMD-list-line .cm-header-6 {
+  font-variant: var(--h6-variant);
+  letter-spacing: 0.015em;
+  font-size: var(--h6-size);
+  line-height: var(--h6-line-height);
+  color: var(--h6-color);
+  font-weight: var(--h6-weight);
+  font-style: var(--h6-style);
+  font-family: var(--h6-font);
+  margin-block-start: var(--p-spacing);
+  margin-block-end: var(--p-spacing);
+}
+
+.HyperMD-header-6 a,
+.inline-title[data-level='6'] a,
+.HyperMD-list-line .cm-header-6 a {
+  font-weight: inherit;
+}
+
+.HyperMD-header .cm-header-1,
+.HyperMD-header .cm-header-2,
+.HyperMD-header .cm-header-3,
+.HyperMD-header .cm-header-4,
+.HyperMD-header .cm-header-5,
+.HyperMD-header .cm-header-6 {
+  font-size: inherit !important;
+}
+
+/* !SECTION */

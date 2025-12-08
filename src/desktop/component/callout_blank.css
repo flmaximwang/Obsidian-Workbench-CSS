@@ -1,0 +1,19 @@
+/* NOTE: Blank container */
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) [data-callout="blank-container"].callout {
+  padding: 0;
+  padding-inline: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-callout="blank-container"].callout>.callout-title {
+  display: none;
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) [data-callout*="blank-container"].callout>.callout-content {
+  padding: 0px;
+  background: var(--background-primary);
+}

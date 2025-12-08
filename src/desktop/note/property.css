@@ -78,3 +78,24 @@
   /* height: 100%; */
   /* box-shadow: 0 0 0 1px var(--background-modifier-border-focus), inset 0 0 0 1px var(--background-modifier-border-focus); */
 }
+
+/* SECTION: Metadata */
+.metadata-container {
+  --input-height: 1.75rem;
+  border-radius: var(--metadata-border-radius);
+  background-color: var(--metadata-background);
+  border-color: var(--metadata-border-color);
+  border-style: solid;
+  border-width: var(--metadata-border-width);
+  padding: var(--metadata-padding);
+  color: var(--text-muted);
+  position: relative;
+  max-width: var(--metadata-max-width);
+  margin-block-end: 0px;
+}
+
+.markdown-source-view .metadata-container {
+  padding-inline-start: calc(var(--gutter-width) + var(--gutter-offset));
+}
+
+/* !SECTION */
