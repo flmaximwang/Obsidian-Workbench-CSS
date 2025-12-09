@@ -30,7 +30,7 @@ div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout
 ) div[data-callout-metadata*="multi-column"].callout>.callout-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   align-items: stretch;
   gap: var(--multi-column-gap);
   overflow: visible;
