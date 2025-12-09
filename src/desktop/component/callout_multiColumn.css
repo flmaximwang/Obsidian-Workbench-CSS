@@ -21,6 +21,7 @@ div[data-callout-metadata*="multi-column"].callout > .callout-content {
 div[data-callout-metadata*="multi-column"].callout > .callout-content > .callout {
   flex: 1 0 var(--multi-column-min-width);
   width: unset;
+  margin: 0;
 }
 
 :is(
