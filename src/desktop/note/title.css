@@ -1,14 +1,23 @@
 .inline-title {
-    --padding-bottom: 5px;
+    padding-bottom: 0.2rem;
     --border-width: 2px;
+    font-weight: var(--inline-title-weight);
+    font-size: var(--inline-title-size);
+    line-height: var(--inline-title-line-height);
+    font-style: var(--inline-title-style);
+    font-variant: var(--inline-title-variant);
+    font-family: var(--inline-title-font);
+    margin-bottom: var(--inline-title-margin-bottom);
+    letter-spacing: -0.015em;
+    color: var(--inline-title-color);
 }
 
 .markdown-source-view .inline-title {
-    padding-bottom: var(--padding-bottom);
+    padding-inline-start: calc(var(--gutter-width) + var(--gutter-offset));
     background: linear-gradient(to right,
             transparent 0px,
             transparent calc(var(--gutter-width) + var(--gutter-offset)),
-            #000 calc(var(--gutter-width) + var(--gutter-offset)),       
+            var(--color-base-100) calc(var(--gutter-width) + var(--gutter-offset)),       
             transparent 100%,       
             transparent 100%
     ) 
@@ -16,32 +25,14 @@
     no-repeat
 }
 
-.markdown-preview-view .inline-title {
-    padding-bottom: var(--padding-bottom);
+.markdown-reading-view .markdown-preview-view .inline-title {
     background: linear-gradient(to right,
-            #000 0%,       
+            var(--color-base-100) 0%,       
             transparent 100%,       
             transparent 100%
     ) 
     bottom / 100% var(--border-width) 
     no-repeat
-}
-
-/* SECTION: Inline Title */
-.inline-title {
-  font-weight: var(--inline-title-weight);
-  font-size: var(--inline-title-size);
-  line-height: var(--inline-title-line-height);
-  font-style: var(--inline-title-style);
-  font-variant: var(--inline-title-variant);
-  font-family: var(--inline-title-font);
-  margin-bottom: var(--inline-title-margin-bottom);
-  letter-spacing: -0.015em;
-  color: var(--inline-title-color);
-}
-
-.markdown-source-view .inline-title {
-  padding-inline-start: calc(var(--gutter-width) + var(--gutter-offset));
 }
 
 .hover-popover .inline-title,
@@ -52,6 +43,4 @@
 body:not(.show-inline-title) .inline-title:not([data-level]) {
   display: none;
 }
-
-/* !SECTION */
 
