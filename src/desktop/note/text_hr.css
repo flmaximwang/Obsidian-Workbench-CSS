@@ -1,0 +1,9 @@
+body {
+    --hr-margin-block-start: calc(var(--line-height) * 0.5);
+    --hr-margin-block-end: calc(var(--line-height) * 0.5);
+}
+
+hr {
+    margin-block-start: var(--hr-margin-block-start);
+    margin-block-end: var(--hr-margin-block-end);
+}
