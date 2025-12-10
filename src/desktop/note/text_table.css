@@ -54,7 +54,7 @@ body {
 .markdown-source-view.mod-cm6 .cm-table-widget,
 .markdown-reading-view .markdown-preview-view .el-table {
   padding: var(--table-padding);
-  margin: var(--table-margin);
+  margin: var(--table-margin) !important;
 }
 
 /* ============================= Appearance ============================= */
