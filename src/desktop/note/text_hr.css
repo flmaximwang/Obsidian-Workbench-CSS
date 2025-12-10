@@ -1,9 +1,17 @@
 body {
-    --hr-margin-block-start: calc(var(--line-height) * 0.5);
-    --hr-margin-block-end: calc(var(--line-height) * 0.5);
+    --hr-margin-block-start: 0.5rem;
+    --hr-margin-block-end: 0.5rem;
 }
 
 hr {
     margin-block-start: var(--hr-margin-block-start);
     margin-block-end: var(--hr-margin-block-end);
+}
+
+.markdown-source-view.mod-cm6 .cm-content > .hr.cm-line {
+    height: 1rem;
+    line-height: 1;
+}
+.markdown-source-view.mod-cm6 .cm-content > .hr.cm-line > hr {
+    margin-top: -0.5rem;
 }
