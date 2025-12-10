@@ -1,5 +1,6 @@
 body {
   --table-padding: 0;
+  --table-margin: 0;
   --table-background: transparent;
   --table-border-width: 1px;
   --table-border-color: var(--background-modifier-border);
@@ -53,6 +54,7 @@ body {
 .markdown-source-view.mod-cm6 .cm-table-widget,
 .markdown-reading-view .markdown-preview-view .el-table {
   padding: var(--table-padding);
+  margin: var(--table-margin);
 }
 
 /* ============================= Appearance ============================= */
