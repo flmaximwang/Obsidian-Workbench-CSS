@@ -1,4 +1,4 @@
-/* !SECTION */
+
 /* NOTE: Callouts without header (card)*/
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6) .callout[data-callout*="card"] {
   background-color: transparent;

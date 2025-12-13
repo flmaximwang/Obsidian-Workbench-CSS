@@ -50,9 +50,4 @@ mjx-container {
   }
 }
 
-.markdown-reading-view .markdown-preview-view .el-div:has(.callout),
-.print .markdown-preview-view .callout,
-.markdown-source-view .callout .callout {
-  margin-top: var(--small-spacing);
-  margin-bottom: var(--small-spacing);
-}
+

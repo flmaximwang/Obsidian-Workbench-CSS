@@ -11,7 +11,7 @@
   content: "📊 ";
 }
 
-/* !SECTION */
+
 
 /* SECTION: Commander */
 .status-bar-item:not(:last-child),
@@ -19,4 +19,3 @@
   margin-right: calc(var(--cmdr-spacing));
 }
 
-/* !SECTION */

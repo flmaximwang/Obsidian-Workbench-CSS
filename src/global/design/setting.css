@@ -9,7 +9,7 @@ body {
   --anim-motion-delay: cubic-bezier(0.65, 0.05, 0.36, 1);
   --anim-motion-jumpy: cubic-bezier(0.68, -0.55, 0.27, 1.55);
   --anim-motion-swing: cubic-bezier(0, 0.55, 0.45, 1);
-  /* !SECTION */
+  
   /* SECTION: Text */
   /* NOTE: Relative font sizes */
   --font-smallest: 0.8em;
@@ -33,7 +33,7 @@ body {
   /* NOTE: Bold */
   --bold-weight: var(--font-semibold);
   --bold-color: inherit;
-  /* !SECTION */
+  
   /* SECTION: Widgets */
   /* NOTE: Blockquotes */
   --blockquote-border-thickness: 2px;
@@ -45,7 +45,7 @@ body {
   --footnote-size: var(--font-smaller);
   /* NOTE: Buttons */
   --button-radius: var(--input-radius);
-  /* !SECTION */
+  
   /* SECTION: Canvas */
   --canvas-background: var(--background-primary);
   --canvas-card-label-color: var(--text-faint);
@@ -56,7 +56,7 @@ body {
   --canvas-color-5: var(--color-cyan-rgb);
   --canvas-color-6: var(--color-purple-rgb);
   --canvas-dot-pattern: var(--color-base-30);
-  /* !SECTION */
+  
   /* Borders */
   --border-width: 1px;
   /* Canvas */

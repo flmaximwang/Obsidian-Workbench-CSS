@@ -32,21 +32,21 @@ body {
 div.callout {
     width: 99%;
     max-width: 100%;
-    border-left: none;
     padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin: 0 auto;
     overflow: visible;
-    border-style: solid;
-    border-color: var(--callout-border-color);
-    border-width: var(--callout-border-width);
+    border: var(--callout-border-width) solid var(--callout-border-color);
     border-radius: var(--callout-radius);
     mix-blend-mode: var(--callout-blend-mode);
     background-color: var(--background-primary);
     /* box-shadow: 0 3px 5px 0 rgba(var(--mono-rgb-100), .10); */
     /* box-shadow: var(--box-shadow-1); */
+}
+
+.markdown-reading-view .markdown-preview-view .el-div:has(.callout),
+.markdown-source-view .callout .callout {
+  margin-top: var(--small-spacing);
+  margin-bottom: var(--small-spacing);
 }
 
 div[data-callout-metadata*="width-100px"].callout { width: 100px}

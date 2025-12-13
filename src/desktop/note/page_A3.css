@@ -1,0 +1,3 @@
+.print-preview .markdown-preview-view.a3-page:is(*, is-readable-line-width) {
+  width: var(--a3-content-width);
+}

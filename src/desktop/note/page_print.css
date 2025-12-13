@@ -1,0 +1,49 @@
+/* @settings
+
+name: Workbench - Print Zoom
+id: print-zoom
+settings:
+  -
+    id: print-zoom
+    title: Print Zoom Level
+    type: variable-number-slider
+    default: 90
+    min: 50
+    max: 100
+    step: 1
+
+*/
+
+body {
+  --print-zoom: 90;
+  --print-page-width: var(--a4-page-width-zoomed);
+}
+
+@media print {
+
+  /* 打印页面 */
+    .print > .markdown-preview-view {
+      width: var(--print-page-width);
+    }
+
+  /* 打印中的每个块 */
+  .print > .markdown-preview-view > div {
+    width: var(--print-page-width);
+    margin-left: 0;
+    margin-right: 0;
+    margin-block-start: var(--small-spacing);
+    margin-block-end: var(--small-spacing);
+  }
+  .print > .markdown-preview-view > div > * {
+    width: var(--print-page-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Print Widgets */
+
+@media print {
+  .print .hide-in-print {
+    visibility: hidden;
+  }
+}
