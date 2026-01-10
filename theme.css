@@ -1849,8 +1849,10 @@ div.CodeMirror-dragcursors {
   width: var(--a3-content-width);
 }
 /* Obsidian 导出的 PDF 中, A4 页面的页宽为 200 px */
+/* A4 纸张, 96 DPI, 无页边距: 794 px */
+/* A4 纸张, 96 DPI,  */
 body {
-    --a4-page-print-width-original: 794px;
+    --a4-page-print-width-original: 714px; 
     --a4-page-print-width-zoomed: calc(var(--a4-page-print-width-original) / var(--print-zoom) * 100);
     --a4-content-width: var(--a4-page-print-width-zoomed);
     --a4-page-width: calc(var(--a4-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
