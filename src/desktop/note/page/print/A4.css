@@ -10,9 +10,8 @@ body {
     --a4-page-width: calc(var(--a4-content-width) + var(--gutter-width) + var(--gutter-offset) + var(--sizer-padding-left) + var(--sizer-padding-right));
 }
 
+/* 打印页面 */
 @media print {
-
-  /* 打印页面 */
     .print > .markdown-preview-view.a4-page {
         --print-page-width: var(--a4-page-print-width-zoomed);
     }

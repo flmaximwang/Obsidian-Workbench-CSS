@@ -1,3 +1,9 @@
+/* @settings
+name: Maxim's Workbench
+id: maxims-workbench
+settings:
+*/
+
 @import-glob "global/*.css";
 @import-glob "global/classes/**/*.css";
 @import-glob "global/design/**/*.css";
@@ -5,8 +11,8 @@
 
 @import-glob "desktop/app/**/*.css";
 @import-glob "desktop/app/*.css";
-@import-glob "desktop/note/**/*.css";
 @import-glob "desktop/note/*.css";
+@import-glob "desktop/note/**/main.css";
 @import-glob "desktop/component/**/*.css";
 @import-glob "desktop/component/*.css";
 @import-glob "desktop/plugin/**/*.css";

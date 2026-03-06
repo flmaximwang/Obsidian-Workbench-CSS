@@ -1,0 +1,117 @@
+/* @settings
+    -
+        id: print
+        title: Print Settings
+        type: heading
+        level: 1
+        collapsed: true
+    -
+        id: print-zoom
+        title: Print Zoom Level
+        type: variable-number-slider
+        default: 100
+        min: 10
+        max: 100
+        step: 1
+    -
+        id: print-ruler
+        title: Print Rulers
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: print-ruler-paper
+        title: Paper Area Ruler
+        type: class-toggle
+    -
+        id: print-ruler-print
+        title: Print Area Ruler
+        type: class-toggle
+    -
+        id: print-ruler-content
+        title: Content Area Ruler
+        type: class-toggle
+*/
+
+@import "./A4.css";
+@import "./A3.css";
+
+body {
+  --print-zoom: 100;
+  --print-page-width: var(--a4-page-print-width-zoomed); 
+  /* Default print page is A4*/
+}
+
+@media print {
+
+  /* 打印页面 */
+
+  .print {
+    width: var(--print-page-width);
+    max-width: var(--print-page-width);
+    min-width: var(--print-page-width);
+  }
+
+  .print > .markdown-preview-view {
+    width: var(--print-page-width);
+    max-width: var(--print-page-width);
+    min-width: var(--print-page-width);
+  }
+
+  /* 打印中的每个块 */
+  .print > .markdown-preview-view > div {
+    width: var(--print-page-width);
+    margin-left: 0;
+    margin-right: 0;
+    margin-block-start: var(--small-spacing);
+    margin-block-end: var(--small-spacing);
+  }
+  .print > .markdown-preview-view > div > * {
+    width: var(--print-page-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+/* Print Widgets */
+
+@media print {
+  .print .hide-in-print {
+    visibility: hidden;
+  }
+
+  .print-ruler-paper {
+    /* 在整个页面设置周期为 100 px 的的红白交替的条纹 */
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 100px,
+      rgba(255, 0, 0, 0.2) 100px,
+      rgba(255, 0, 0, 0.2) 200px
+    );
+  }
+
+  .print-ruler-print .print {
+    /* 在可打印的范围设置周期为 100 px 的绿白交替的条纹 */
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 100px,
+      rgba(0, 255, 0, 0.2) 100px,
+      rgba(0, 255, 0, 0.2) 200px
+    );
+  }
+
+  
+  .print-ruler-content .print > .markdown-preview-view {
+    /* 在页面内容范围设置周期为 100 px 的蓝白交替的条纹, 调试用 */
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 100px,
+      rgba(0, 0, 255, 0.2) 100px,
+      rgba(0, 0, 255, 0.2) 200px
+    );
+  }
+}
