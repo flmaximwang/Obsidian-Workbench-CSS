@@ -1,4 +1,10 @@
-/* SECTION: Callouts */
+@import "card.css";
+@import "timeline.css";
+@import "absolute.css";
+@import "blank.css";
+@import "float.css";
+@import "multiColumn.css";
+@import "other.css";
 
 /* NOTE: Basics */
 body {
@@ -29,7 +35,8 @@ body {
     --callout-quote: 158, 158, 158;
 }
 
-div.callout {
+div.callout,
+.markdown-source-view.mod-cm6 .callout {
     width: 99%;
     max-width: 100%;
     padding: 0;
