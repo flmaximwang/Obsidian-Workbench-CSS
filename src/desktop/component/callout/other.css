@@ -165,10 +165,6 @@ div[data-callout="multi-column-flex-height"].callout:not(.is-collapsed) {
   margin: 0;
 }
 
-.callout .callout-content p img {
-  display: block;
-}
-
 .callout img[alt*=circle] {
   border-radius: 35px;
   width: 70px;
