@@ -62,7 +62,7 @@
   margin-right: 10px;
 }
 
-.markdown-source-view .cm-embed-block.cm-callout:has(> div.markdown-rendered > [data-callout-metadata*="float-right"])>div>.callout,
+.markdown-source-view.mod-cm6 .cm-embed-block.cm-callout:has(> div.markdown-rendered > .callout[data-callout-metadata*="float-right"]) > div,
 .markdown-preview-view .callout[data-callout-metadata*="right"] {
   float: right;
   margin-left: 10px
