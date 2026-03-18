@@ -1,8 +1,7 @@
 /* NOTE: Images */
-/* 图片居中 */
 :is(.markdown-source-view.mod-cm6, .markdown-preview-view) img,
 .markdown-source-view.mod-cm6 .cm-content>img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   /* This important is used to overwrite the default app.css */
   margin-right: auto !important;
@@ -15,29 +14,18 @@
 }
 
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed {
-    width: 100%;
+  width: 100%;
 }
 
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .image-wrapper {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
   margin: auto;
 }
 
-/* NOTE: Video */
-:is(.markdown-preview-view,
-  .markdown-source-view.mod-cm6 > .cm-scroller,
-  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) {
+.markdown-source-view .cm-sizer > .cm-contentContainer > .cm-content .callout-content img {
   display: block;
-}
-
-:is(.markdown-preview-view,
-  .markdown-source-view.mod-cm6 > .cm-scroller,
-  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) img {
-  display: block;
-  margin-left: auto !important;
-  margin-right: auto !important;
 }

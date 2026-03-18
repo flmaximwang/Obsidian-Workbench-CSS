@@ -1429,53 +1429,6 @@ body:not(.default-icons).is-tablet .nav-folder.is-collapsed .nav-folder-collapse
   margin-left: calc(-1 * var(--size-4-4));
 }
 
-/* NOTE: Images */
-
-/* 图片居中 */
-
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) img,
-.markdown-source-view.mod-cm6 .cm-content>img {
-  display: block;
-  max-width: 100%;
-  /* This important is used to overwrite the default app.css */
-  margin-right: auto !important;
-  margin-left: auto !important;
-  border-radius: 0px;
-}
-
-:is(.markdown-source-view.mod-cm6, .markdown-preview-view) img:not([width]):not([style*="width"]) {
-  max-height: 300px;
-}
-
-.markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed {
-    width: 100%;
-}
-
-.markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .image-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
-  margin: auto;
-}
-
-/* NOTE: Video */
-
-:is(.markdown-preview-view,
-  .markdown-source-view.mod-cm6 > .cm-scroller,
-  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) {
-  display: block;
-}
-
-:is(.markdown-preview-view,
-  .markdown-source-view.mod-cm6 > .cm-scroller,
-  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) img {
-  display: block;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
 body {
   --frontmatter-font-size: 0.7rem;
   --frontmatter-line-height: calc(var(--code-size) + 0.1rem);
@@ -2752,7 +2705,7 @@ body:not(.show-inline-title) .inline-title:not([data-level]) {
   display: none;
 }
 
-/* 图片居中 */
+/* NOTE: Images */
 
 :is(.markdown-source-view.mod-cm6, .markdown-preview-view) img,
 .markdown-source-view.mod-cm6 .cm-content>img {
@@ -2769,16 +2722,20 @@ body:not(.show-inline-title) .inline-title:not([data-level]) {
 }
 
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed {
-    width: 100%;
+  width: 100%;
 }
 
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .image-wrapper {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.markdown-source-view .cm-sizer > .cm-contentContainer > .cm-content .callout-content .img {
-  display: block
+.markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
+  margin: auto;
+}
+
+.markdown-source-view .cm-sizer > .cm-contentContainer > .cm-content .callout-content img {
+  display: block;
 }
 
 /* NOTE: Video */
