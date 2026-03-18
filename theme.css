@@ -1456,6 +1456,10 @@ body:not(.default-icons).is-tablet .nav-folder.is-collapsed .nav-folder-collapse
     margin-right: auto;
 }
 
+.markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
+  margin: auto;
+}
+
 /* NOTE: Video */
 
 :is(.markdown-preview-view,
@@ -2771,6 +2775,10 @@ body:not(.show-inline-title) .inline-title:not([data-level]) {
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .image-wrapper {
     margin-left: auto;
     margin-right: auto;
+}
+
+.markdown-source-view .cm-sizer > .cm-contentContainer > .cm-content .callout-content .img {
+  display: block
 }
 
 /* NOTE: Video */
@@ -5710,6 +5718,11 @@ button.MS-OpenSnippet {
 
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .excalidraw-svg {
     width: 100%;
+}
+
+.markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .excalidraw-svg img,
+.markdown-reading-view .markdown-preview-view .excalidraw-svg img {
+    display: block;
 }
 
 .excalidraw button {

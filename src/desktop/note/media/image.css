@@ -21,3 +21,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.markdown-source-view .cm-sizer > .cm-contentContainer > .cm-content .callout-content .img {
+  display: block
+}

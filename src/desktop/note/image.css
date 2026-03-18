@@ -23,6 +23,10 @@
     margin-right: auto;
 }
 
+.markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
+  margin: auto;
+}
+
 /* NOTE: Video */
 :is(.markdown-preview-view,
   .markdown-source-view.mod-cm6 > .cm-scroller,
