@@ -11,8 +11,7 @@ settings:
 
 @import-glob "desktop/app/**/*.css";
 @import-glob "desktop/app/*.css";
-@import-glob "desktop/note/*.css";
-@import-glob "desktop/note/**/main.css";
+@import "desktop/note/main.css";
 @import-glob "desktop/component/**/main.css";
 @import-glob "desktop/component/*.css";
 @import-glob "desktop/plugin/**/*.css";

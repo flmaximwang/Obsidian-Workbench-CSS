@@ -1,12 +1,4 @@
 /* NOTE: Paragraphs */
-body .markdown-source-view.mod-cm6,
-body .markdown-preview-view {
-  --p-spacing-empty: 0rem;
-  --big-spacing: 1.2rem;
-  --small-spacing: 0.8rem;
-  --p-spacing: var(--small-spacing);
-}
-
 .markdown-rendered :not(.el-p)>p:first-child {
   margin-top: 0px;
 }

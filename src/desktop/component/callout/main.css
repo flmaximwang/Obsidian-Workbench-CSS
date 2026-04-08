@@ -204,3 +204,20 @@ div[data-callout-metadata*="no-margin"]:is(.cm-callout, .callout.callout, .callo
   margin-bottom: 0;
   padding: 0;
 }
+
+.markdown-preview-view .callout:not([data-callout-metadata*="grid"]):not([data-callout*="grid"]):not([data-callout-metadata*="nowrap"]):not([data-callout*="nowrap"]) > .callout-content > p:has(> .internal-embed.image-embed:only-child),
+.markdown-preview-view .callout:not([data-callout-metadata*="grid"]):not([data-callout*="grid"]):not([data-callout-metadata*="nowrap"]):not([data-callout*="nowrap"]) > .callout-content > p:has(> img:only-child) {
+  text-align: center;
+}
+
+.markdown-preview-view .callout:not([data-callout-metadata*="grid"]):not([data-callout*="grid"]):not([data-callout-metadata*="nowrap"]):not([data-callout*="nowrap"]) > .callout-content > p:has(> .internal-embed.image-embed:only-child) > .internal-embed.image-embed {
+  display: inline-block;
+}
+
+@media print {
+  .print .markdown-preview-view .callout:not([data-callout-metadata*="grid"]):not([data-callout*="grid"]):not([data-callout-metadata*="nowrap"]):not([data-callout*="nowrap"]) > .callout-content img {
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

@@ -29,3 +29,8 @@
 .markdown-source-view .cm-sizer > .cm-contentContainer > .cm-content .callout-content img {
   display: block;
 }
+
+.markdown-reading-view .el-div .callout-content span:has(> img) {
+  display: block;
+  margin: auto;
+}

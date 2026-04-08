@@ -97,38 +97,6 @@ body {
   border-bottom: var(--cell-border);
 }
 
-
-
-/* SECTION: Media */
-.markdown-source-view.mod-cm6 *+.media-embed,
-.markdown-reading-view .markdown-preview-view *+[class*="el-embed"],
-.print .markdown-preview-view *+p:has(> .media-embed),
-.callout *+p:has(> .media-embed) {
-  margin-top: var(--small-spacing);
-}
-
-.markdown-source-view.mod-cm6 .media-embed:has(+ *),
-.markdown-reading-view .markdown-preview-view [class*="el-embed"]:has(+ *),
-.print .markdown-preview-view p:has(> .media-embed):has(+ *),
-.callout p:has(> .media-embed):has(+ *) {
-  margin-bottom: var(--small-spacing);
-}
-
-/* 实时表格编辑相关 */
-.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper {
-}
-
-.table-wrapper > table.table-editor {
-}
-
-.el-table > table {
-}
-
-/* .table-cell-wrapper .cm-line:has(> br) {
-  height: unset;
-  line-height: unset;
-} */
-
 .markdown-rendered table {
   margin-bottom: 0em;
   margin-block-start: 0;
