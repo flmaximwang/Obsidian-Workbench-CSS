@@ -3,6 +3,6 @@
 }
 
 .markdown-source-view.is-readable-line-width.is-live-preview .cm-sizer > .cm-contentContainer > .cm-content > .media-embed > .excalidraw-svg img,
-.markdown-reading-view .markdown-preview-view .excalidraw-svg img {
+:is(.print, .markdown-reading-view) .markdown-preview-view .excalidraw-svg img {
     display: block;
 }
