@@ -7,9 +7,23 @@
     display: block;
 }
 
-/* Override for Excalidraw SVGs inside table cells — use intrinsic/natural width
-   instead of being constrained to the narrow table cell width */
-.cm-table-widget .excalidraw-svg img.excalidraw-embedded-img,
-.cm-table-widget .excalidraw-svg {
-    width: auto;
+/* =========================================================================
+   Excalidraw images inside table cells – use the `w` attribute for width
+   
+   The `w` attribute (e.g. w="800") is set by the Excalidraw plugin as the
+   intended rendering width.  `max-width` + `width:auto` cannot push an
+   image UP to 800px — max-width only caps, and `auto` falls back to the
+   browser default intrinsic size (300×150 for SVGs in <img>).
+   
+   Fix: read `w` directly via CSS attr() and use it as the explicit width.
+   This is CSS Values Level 5 (Chrome 133+); Obsidian's Electron should
+   support it.  If attr() is not supported, min-width provides a floor.
+   ========================================================================= */
+:is(.cm-table-widget, .el-table) .excalidraw-svg img.excalidraw-embedded-img[w] {
+    width: attr(w px);
+    min-width: 400px;       /* fallback when attr() is unsupported */
+    max-height: none !important;
+}
+:is(.cm-table-widget, .el-table) .excalidraw-svg {
+    max-width: none !important;
 }
