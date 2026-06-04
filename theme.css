@@ -5482,6 +5482,14 @@ button.MS-OpenSnippet {
     display: block;
 }
 
+/* Override for Excalidraw SVGs inside table cells — use intrinsic/natural width
+   instead of being constrained to the narrow table cell width */
+
+.cm-table-widget .excalidraw-svg img.excalidraw-embedded-img,
+.cm-table-widget .excalidraw-svg {
+    width: auto;
+}
+
 .excalidraw button {
   box-shadow: none;
 }
