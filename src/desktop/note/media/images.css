@@ -22,13 +22,11 @@
   margin-right: auto;
 }
 
-/* Center standalone images in Live Preview.
-   Only direct children of .cm-line (not images nested inside callouts). */
-.markdown-source-view.mod-cm6.is-live-preview .cm-line > .internal-embed.image-embed {
-  display: block;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+/* Center images in Live Preview.
+   app.css 1.13 sets .cm-line > .image-embed { display: inline-flex }
+   text-align: center on the parent centers the inline-flex container. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:has(> .internal-embed.image-embed) {
+  text-align: center;
 }
 
 .markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
