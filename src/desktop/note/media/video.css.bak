@@ -1,0 +1,14 @@
+/* NOTE: Video */
+:is(.markdown-preview-view,
+  .markdown-source-view.mod-cm6 > .cm-scroller,
+  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) {
+  display: block;
+}
+
+:is(.markdown-preview-view,
+  .markdown-source-view.mod-cm6 > .cm-scroller,
+  .markdown-source-view.mod-cm6.is-readable-line-width > .cm-scroller) :is(.image-embed, .media-embed) img {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
