@@ -22,6 +22,15 @@
   margin-right: auto;
 }
 
+/* Center standalone images in Live Preview.
+   Only direct children of .cm-line (not images nested inside callouts). */
+.markdown-source-view.mod-cm6.is-live-preview .cm-line > .internal-embed.image-embed {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .markdown-reading-view .markdown-preview-view .el-embed-image span:has(> img) {
   margin: auto;
 }
