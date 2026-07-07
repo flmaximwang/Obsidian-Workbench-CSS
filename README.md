@@ -99,6 +99,18 @@ Print media CSS includes optional ruler overlays for debugging page layouts:
 - **Green** — print area
 - **Blue** — content area
 
+### Debugging PDF CSS
+
+Use [Better Export PDF](https://github.com/l1xnan/obsidian-better-export-pdf) to inspect and debug the print DOM in real time:
+
+1. Open the Better Export PDF dialog (but **do not export** — just open the preview).
+2. Open Obsidian DevTools (`Cmd+Opt+I`).
+3. In DevTools, open **Rendering** panel (`Cmd+Shift+P` → type "Rendering" → select "Show Rendering"), then choose **Emulate CSS media type: print**.
+4. In the **Elements** panel, find the `.print` element.
+5. In the Styles panel, uncheck `display: none` (or toggle it off) to make the print DOM visible for inspection.
+
+This gives you a live `.print` DOM tree to debug against, identical to what the plugin uses for actual PDF export.
+
 ## Style Settings
 
 Print zoom level and ruler overlays can be toggled via Obsidian's [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin. Install it to adjust these print options from Obsidian's settings panel without editing CSS.

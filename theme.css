@@ -2616,6 +2616,10 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+  .print > .markdown-preview-view > div:has(> table),
+  .print > .markdown-preview-view > div > table {
+    width: unset;
+  }
 }
 
 /* Print Widgets */
