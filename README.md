@@ -161,3 +161,7 @@ same block, or rule that was removed on purpose).
 ## Author & Version
 
 See [manifest.json](manifest.json) for authorship and version information.
+
+## License
+
+[MIT](LICENSE) © 2026 Maxim Wang

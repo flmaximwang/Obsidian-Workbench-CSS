@@ -17,7 +17,20 @@ Official theme development guide: https://docs.obsidian.md/themes/app-themes/bui
   `src/main.css` is visible in `theme.css`.
 - **Design tokens are overrides only.** `global/design/setting.css` / `color.css` may only define a property
   whose value differs from Obsidian's `app.css` default at the same selector context; `check-tokens.py
-  --strict` must stay at 0 mirrors. Deleting a mirror is only safe when the app defines the same value itself.
+  --strict` must stay at 0 mirrors.
+- **Never audit against `obsidian.asar`'s `app.css` — it is truncated and stale.** The asar copy is 426 KB
+  with older values; the stylesheet the app actually serves at `app://obsidian.md/app.css` is 655 KB.
+  Auditing against the asar copy made `--code-normal: var(--text-muted)` look like a deletable copy (the
+  live app defines `var(--text-normal)`), and removing it silently changed printed inline-code colour from
+  `#5a5a5a` to `#222222`. Fetch the real one with `python3 tools/css-audit/fetch-app-css.py` (needs the
+  debug port), and count a "mirror" only when value AND selector context match AND the app declaration is
+  not wrapped in an at-rule.
+- **Prove a refactor on rendered pixels, not on reading CSS.** Export one real note with the old and the new
+  build (`tools/print-harness/export-probe.py` → `cdp.py png` → thresholded per-page diff) and first prove
+  the pipeline is deterministic by exporting twice with the same build. Keep a copy of the pre-change
+  `theme.css` as the baseline. `tools/print-harness/read-live-tokens.py` reads live variables/DOM state, and
+  `ab-file-line-width.py` A/B-tests a suspect declaration in the running app. Note `cdp.py` needs
+  `suppress_origin=True` on its websocket, or every call 403s.
 - **Never classify a selector as dead by reading it.** Obsidian's CodeMirror 6 keeps many CodeMirror 5 class
   names (`.cm-tab`, `.cm-searching`, `.cm-fat-cursor`, `.cm-animate-fat-cursor`, `.cm-negative`,
   `.cm-positive`, `.cm-strikethrough`, `.cm-invalidchar`, `.cm-force-border`, `.cm-tab-wrap-hack`,

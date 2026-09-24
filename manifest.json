@@ -1,7 +1,7 @@
 {
-	"name": "Workbench",
-	"version": "0.0.1",
-	"minAppVersion": "1.10",
-	"author": "Maxim",
-	"authorUrl": ""
+  "name": "Workbench",
+  "version": "0.1.0",
+  "minAppVersion": "1.10",
+  "author": "Maxim",
+  "authorUrl": "https://github.com/flmaximwang"
 }
