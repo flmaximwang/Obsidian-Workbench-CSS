@@ -261,18 +261,20 @@ body {
 /* ---------------------------------------------------------------------------
  * Design tokens — OVERRIDES ONLY.
  *
- * Rule: this file may only define a custom property whose value DIFFERS from the
- * Obsidian default in app.css at the same selector context (theme `.theme-light`
- * == app `.theme-light`, theme `.theme-dark` == app `.theme-dark`).  Byte-identical
- * copies of app.css defaults are dead weight: they freeze an old app version and
- * bloat theme.css.  All 80 such copies were deleted on 2026-09-24; only the 10 real
- * overrides remain.
- * Guard: python3 tools/css-audit/check-tokens.py --strict
- * Defaults verified against Obsidian 1.6.7 (app.css extracted from obsidian.asar).
+ * Rule: a property may only be defined here when its value DIFFERS from the Obsidian
+ * default in app.css at the same selector context (theme `.theme-light` == app
+ * `.theme-light`).  Byte-identical copies are dead weight: they freeze an old app
+ * version and bloat theme.css.  69 such copies were removed on 2026-09-24; what is
+ * left are real overrides.  Guard: python3 tools/css-audit/check-tokens.py --strict
+ * Reference: app.css from the RUNNING app (app://obsidian.md/app.css).  Never audit
+ * against the obsidian.asar copy — it is truncated and stale.
  * ------------------------------------------------------------------------- */
 
 .theme-light {
   color-scheme: light;
+  --color-base-25: #e3e3e3;
+  --color-base-30: #e0e0e0;
+  --color-base-35: #d4d4d4;
   --color-base-70: #5a5a5a;
   --color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 2.5%));
   --color-accent-2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 5%));
@@ -286,13 +288,25 @@ body {
     0 1px 1.5px 0 rgba(0, 0, 0, .03),
     0 1px 2px 0 rgba(0, 0, 0, .04),
     0 0 0 0 transparent;
+  --shadow-s: 0px 1px 2px rgba(0, 0, 0, 0.028),
+    0px 3.4px 6.7px rgba(0, 0, 0, .042),
+    0px 15px 30px rgba(0, 0, 0, .07);
+  --shadow-l: 0px 1.8px 7.3px rgba(0, 0, 0, 0.071),
+    0px 6.3px 24.7px rgba(0, 0, 0, 0.112),
+    0px 30px 90px rgba(0, 0, 0, 0.2);
 }
 
 .theme-dark {
   color-scheme: dark;
+  --color-base-00: #1e1e1e;
+  --color-base-10: #242424;
+  --color-base-20: #262626;
+  --color-base-25: #2a2a2a;
+  --color-base-30: #363636;
   --color-base-70: #bababa;
   --color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 3.8%));
   --color-accent-2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 3.8%));
+  --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
   --input-shadow: inset 0 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.09),
     0 2px 4px 0 rgba(0, 0, 0, .15),
     0 1px 1.5px 0 rgba(0, 0, 0, .1),
@@ -308,52 +322,89 @@ body {
 /* ---------------------------------------------------------------------------
  * Design tokens — OVERRIDES ONLY.
  *
- * Rule: this file may only define a custom property whose value DIFFERS from the
- * Obsidian default in app.css at the same selector context (theme `body` == app
- * `body`).  Byte-identical copies of app.css defaults are dead weight: they freeze
- * an old app version and bloat theme.css.  All 354 such copies were deleted on
- * 2026-09-24; only the 18 real overrides remain.
+ * Rule: a property may only be defined here when its value DIFFERS from the Obsidian
+ * default in app.css at the same selector context (theme `body` == app `body`).
+ * Byte-identical copies are dead weight: they freeze an old app version and bloat
+ * theme.css.  312 such copies were removed on 2026-09-24; everything left is a real
+ * override (the theme deliberately pins some pre-color-mix() values).
  * Guard: python3 tools/css-audit/check-tokens.py --strict
- * Defaults verified against Obsidian 1.6.7 (app.css extracted from obsidian.asar).
+ * Reference: app.css fetched from the RUNNING app (app://obsidian.md/app.css).  Never
+ * audit against the obsidian.asar copy — it is truncated and holds different values
+ * (that mistake deleted this file's --code-normal override once).
  * ------------------------------------------------------------------------- */
 
 body {
-  /* Section labels mirror app.css so a future diff against it stays readable;
-     only the groups that still hold an override are kept. */
-
-  /* Text — bold */
+  /* NOTE: Bold */
   --bold-weight: var(--font-semibold);
-
-  /* Embeds */
+  --canvas-color-1: var(--color-red-rgb);
+  --canvas-color-2: var(--color-orange-rgb);
+  --canvas-color-3: var(--color-yellow-rgb);
+  --canvas-color-4: var(--color-green-rgb);
+  --canvas-color-5: var(--color-cyan-rgb);
+  --canvas-color-6: var(--color-purple-rgb);
+  --checkbox-size: var(--font-text-size);
+  --code-normal: var(--text-muted);
   --embed-border-left: 2px solid var(--interactive-accent);
   --embed-border-right: none;
-
-  /* Inline title */
+  --icon-m: 18px;
+  --icon-m-stroke-width: 1.75px;
   --inline-title-size: 1.75rem;
-
-  /* File navigator */
+  --input-border-width: 1px;
+  --link-unresolved-decoration-color: hsla(var(--interactive-accent-hsl), 0.3);
   --nav-item-color-highlighted: var(--text-accent-hover);
+  --nav-item-background-selected: hsla(var(--color-accent-hsl), 0.15);
   --nav-item-children-padding-left: var(--size-2-2);
   --nav-item-children-margin-left: var(--size-4-3);
   --nav-item-white-space: nowrap;
-
-  /* Metadata */
   --metadata-padding: var(--size-4-2) 0px;
   --metadata-gap: 5px;
   --metadata-label-width: 10em;
-
-  /* Popovers — file previews */
+  --modal-border-color: var(--color-base-40, var(--background-modifier-border-focus));
   --popover-max-height: 70vh;
   --popover-pdf-width: 600px;
   --popover-pdf-height: 800px;
-
-  /* Tabs — stacked */
+  --popover-font-size: var(--font-text-size);
+  --prompt-border-color: var(--color-base-40, var(--background-modifier-border-focus));
+  --radius-xl: 16px;
+  /* Scrollbars */
+  --scrollbar-active-thumb-bg: rgba(var(--mono-rgb-100), 0.2);
+  --scrollbar-bg: rgba(var(--mono-rgb-100), 0.05);
+  --scrollbar-thumb-bg: rgba(var(--mono-rgb-100), 0.1);
+  --search-icon-size: 18px;
+  /* Sidebar */
+  --sidebar-markdown-font-size: calc(var(--font-text-size) * 0.9);
+  /* Sliders */
+  --slider-thumb-border-width: 1px;
+  --slider-thumb-radius: 50%;
+  --slider-track-background: var(--background-modifier-border);
+  --slider-track-height: 3px;
+  --status-bar-border-width: 1px 0 0 1px;
+  --status-bar-scroll-padding: calc(var(--status-bar-font-size) + 18px);
+  --swatch-height: 24px;
+  --swatch-width: 24px;
+  --swatch-shadow: inset 0 0 0 1px rgba(var(--mono-rgb-100), 0.15);
   --tab-stacked-text-align: left;
-
-  /* Color mappings — accent HSL */
+  --tag-background: hsla(var(--interactive-accent-hsl), 0.1);
+  --tag-background-hover: hsla(var(--interactive-accent-hsl), 0.2);
+  --tag-border-color: hsla(var(--interactive-accent-hsl), 0.15);
+  --tag-border-color-hover: hsla(var(--interactive-accent-hsl), 0.15);
+  /* Vault name */
+  --vault-name-font-size: var(--font-ui-small);
+  --vault-name-font-weight: var(--font-medium);
+  --vault-name-color: var(--text-normal);
+  /* Workspace */
+  --workspace-background-translucent: rgba(var(--mono-rgb-0), 0.6);
+  /* Color mappings ------------------------ */
+  /* Accent HSL values */
   --accent-h: 254;
   --accent-s: 80%;
   --accent-l: 68%;
+  --background-modifier-hover: rgba(var(--mono-rgb-100), 0.075);
+  --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.15);
+  --background-modifier-message: rgba(0, 0, 0, 0.9);
+  --text-selection: hsla(var(--color-accent-hsl), 0.2);
+  --text-highlight-bg-rgb: 255, 208, 0;
+  --text-highlight-bg: rgba(var(--text-highlight-bg-rgb), 0.4);
 }
 
 /* SECTION: Box shadow */

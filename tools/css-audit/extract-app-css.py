@@ -44,6 +44,10 @@ def extract(asar: Path, member: str, out: Path) -> Path:
 
 
 def main(argv: list[str] | None = None) -> int:
+    print("WARNING: the app.css inside obsidian.asar is TRUNCATED and STALE "
+          "(426 KB vs 655 KB served at runtime, with different values).\n"
+          "         Do not audit theme tokens against it — use: "
+          "python3 tools/css-audit/fetch-app-css.py\n", file=sys.stderr)
     ap = argparse.ArgumentParser(
         description="Extract app.css (or any member) from Obsidian's packed obsidian.asar.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,

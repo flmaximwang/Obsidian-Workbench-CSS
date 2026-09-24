@@ -59,8 +59,10 @@ def list_targets(port: int) -> list[dict]:
 
 class CDP:
     def __init__(self, ws_url: str, timeout: float = 30.0):
+        # suppress_origin: Electron 拒绝带 Origin 头的 devtools 连接（403），
+        # 见 README §0 的注记。websocket-client 默认会带，必须显式关掉。
         self.ws = websocket.create_connection(
-            ws_url, timeout=timeout, max_size=512 * 1024 * 1024
+            ws_url, timeout=timeout, max_size=512 * 1024 * 1024, suppress_origin=True
         )
         self._id = 0
 

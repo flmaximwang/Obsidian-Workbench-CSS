@@ -137,8 +137,9 @@ Print zoom level and ruler overlays can be toggled via Obsidian's [Style Setting
 
 ```bash
 # Is any src file re-declaring an Obsidian default? (mirrors must stay at 0)
-python3 tools/css-audit/extract-app-css.py        # obsidian.asar -> /tmp/app.css (426 KB)
+python3 tools/css-audit/fetch-app-css.py          # app.css from the RUNNING app -> /tmp/app-live.css (655 KB)
 python3 tools/css-audit/check-tokens.py --strict  # exit 1 if a mirror exists
+# NEVER use extract-app-css.py's obsidian.asar copy as the reference: it is truncated and stale.
 
 # Which declarations can never apply? (duplicate-in-block, -ms-/-moz-/-o- prefixes)
 node tools/css-audit/dead-declarations.js src
