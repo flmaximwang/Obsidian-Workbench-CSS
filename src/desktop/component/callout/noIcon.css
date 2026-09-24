@@ -1,0 +1,78 @@
+/* ================================== Custom Callouts ============================= */
+/* NOTE: Callouts without icons */
+.callout[data-callout*="no-icon"] .callout-icon {
+  display: none
+}
+
+.callout[data-callout="no-icon"] {
+  --callout-color: transparent
+}
+
+.callout[data-callout="no-icon"].is-collapsible:not(.is-collapsed)>.callout-title,
+.callout[data-callout="no-icon"]:not(.is-collapsible)>.callout-title {
+  border-bottom: solid 1px var(--color-base-30);
+}
+
+[data-callout*="button"] {
+  background-color: transparent;
+}
+
+[data-callout*="button"]>.callout-title {
+  display: none
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout*="button"]>.callout-content {
+  padding: 0;
+  background-color: transparent;
+}
+
+:is(.markdown-source-view.mod-cm6, .markdown-preview-view) .callout[data-callout="blank-container"] {
+  --callout-color: transparent;
+  margin-bottom: 0px;
+}
+
+
+
+
+
+/* Special Adjustment for Shimmering Focus. Differing font size in callout */
+/*	div[data-callout*="blank-container"] .callout-content :is(p,ul,li) { font-size: unset; line-height: inherit; }*/
+/*	div[data-callout*="blank-container"] .callout-content :is(li) { margin: unset; }*/
+/* === Text Justify === */
+.text-justify :is(.markdown-preview-view p, .markdown-source-view .cm-line) {
+  text-align: justify;
+}
+
+/* === Floating Callout === */
+@media (min-width: 500px) {
+  .markdown-reading-view div[data-callout-metadata|="left"].callout {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  .markdown-reading-view div[data-callout-metadata|="right"].callout {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  div[data-callout^="blank-container"].callout:is(div[data-callout-metadata|="left"], div[data-callout-metadata|="right"]) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  div[data-callout-metadata*="-small"].callout {
+    width: var(--float-small-width);
+  }
+
+  div[data-callout-metadata*="-medium"].callout {
+    width: var(--float-medium-width);
+  }
+}
+
+@media (min-width: 750px) {
+  div[data-callout-metadata$="large"].callout {
+    width: var(--float-large-width);
+  }
+}

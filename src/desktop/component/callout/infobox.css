@@ -1,0 +1,65 @@
+/* NOTE: Infobox */
+/*Infobox from https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/S%20-%20Callouts.css*/
+:is(.is-mobile, .is-live-preview) .callout[data-callout*=infobox] {
+  float: unset !important;
+  max-width: 100%;
+  margin: 0 !important;
+}
+
+.callout.callout[data-callout*=infobox] {
+  --callout-color: var(--interactive-accent-rgb);
+  background: transparent;
+  border: 0;
+  box-shadow: none !important;
+  margin: 0;
+  margin-left: 8px;
+  align-self: center;
+  float: right;
+}
+
+.callout.callout[data-callout*=infobox] .callout-title {
+  background-color: transparent;
+  padding: 0;
+  justify-content: center;
+}
+
+.callout.callout[data-callout*=infobox].is-collapsed .callout-fold {
+  padding: 3px 10px;
+}
+
+.callout.callout[data-callout*=infobox]:not(:hover):not(.is-collapsible) .callout-title,
+.callout.callout[data-callout*=infobox]:not(.is-collapsible) .callout-title :is(.callout-icon, .callout-fold, .callout-title-inner) {
+  display: none;
+}
+
+.callout.callout[data-callout*=infobox] .callout-content {
+  padding: 1px;
+  margin: 0;
+  border-radius: var(--radius, var(--co-radius));
+}
+
+.callout.callout[data-callout*=infobox] table {
+  width: 100%;
+}
+
+.callout.callout[data-callout*=infobox] :is(p, table) {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+}
+
+.callout.callout[data-callout*=infobox] :is(h1, h2, h3, h4, h5, h6) {
+  text-align: center;
+  margin: 0;
+  padding: 2px;
+  color: var(--text-normal);
+}
+
+.callout.callout[data-callout*=infobox] p,
+.callout.callout[data-callout*=infobox] .internal-embed,
+.callout.callout[data-callout*=infobox] img {
+  margin: auto;
+  padding: auto;
+  text-align: center;
+}
+

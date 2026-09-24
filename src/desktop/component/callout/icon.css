@@ -1,0 +1,49 @@
+/* NOTE: Icon */
+.show-inline-title .callout.callout:is([data-callout-metadata^='icon'],
+  .show-inline-title [data-callout='icon']) {
+  margin-top: -7em;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) {
+  flex: none !important;
+  border-left: 0;
+  background-color: transparent;
+  box-shadow: none;
+  float: left;
+  margin-top: -4em;
+  margin-bottom: 0;
+}
+
+.is-live-preview .callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) {
+  margin-top: -1.6em;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) .callout-title {
+  display: none;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon']) .callout {
+  overflow: visible;
+  margin: 0;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon'])>.callout-content {
+  padding: 0;
+}
+
+.callout.callout:is([data-callout-metadata^='icon'],
+  [data-callout='icon'])>.callout-content>svg {
+  height: calc(1em + 12px);
+  padding: 6px;
+  border-radius: 4px;
+  pointer-events: initial;
+  transition: ease .2s background;
+  font-size: 4em;
+  margin-bottom: 0px;
+}
+

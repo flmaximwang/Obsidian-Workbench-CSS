@@ -2658,9 +2658,7 @@ body {
 
 .callout.callout[data-callout="timeline"]>.callout-content {
   border-left: none;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto 1fr;
   grid-template-columns: 0.3fr auto 1fr;
   -webkit-column-gap: 1.5rem;
   column-gap: 1.5rem;
@@ -2676,10 +2674,7 @@ body {
 .callout.callout[data-callout="timeline"]>.callout-content hr {
   height: 100%;
   width: 0.5rem;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-column: 2 / span 1;
-  -ms-grid-row: 1;
   grid-row-start: 1;
   background-color: var(--text-normal);
   opacity: 0.1;
@@ -2693,12 +2688,8 @@ body {
 .callout.callout[data-callout="timeline"] .callout-content blockquote {
   color: var(--text-on-accent);
   display: block;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
   grid-column: 1 / span 1;
   position: relative;
-  -ms-flex-item-align: start;
-  -ms-grid-row-align: start;
   align-self: start;
   text-align: left;
   box-shadow: none;
@@ -2734,8 +2725,6 @@ body {
 
 .callout.callout[data-callout="timeline"] .callout-content>*:not(blockquote):not(hr) {
   position: relative;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
   grid-column: 3 / span 1;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -2995,6 +2984,9 @@ div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data
 
 div[data-callout-metadata*="multi-column"].callout > .callout-content > div[data-callout-metadata*="grow-13"] { flex-grow: 13; }
 
+/* NOTE: 通用 callout 行为：floating cite（浮动引用）与无标题/无阴影（plain）样式。
+ * 具体功能（kanban / stickies / infobox / icon / 宽度语法…）见同目录其余文件。 */
+
 /* NOTE: Callouts for floating cite */
 
 :is(.markdown-preview-view, .markdown-source-view.mod-cm6) .callout[data-callout-metadata*="float-content"] > .callout-content {
@@ -3137,7 +3129,11 @@ div[data-callout="multi-column-flex-height"].callout:not(.is-collapsed) {
   box-shadow: unset;
 }
 
-/* NOTE: Unknown */
+/* NOTE: 杂项 callout 开关（原注释为 “Unknown”）
+ * 本文件按 data-callout-metadata 提供：嵌套 callout 缩进、段落两端对齐/缩进、
+ * 隐藏图标 / 隐藏边框 / 隐藏标题、left|right|center 位置语法、块内元素不换行、
+ * 块内网格布局、百分比宽度、banner 横幅、cloze 模糊。
+ * 这些选择器不声明新功能，只覆盖 app.css 的默认 callout 外观。 */
 
 .is-live-preview .admonition-content>* br {
   display: unset;
@@ -3912,7 +3908,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
 .callout[data-callout="stickies"]>.callout-content {
   overflow: visible;
   text-align: center;
-  transition: width 2s;
   padding: 5px;
   margin: 18px;
   position: relative;
@@ -3922,9 +3917,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
   max-width: 50%;
   background-color: var(--stickies-color-1);
   -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
   transform: rotate(2deg);
   transition: all 2s ease;
   z-index: 1;
@@ -3945,9 +3937,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
   display: inline-block;
   position: absolute;
   -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
   transform: rotate(-11deg);
   z-index: 11;
 }
@@ -3967,9 +3956,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
   border-bottom-left-radius: 0;
   z-index: 10;
   -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
   transform: rotate(-11deg);
 }
 
@@ -3991,9 +3977,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
   max-width: 50%;
   background-color: var(--stickies-color-2);
   -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
   transform: rotate(-2deg);
   transition: all 2s ease;
   z-index: 1;
@@ -4004,9 +3987,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
 
 .callout[data-callout="stickies2"]>.callout-content::after {
   content: "";
-  display: block;
-  height: 32px;
-  width: 2px;
   position: absolute;
   left: 50%;
   top: -10px;
@@ -4045,7 +4025,6 @@ body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-
   max-width: 235px;
   min-height: 235px;
   padding-top: 2.5em;
-  font-family: Arial;
   margin-top: 20px;
   margin-right: 25px;
   position: relative;
@@ -4084,18 +4063,12 @@ div.callout[data-callout="stickies3"]>.callout-content ul {
   top: -13px;
   left: 20%;
   -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  -o-transform: rotate(-2deg);
-  -ms-transform: rotate(-2deg);
   transform: rotate(-2deg);
 }
 
 .callout[data-callout="stickies3"]>.callout-content a {
   color: #6b824f;
   -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  -ms-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 
@@ -4141,36 +4114,24 @@ div.callout[data-callout="stickies3"]>.callout-content ul {
 .callout:is([data-callout-metadata*='yellow']) .callout-content {
   background: #F7E999;
   -webkit-transform: rotate(2deg);
-  -moz-transform: rotate(2deg);
-  -o-transform: rotate(2deg);
-  -ms-transform: rotate(2deg);
   transform: rotate(2deg);
 }
 
 .callout:is([data-callout-metadata*='blue']) .callout-content {
   background: #b9dcf4;
   -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  -o-transform: rotate(-2deg);
-  -ms-transform: rotate(-2deg);
   transform: rotate(-2deg);
 }
 
 .callout:is([data-callout-metadata*='pink']) .callout-content {
   background: #FFBDA3;
   -webkit-transform: rotate(1deg);
-  -moz-transform: rotate(1deg);
-  -o-transform: rotate(1deg);
-  -ms-transform: rotate(1deg);
   transform: rotate(1deg);
 }
 
 .callout:is([data-callout-metadata*='green']) .callout-content {
   background: #CAF4B9;
   -webkit-transform: rotate(-1deg);
-  -moz-transform: rotate(-1deg);
-  -o-transform: rotate(-1deg);
-  -ms-transform: rotate(-1deg);
   transform: rotate(-1deg);
 }
 

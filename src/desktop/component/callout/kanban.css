@@ -1,0 +1,202 @@
+/* NOTE: Pseudo Kanban*/
+.callout.callout[data-callout*="kanban"] ul {
+  display: flex;
+  flex-direction: row;
+  border: 0px solid var(--p-kanban-border-color);
+  padding: 0;
+  border-radius: var(--radius-m);
+  flex-wrap: wrap;
+}
+
+.callout.callout[data-callout*="kanban"] li .list-bullet {
+  display: none;
+}
+
+.callout.callout[data-callout*="kanban"] ul>li {
+  flex: 1 1 20%;
+  padding: 0.1em 1em 0.1em 0.8em;
+  margin: 0 0.3em 0.3em 0 !important;
+  list-style: none;
+  border: 1px solid var(--p-kanban-border-color);
+  border-left: 1px solid var(--p-kanban-border-color) !important;
+  border-radius: var(--radius-s);
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.callout.callout[data-callout*="kanban"] ul li.task-list-item .task-list-item-checkbox {
+  margin-left: auto;
+}
+
+.callout.callout[data-callout*="kanban"] ul .list-collapse-indicator.collapse-indicator.collapse-icon::before {
+  color: var(--text-accent);
+  transition: transform 10ms linear 0s;
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+1) {
+  background-color: var(--p-kanban-color-1);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+2) {
+  background-color: var(--p-kanban-color-2);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+3) {
+  background-color: var(--p-kanban-color-3);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+4) {
+  background-color: var(--p-kanban-color-4);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+5) {
+  background-color: var(--p-kanban-color-5);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+6) {
+  background-color: var(--p-kanban-color-6);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n+7) {
+  background-color: var(--p-kanban-color-7);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] ul>li:nth-of-type(8n) {
+  background-color: var(--p-kanban-color-8);
+}
+
+.callout.callout[data-callout*="kanban"] ul>li:nth-of-type(n) {
+  background-color: var(--p-kanban-color-simple);
+  padding-left: 1em;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+1) {
+  border-top: 6px solid var(--p-kanban-color-1) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+2) {
+  border-top: 6px solid var(--p-kanban-color-2) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+3) {
+  border-top: 6px solid var(--p-kanban-color-3) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+4) {
+  border-top: 6px solid var(--p-kanban-color-4) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+5) {
+  border-top: 6px solid var(--p-kanban-color-5) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+6) {
+  border-top: 6px solid var(--p-kanban-color-6) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n+7) {
+  border-top: 6px solid var(--p-kanban-color-7) !important;
+}
+
+.callout.callout[data-callout*="kanban"] .callout-content>ul:first-child>li:nth-of-type(8n) {
+  border-top: 6px solid var(--p-kanban-color-8) !important;
+}
+
+body.simple-p-kanban .callout.callout[data-callout*="kanban"] ul:first-child>li:nth-of-type(n) {
+  border-top: none !important;
+}
+
+body:not(.remove-shadow-p-kanban) .callout.callout[data-callout*="kanban"] ul>li:hover {
+  transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1);
+  box-shadow: 0 3px 5px 0 var(--p-kanban-color-shadow), 0 3px 1px -3px var(--p-kanban-color-shadow), 2px 3px 3px 0 var(--p-kanban-color-shadow);
+}
+
+.callout.callout[data-callout*="kanban"] ul ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0rem;
+  margin-top: 0.5rem;
+  border-radius: 0;
+  border: 0;
+  background: none;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li:not(.task-list-item) {
+  width: 100%;
+  display: block;
+  background-color: var(--p-kanban-card-color-1) !important;
+}
+
+body.remove-shadow-p-kanban .callout.callout[data-callout*="kanban"] ul ul li:hover {
+  background: var(--p-kanban-card-color-2) !important;
+  border-color: var(--p-kanban-border-color) !important;
+  border-left: 1px solid var(--p-kanban-border-color) !important;
+}
+
+body.remove-shadow-p-kanban.theme-dark .callout.callout[data-callout*="kanban"] ul ul li:hover {
+  border-color: #696969e1 !important;
+  border-left: 1px solid #696969e1 !important;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li .task-list-item-checkbox {
+  margin-left: 1.5rem !important;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul ul {
+  margin-right: 0;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul::before {
+  border-left: 0;
+  border: 0;
+}
+
+:is(.markdown-preview-view, .markdown-rendered).is-readable-line-width.callout.callout[data-callout*="kanban"] .markdown-preview-sizer>div>ul {
+  max-width: 100%;
+}
+
+.callout.callout[data-callout*="kanban"] :is(ol, ul).contains-task-list :is(ol, ul) {
+  position: initial;
+}
+
+.callout.callout[data-callout*="kanban"] :is(ol, ul).contains-task-list :is(ol, ul)::before {
+  all: initial;
+}
+
+.callout.callout[data-callout*="kanban"] ul>li.task-list-item {
+  flex: 1 1 20%;
+  padding: 0.1em 1em;
+  list-style: none;
+  border: 1px solid var(--p-kanban-border-color);
+  border-left: 1px solid var(--p-kanban-border-color) !important;
+  border-radius: var(--radius-s);
+  word-wrap: break-word;
+  word-break: break-word;
+  text-indent: 0.01em;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li.task-list-item {
+  width: 100%;
+  display: block;
+  padding-left: 2em;
+  text-indent: -3em;
+  background-color: var(--p-kanban-card-color-1) !important;
+}
+
+.callout.callout[data-callout*="kanban"] ul ul li.task-list-item .list-collapse-indicator.collapse-indicator.collapse-icon {
+  text-indent: -1em;
+}
+
+body:not(.default-icons) .callout.callout[data-callout*="kanban"] li.task-list-item .list-collapse-indicator.collapse-indicator.collapse-icon::before {
+  margin-left: -0.2em;
+}
+
+body:not(.default-icons) .callout.callout[data-callout*="kanban"] li.task-list-item .task-list-item.is-collapsed .list-collapse-indicator.collapse-indicator.collapse-icon::before {
+  transform: translateX(-0.9em) translateY(-1em) rotate(-90deg);
+}
+
+body.colorful-p-kanban .callout.callout[data-callout*="kanban"] .task-list-item-checkbox {
+  border-color: var(--text-normal) !important;
+}
+
