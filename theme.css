@@ -2270,8 +2270,16 @@ body {
   --document-radiuses: 3px 3px 3px 3px;
   --scroller-paddings: 0px;
   --scroller-margins: 0px;
-  --file-line-width: calc(var(--font-text-size) * var(--words-per-line));
-  --document-width: calc(var(--font-text-size) * var(--words-per-line));
+  /* NOTE: --file-line-width / --document-width are intentionally NOT set here.
+     They used to be `calc(var(--font-text-size) * var(--words-per-line))` with
+     --words-per-line defined nowhere, so both were guaranteed-invalid and silently
+     killed the app's own `body { --file-line-width: 700px }` plus the 8 rules that
+     consume it. Measured in the live app (source + preview, readable line width on):
+     restoring the app's 700px changes no computed width of .cm-sizer/.cm-content/
+     .cm-line/.markdown-preview-sizer, because this theme caps those with
+     --width-is-readable-line-width anyway. Leaving them unset also gives the app's
+     release-notes and built-in-browser reader views their default width back.
+     Re-measure with: python3 tools/print-harness/ab-file-line-width.py */
   --file-folding-offset: 24px;
   --file-margins: var(--size-4-8);
   --file-header-font-size: var(--font-ui-small);
