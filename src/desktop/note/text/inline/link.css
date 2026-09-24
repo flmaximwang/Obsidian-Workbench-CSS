@@ -179,11 +179,9 @@ body.is-mobile .markdown-source-view.mod-cm6 .cm-underline {
 
 .cm-s-obsidian.HyperMD-with-alt span.cm-url,
 .cm-s-obsidian.HyperMD-with-alt span.cm-link,
-.cm-s-obsidian.HyperMD-with-alt .cm-link+.CodeMirror-widget,
 .cm-s-obsidian.HyperMD-with-alt span.cm-hashtag,
 .cm-s-obsidian.HyperMD-with-ctrl span.cm-url,
 .cm-s-obsidian.HyperMD-with-ctrl span.cm-link,
-.cm-s-obsidian.HyperMD-with-ctrl .cm-link+.CodeMirror-widget,
 .cm-s-obsidian.HyperMD-with-ctrl span.cm-hashtag {
   cursor: var(--cursor-link);
 }

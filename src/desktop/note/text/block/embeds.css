@@ -1,6 +1,5 @@
 /* NOTE: Block Embeds */
 .markdown-source-view.mod-cm6 .cm-content>[contenteditable=false] {
-  contain: layout !important;
   overflow: visible;
 }
 

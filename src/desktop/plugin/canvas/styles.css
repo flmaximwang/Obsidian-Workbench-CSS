@@ -38,7 +38,6 @@ body.theme-light {
   --shadow-drag: 0px 2px 10px rgba(0, 0, 0, 0.1);
   --shadow-border-accent: 0 0 0 2px var(--color-accent);
   --zoom-multiplier: 1;
-  background-color: var(--canvas-background);
   overflow: hidden;
   contain: strict;
   touch-action: none;
