@@ -2624,6 +2624,37 @@ body {
 
 /* Print Widgets */
 
+/* NOTE: Bases 视图会让整份导出 PDF 被整体缩小
+ *
+ * 现象：含 `![[xxx.base]]` 的笔记导出时，A4 页面上所有内容等比缩小到 ~2/3，
+ *       页面因此显得比内容宽 1.5 倍（对比不含 Base 的笔记则完全正常）。
+ * 原因：Bases 的表格宽度跟着视口走；在打印布局里它把文档撑到页面宽，
+ *       Chromium 打印的 fit-to-page 于是对整页做缩放（实测系数 0.667）。
+ * 关键：判定发生在“非打印媒体”的布局里 —— 这套规则**不能**包进 `@media print`，
+ *       否则无效（实测：带 @media print 的 max-width/overflow 规则无效，
+ *       媒体无关的同一组规则有效）。作用域限定在 `.print`，不影响阅读视图。
+ * 实测（SEC-001，scale 0.9 + 默认页边距）：
+ *       修复前 714px 元素印成 321pt（应 482pt）、17 页；
+ *       修复后 482pt、25 页，且 Base 的列头在 PDF 文本层里齐全（没有裁列）。
+ */
+
+.print .bases-embed,
+.print .bases-view {
+    max-width: var(--print-page-width);
+    overflow: hidden;
+}
+
+.print .bases-table-container {
+    overflow-x: hidden;
+}
+
+.print .bases-td,
+.print .bases-table-header {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
 @media print {
   .print .hide-in-print {
     visibility: hidden;
