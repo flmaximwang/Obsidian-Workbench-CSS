@@ -10,87 +10,40 @@
  * Defaults verified against Obsidian 1.6.7 (app.css extracted from obsidian.asar).
  * ------------------------------------------------------------------------- */
 body {
-  /* SECTION: Animations */
-  
-  /* SECTION: Text */
-  /* NOTE: Relative font sizes */
-  /* NOTE: UI font sizes */
-  /* NOTE: Font weights */
-  /* NOTE: Bold */
+  /* Section labels mirror app.css so a future diff against it stays readable;
+     only the groups that still hold an override are kept. */
+
+  /* Text — bold */
   --bold-weight: var(--font-semibold);
-  
-  /* SECTION: Widgets */
-  /* NOTE: Blockquotes */
-  /* NOTE: Footnotes */
-  /* NOTE: Buttons */
-  
-  /* SECTION: Canvas */
-  
-  /* Borders */
-  /* Canvas */
-  /* NOTE: Checkboxes */
-  /* NOTE: Code */
-  /* NOTE: Collapse icons */
-  /* NOTE: Cursor */
-  /* NOTE: Dialogs - e.g. small modals, confirmations */
-  /* NOTE: Dividers â€” between panes */
-  /* NOTE: Dragging */
-  /* NOTE: Embeds */
+
+  /* Embeds */
   --embed-border-left: 2px solid var(--interactive-accent);
   --embed-border-right: none;
-  /* NOTE: Blocks */
-  /* Graphs */
 
-  /* NOTE: View header */
-  /* Horizontal rules */
-  /* Icons */
-  /* NOTE: Inline title */
+  /* Inline title */
   --inline-title-size: 1.75rem;
-  /* Inputs */
-  /* Italic */
-  /* Z-index */
-  
-  /* Line heights */
-  /* Links */
-  /* NOTE: File navigator */
+
+  /* File navigator */
   --nav-item-color-highlighted: var(--text-accent-hover);
   --nav-item-children-padding-left: var(--size-2-2);
   --nav-item-children-margin-left: var(--size-4-3);
   --nav-item-white-space: nowrap;
-  /* NOTE: Metadata */
+
+  /* Metadata */
   --metadata-padding: var(--size-4-2) 0px;
   --metadata-gap: 5px;
   --metadata-label-width: 10em;
-  /* Modals - e.g. settings, community themes, community plugins */
-  /* PDF view */
-  /* Popovers - file previews */
+
+  /* Popovers — file previews */
   --popover-max-height: 70vh;
   --popover-pdf-width: 600px;
   --popover-pdf-height: 800px;
-  /* Prompts - e.g. quick switcher, command palette */
-  /* Radiuses */
-  /* Ribbon */
-  /* Scrollbars */
-  /* Search */
-  /* Layout sizing - for padding and margins */
-  /* Sidebar */
-  /* Sliders */
-  /* NOTE: Status bar */
-  /* Swatch for color inputs */
-  /* Tabs */
-  /* Stacked tabs */
+
+  /* Tabs — stacked */
   --tab-stacked-text-align: left;
-  /* Tags */
-  /* Window frame */
-  /* Toggles */
-  /* Vault name */
-  /* Workspace */
-  /* Color mappings ------------------------ */
-  /* Accent HSL values */
+
+  /* Color mappings — accent HSL */
   --accent-h: 254;
   --accent-s: 80%;
   --accent-l: 68%;
-  /* Backgrounds */
-  /* Inputs */
-  /* Text */
 }
