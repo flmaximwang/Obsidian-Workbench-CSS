@@ -1,7 +1,9 @@
 {
+  "showInlineTitle": false,
   "promptDelete": false,
-  "showFrontmatter": true,
+  "showFrontmatter": false,
   "spellcheck": true,
   "strictLineBreaks": false,
-  "useTab": false
+  "useTab": false,
+  "propertiesInDocument": "hidden"
 }

@@ -63,7 +63,7 @@ date: 2026-07-07
 
 ## 测试说明
 
-- **前提**: 在 Obsidian 中启用 `Obsidian-Workbench-CSS` 主题
+- **前提**: 在 Obsidian 中启用 `Workbench` 主题（本仓库根目录就是主题本体；`VaultExample/.obsidian/themes/Workbench/` 下用两个符号链接指向 `theme.css` 与 `manifest.json`）
 - **推荐插件**: [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) — 调整打印缩放和标尺
 - **推荐插件**: [Better Export PDF](https://github.com/l1xnan/obsidian-better-export-pdf) — 调试打印 CSS
 - **版本要求**: Obsidian ≥ 1.10

@@ -7,3 +7,5 @@ TempVault
 .codegraph/
 .hermes
 pxdiff.png
+VaultExample/.obsidian/themes/
+VaultExample/.obsidian/workspace*.json

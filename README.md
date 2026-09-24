@@ -2,6 +2,10 @@
 
 An [Obsidian](https://obsidian.md) theme with floating sidebars, callout-driven layouts, print-optimized page sizing, and a comprehensive design-token system.
 
+![Workbench](screenshot.png)
+
+*Screenshot from the demo vault in this repo (`VaultExample/`) — all content is synthetic placeholder.*
+
 > **Minimum Obsidian version:** 1.10
 
 ## Features

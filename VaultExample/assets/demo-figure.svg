@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Synthetic demo chart">
+  <rect width="640" height="360" fill="#ffffff"/>
+  <g stroke="#e0e0e0" stroke-width="1">
+    <path d="M64 300H600M64 240H600M64 180H600M64 120H600M64 60H600"/>
+  </g>
+  <g stroke="#555555" stroke-width="1.5" fill="none">
+    <path d="M64 20V300H600"/>
+  </g>
+  <path d="M64 60C120 92 150 250 210 264C270 278 300 282 360 286C440 291 520 293 600 294"
+        stroke="#a882ff" stroke-width="2.5" fill="none"/>
+  <path d="M64 120C140 150 190 232 260 246C330 260 420 266 600 268"
+        stroke="#086ddd" stroke-width="2.5" fill="none"/>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5a5a5a">
+    <text x="64" y="20">synthetic demo figure</text>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#707070">
+    <text x="64" y="322">fraction</text>
+    <text x="546" y="322">volume</text>
+    <text x="24" y="64">A</text>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#a882ff">
+    <text x="470" y="60">series A</text>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#086ddd">
+    <text x="470" y="120">series B</text>
+  </g>
+</svg>
