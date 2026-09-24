@@ -7,13 +7,9 @@ settings:
 @import-glob "global/*.css";
 @import-glob "global/classes/**/*.css";
 @import-glob "global/design/**/*.css";
-@import-glob "global/design/*.css";
 
 @import-glob "desktop/app/**/*.css";
-@import-glob "desktop/app/*.css";
 @import "desktop/note/main.css";
 @import-glob "desktop/component/**/main.css";
 @import-glob "desktop/component/*.css";
 @import-glob "desktop/plugin/**/*.css";
-
-@import-glob "mobile/**/*.css";

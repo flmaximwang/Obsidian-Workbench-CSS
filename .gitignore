@@ -1,2 +1,8 @@
 node_modules
 TempVault
+.DS_Store
+*.bak
+*.bak2
+.reasonix/
+.codegraph/
+.hermes

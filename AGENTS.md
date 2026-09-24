@@ -6,6 +6,32 @@ Maxim's Workbench is an Obsidian theme featured by floating sidebars and optimiz
 
 Official theme development guide: https://docs.obsidian.md/themes/app-themes/build-theme
 
+## Codebase conventions
+
+- `src/**` is the source of truth; `theme.css` is generated. Never judge a change without rebuilding and
+  diffing the artifact (`tools/css-audit/verify-refactor.js` reports differences as selectors/declarations,
+  not text lines).
+- `src/main.css` must keep its `/* @settings ... */` header **first**: `postcss-collect-settings.js` hoists
+  every later `@settings` comment by appending it to that block, so moving or removing it breaks the Style
+  Settings panel. Keep the file's line count stable when possible — the trailing-newline shape of
+  `src/main.css` is visible in `theme.css`.
+- **Design tokens are overrides only.** `global/design/setting.css` / `color.css` may only define a property
+  whose value differs from Obsidian's `app.css` default at the same selector context; `check-tokens.py
+  --strict` must stay at 0 mirrors. Deleting a mirror is only safe when the app defines the same value itself.
+- **Never classify a selector as dead by reading it.** Obsidian's CodeMirror 6 keeps many CodeMirror 5 class
+  names (`.cm-tab`, `.cm-searching`, `.cm-fat-cursor`, `.cm-animate-fat-cursor`, `.cm-negative`,
+  `.cm-positive`, `.cm-strikethrough`, `.cm-invalidchar`, `.cm-force-border`, `.cm-tab-wrap-hack`,
+  `.HyperMD-*` are all live; verify against the extracted `app.css`). Only `.CodeMirror-*` and `.mod-cm5` are
+  provably gone in Obsidian ≥ 1.x. The opposite also holds: a declaration overridden later in the *same*
+  block is dead, but the same property in a *different* block is normal cascade.
+- Vendored / upstream-copied blocks (callout kanban, stickies, banner switches, shadow presets) keep their
+  upstream form; clean only what is provably inert, and never rewrite a value to "fix" a look. Unresolvable
+  `var()` hooks (`--stickies-color-1`, `--p-kanban-*`, `--theme-color`, `--cmdr-spacing`) are **intentional
+  override points** for snippets/plugins — leave them undefined.
+- Keep `*.css.bak*` out of `src/`: the glob skips them, but tooling and agents read them as source.
+- `tools/css-audit/` (analyze / dead-declarations / fix-dead-declarations / extract-app-css / check-tokens /
+  verify-refactor) is the audit toolset; see README "Auditing the codebase".
+
 ## Workflows
 
 ### Test
