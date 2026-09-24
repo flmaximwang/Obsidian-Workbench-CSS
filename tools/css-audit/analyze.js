@@ -1,9 +1,9 @@
 // Structural analysis of the built theme.css — read-only reporting.
 const fs = require('fs');
 const path = require('path');
-const postcss = require(path.join(__dirname, '..', 'node_modules', 'postcss'));
+const postcss = require(path.join(__dirname, '..', '..', 'node_modules', 'postcss'));
 
-const repo = path.join(__dirname, '..');
+const repo = path.join(__dirname, '..', '..');
 const css = fs.readFileSync(path.join(repo, 'theme.css'), 'utf8');
 const root = postcss.parse(css);
 
