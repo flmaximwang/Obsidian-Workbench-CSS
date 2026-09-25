@@ -9,3 +9,7 @@ TempVault
 pxdiff.png
 VaultExample/.obsidian/themes/
 VaultExample/.obsidian/workspace*.json
+tests/VaultTest/.obsidian/themes/
+tests/VaultTest/.obsidian/plugins/
+tests/VaultTest/.obsidian/workspace*.json
+tests/.tmp/

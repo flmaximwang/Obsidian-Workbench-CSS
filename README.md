@@ -74,9 +74,21 @@ npm install
 
 # Build theme.css
 npm run build
+
+# Regression suite — offline: no Obsidian, no vault, a couple of seconds
+npm test
 ```
 
 The built `theme.css` is what Obsidian loads as the theme. Place it in your vault's `.obsidian/themes/` directory (or symlink it for development).
+
+### Tests
+
+`npm test` runs the offline suite in `tests/` (Node's built-in test runner, no extra dependencies):
+build integrity (`theme.css` must equal a fresh build of `src/**`, warning-free), the import graph,
+the Style Settings contract, the print invariants, the audit-tool baseline, and the release surface.
+`npm run test:live` adds the checks that need a running Obsidian — computed styles and a real PDF
+export measured with the print harness — against `tests/VaultTest/`, which is the only vault any
+check may touch. See [tests/README.md](tests/README.md).
 
 ### Project conventions
 

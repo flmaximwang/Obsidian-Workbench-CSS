@@ -49,13 +49,17 @@ Official theme development guide: https://docs.obsidian.md/themes/app-themes/bui
 
 ### Test
 
-- Create TempVault in the `tests`
-- Create symlinks in `tests/VaultTemp/.obsidian/themes/Maxim's Workbench`
-
 ```shell
-ln -s manifest.json "tests/TempVault/.obsidian/themes/Maxim's Workbench/manifest.json"
-ln -s theme.css  "tests/TempVault/.obsidian/themes/Maxim's Workbench/theme.css"
+npm test                  # offline tier (~2 s): no Obsidian needed, must stay green
+npm run test:live         # live tier: needs a debug-port Obsidian on the test vault
 ```
+
+`tests/VaultTest/` is the **only** vault a check may touch — never point one at a real vault.
+Wire it once with `./tests/VaultTest/link-theme.sh` (symlinks the repo's `theme.css` /
+`manifest.json` into `.obsidian/themes/Workbench/`, then verifies the md5s and that
+`appearance.json` names that folder). `./tests/VaultTest/run-test-vault.sh` opens a throwaway
+Obsidian profile on it with the debug port, so a running window and its vaults stay untouched.
+`tests/README.md` lists what every file guards and why; the offline tier must never require the app.
 
 ### Build
 
