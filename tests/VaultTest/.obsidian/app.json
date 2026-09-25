@@ -1,0 +1,10 @@
+{
+  "showInlineTitle": true,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "fixtures/assets",
+  "newLinkFormat": "shortest",
+  "readableLineLength": true,
+  "showLineNumber": false,
+  "propertiesInDocument": "hidden",
+  "showFrontmatter": false
+}
